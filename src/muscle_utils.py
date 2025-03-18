@@ -12,7 +12,7 @@ def thelen_to_millard(thelen : osim.Thelen2003Muscle) -> osim.Millard2012Equilib
     millard.setName(thelen.getName())
 
     # Copy geometry path
-    millard.set_path(thelen.get_path())
+    millard.set_GeometryPath(thelen.get_GeometryPath())
 
     # Max isometric force
     millard.set_max_isometric_force(thelen.get_max_isometric_force())
