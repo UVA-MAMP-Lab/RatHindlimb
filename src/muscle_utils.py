@@ -1,4 +1,8 @@
 import opensim as osim
+import numpy as np
+
+from src.musculoskeletal_graph import MusculoskeletalGraph
+from src.manal_optimization import TSLOptimization
 
 def thelen_to_millard(thelen : osim.Thelen2003Muscle) -> osim.Millard2012EquilibriumMuscle:
     """Convert Thelen2003Muscle to Millard2012EquilibriumMuscle."""
@@ -73,3 +77,28 @@ def model_thelen_to_millard(model : osim.Model) -> osim.Model:
     for i in indices_to_remove[::-1]:
         force_set.remove(i)
     return model
+
+def optimize_model_tsl(model: osim.Model) -> osim.Model:
+    """Calculate tendon slack lengths using range of motion for each muscle in the model."""
+    
+    new_model = model.clone()
+    graph = MusculoskeletalGraph(new_model)
+    
+    muscle_lengths = graph.get_all_muscle_lengths_rom(min_points=10)
+    
+    for muscle_name, muscle_data in muscle_lengths.items():
+        muscle = graph.get_muscle(muscle_name)
+        opt = TSLOptimization.from_osim_muscle(muscle, lm_norm_range=(0.5, 1.6))
+        lmt_raw = muscle_data[muscle_name]
+        lmt = lmt_raw.drop_duplicates().sort_values().to_numpy()
+        lts = opt.optimize(lmt, method='SLSQP', objective='ssdp')
+        # print(f"Muscle: {muscle_name}, Tendon slack lengths: {lts}")
+        lts = lts[lts > np.finfo(float).eps]  # Remove any zero values
+        lts = lts[lts < 1.5]
+        if len(lts) == 0:
+            print(f"Warning: No valid tendon slack lengths found for muscle {muscle_name}. Setting it to rigid.")
+            new_model.getMuscles().get(muscle_name).set_ignore_tendon_compliance(True)
+            continue
+        # Set the tendon slack length in the new model
+        new_model.getMuscles().get(muscle_name).set_tendon_slack_length(np.mean(lts))
+    return new_model

@@ -1,20 +1,63 @@
+import opensim as osim
 import numpy as np
 from scipy.optimize import minimize
-from manal_utils import evaluateCurve, calcpennation
+from src.manal_utils import evaluateCurve, calcpennation
 
 class TSLOptimization:
-    def __init__(self, lm_opt, alpha_opt, lmt, lm_range, lm0=None, afl=None, pfl=None, tfl=None):
+    @classmethod
+    def from_osim_muscle(cls, muscle: osim.Muscle, lm_norm_range, lm0=None, use_manal_curves=False):
+        """
+        Create a TSLOptimization instance from an OpenSim muscle object.
+        
+        Args:
+            muscle: An OpenSim muscle object.
+        
+        Returns:
+            TSLOptimization instance.
+        """
+
+        if use_manal_curves:
+            afl = None
+            pfl = None
+            tfl = None
+        else:
+            try:
+                muscle = osim.Millard2012EquilibriumMuscle.safeDownCast(muscle)
+            except:
+                print(f"Input muscle {muscle.getName()} is not a Millard2012EquilibriumMuscle object.")
+                try:
+                    muscle = osim.Thelen2003Muscle.safeDownCast(muscle)
+                except:
+                    print(f"Input muscle {muscle.getName()} is not a Thelen2003Muscle object.")
+                    raise ValueError("Input muscle must be either Millard2012EquilibriumMuscle or Thelen2003Muscle.")
+
+        if isinstance(muscle, osim.Millard2012EquilibriumMuscle):
+            afl= muscle.getActiveForceLengthCurve()
+            pfl = osim.FiberForceLengthCurve()
+            tfl= muscle.getTendonForceLengthCurve()
+        elif isinstance(muscle, osim.Thelen2003Muscle):
+            #TODO
+            afl = None #muscle.getActiveForceLengthCurve()
+            pfl = None #osim.FiberForceLengthCurve()
+            tfl = None #muscle.getTendonForceLengthCurve()
+        else:
+            raise ValueError("Unsupported muscle type. Only Millard2012EquilibriumMuscle and Thelen2003Muscle are supported.")
+
+        lf_opt = muscle.getOptimalFiberLength()
+        return TSLOptimization(
+            lm_opt=lf_opt,
+            alpha_opt=muscle.getPennationAngleAtOptimalFiberLength(),
+            lm_range=(lf_opt*lm_norm_range[0], lf_opt*lm_norm_range[-1]),
+            afl=afl,
+            pfl=pfl,
+            tfl=tfl,
+            )
+            
+    def __init__(self, lm_opt, alpha_opt, lm_range, afl=None, pfl=None, tfl=None):
         self.lm_opt = lm_opt
         self.alpha_opt = alpha_opt
-        self.lmt = lmt
         self.lm_range = lm_range
 
-        if lm0 is None:
-            self.lm0 = np.linspace(lm_range[0], lm_range[1], len(lmt))
-        else:
-            self.lm0 = lm0
-
-        # TODO: Where exactly does this come from?
         # Active force length curve
         manal_afl = np.array([[-5.00000, 0.000000, 0.401000, 0.402000, 0.403500, 0.527250, 0.628750, 0.718750, 0.861250, 1.045000, 1.217500, 1.438750, 1.618750, 1.620000, 1.621000, 2.200000, 5.000000],
                               [0.000000, 0.000000, 0.000000, 0.000000, 0.000000, 0.226667, 0.636667, 0.856667, 0.950000, 0.993333, 0.770000, 0.246667, 0.000000, 0.000000, 0.000000, 0.000000, 0.000000]])
@@ -39,13 +82,19 @@ class TSLOptimization:
         self.pfl = pfl
         self.tfl = tfl
 
-    def optimize(self, lb=None, ub=None, method='SLSQP', objective='ssdp'):
+    def optimize(self, lmt, lm0=None, lb=None, ub=None, method='SLSQP', objective='ssdp'):
         if lb is None:
-            lb = self.lm_range[0] * np.ones_like(self.lmt)
+            lb = self.lm_range[0] * np.ones_like(lmt)
         if ub is None:
-            ub = self.lm_range[1] * np.ones_like(self.lmt)
-        result = minimize(lambda x: self.objective(x, method=objective), self.lm0, bounds=list(zip(lb, ub)), method=method)
-        return self.calcslacklength(self.lmt, result.x, self.lm_opt)
+            ub = self.lm_range[1] * np.ones_like(lmt)
+        
+        if lm0 is None:
+            lm0 = np.linspace(self.lm_range[0], self.lm_range[1], len(lmt))
+        else:
+            lm0 = lm0
+            
+        result = minimize(lambda x: self.objective(lmt, x, method=objective), lm0, bounds=list(zip(lb, ub)), method=method)
+        return self.calcslacklength(lmt, result.x, self.lm_opt)
 
     def calcslacklength(self, lmt, lm, lm_opt):
         # Ensure numpy arrays
@@ -98,9 +147,9 @@ class TSLOptimization:
         # Sum of squared differences between slack lengths and the mean slack length
         return np.sum((lt_s - np.mean(lt_s))**2) 
 
-    def objective(self, lm, method = 'ssdp'):
-        # Calcualte slack length 
-        lt_s = self.calcslacklength(self.lmt, lm, self.lm_opt)
+    def objective(self, lmt, lm, method = 'ssdp'):
+        # Calculate slack length 
+        lt_s = self.calcslacklength(lmt, lm, self.lm_opt)
 
         if method == 'ssdp':
             err = self.ssdp(lt_s)
