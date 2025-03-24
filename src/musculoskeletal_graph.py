@@ -7,8 +7,8 @@ import logging
 import math
 import pandas as pd
 
-class MusculoskeletalGraph:
-    def __init__(self, model_path: str, debug: bool = False, visualize: bool = False):
+class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Model class
+    def __init__(self, model_path: str | osim.Model, debug: bool = False, visualize: bool = False):
 
         self.model = osim.Model(model_path)
         self.model.initSystem()
