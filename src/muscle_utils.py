@@ -91,7 +91,7 @@ def optimize_model_tsl(model: osim.Model,
             print(f"Warning: Muscle {muscle_name} not found in the model.")
             continue
         opt = TSLOptimization.from_osim_muscle(muscle, lm_norm_range)
-        lmt_raw = muscle_data[muscle_name]
+        lmt_raw = muscle_data['length']
         lmt = lmt_raw.drop_duplicates().sort_values().to_numpy()
         lts = opt.optimize(lmt, method=method, objective=objective)
         # print(f"Muscle: {muscle_name}, Tendon slack lengths: {lts}")
@@ -104,3 +104,41 @@ def optimize_model_tsl(model: osim.Model,
         # Set the tendon slack length in the model
         model.getMuscles().get(muscle_name).set_tendon_slack_length(np.mean(lts))
     return model
+
+def attachments_to_csv(model: osim.Model, filename: str) -> bool:
+    """
+    Write the muscle attachment points to a CSV file.
+    
+    Columns will be:
+    - muscle_name
+    - frame_name
+    - x
+    - y
+    - z
+    """
+    try:
+        # Initialize the system 
+        model.initSystem()
+        with open(filename, 'w') as f:
+            f.write("muscle_name,frame_name,x,y,z\n")
+            muscles : osim.SetMuscles = model.getMuscles()
+            for i in range(muscles.getSize()):
+                muscle : osim.Muscle = muscles.get(i)
+                geo_path : osim.GeometryPath = muscle.getGeometryPath()
+                if geo_path is None:
+                    continue
+                path_points : osim.PathPointSet = geo_path.getPathPointSet()
+                for j in range(path_points.getSize()):
+                    path_point : osim.PathPoint = osim.PathPoint.safeDownCast(path_points.get(j))
+                    frame : osim.PhysicalFrame = path_point.getParentFrame()
+                    loc : osim.Vec3 = path_point.get_location()
+                    x = loc.get(0)
+                    y = loc.get(1)
+                    z = loc.get(2)
+                    f.write(f"{muscle.getName()},{frame.getName()},{x},{y},{z}\n")   
+    except Exception as e:
+        print(f"Error writing attachment points to {filename}: {e}")
+        return False
+    
+    print(f"Attachment points written to {filename}.")
+    return True

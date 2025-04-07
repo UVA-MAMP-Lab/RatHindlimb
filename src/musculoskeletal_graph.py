@@ -262,11 +262,11 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
         """Get the lengths of multiple muscles. Must realize position first."""
         return np.array([self.get_muscle_length(name, state) for name in muscle_names])
         
-    def get_coordinate_range(self, coord_name: str, res : int = 2) -> np.ndarray:
+    def get_coordinate_range(self, coord_name: str, res: int = 2) -> np.ndarray:
         """Get the values of a coordinate."""
         return np.linspace(*self.coord_ranges[coord_name], res)
     
-    def get_coordinate_combinations(self, coordinates: List[str], res : int = 2) -> np.ndarray: # TODO: range for each coordinate
+    def get_coordinate_combinations(self, coordinates: List[str], res: int = 2) -> np.ndarray: # TODO: range for each coordinate
         """Get all possible combinations of coordinate values."""
         coordinate_values = [self.get_coordinate_range(coord, res) for coord in coordinates]
         return np.array(list(product(*coordinate_values)))
@@ -292,12 +292,68 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
             data[i, len(coordinates):] = muscle_lengths
         return data
     
+    def muscle_rom_analysis(self, min_points: int = 10) -> dict[str, pd.DataFrame]:
+        """
+        Perform range of motion analyses based on the specified options.
+        
+        Returns:
+            dict[str, pd.DataFrame]: A dictionary where keys are muscle names and values are 
+            DataFrames containing analysis results, namely coordinate values and the optional 
+            analyses.
+        """
+        
+        results = {}
+        for coord_set, muscles in self.coords_muscles.items():    
+            state = self.model.initSystem()
+            
+            # check for locked coordinates
+            unlocked_coords = set([coord for coord in coord_set if not self.get_coordinate(coord).getDefaultLocked()])            
+            if not unlocked_coords:
+                self.logger.warning(f"All coordinates in {coord_set} are locked for muscles {muscles}")
+                continue
+            
+            # Iterate through coordinate combos
+            points_per_coordinate = math.ceil(min_points ** (1 / len(unlocked_coords)))
+            combos = self.get_coordinate_combinations(unlocked_coords, points_per_coordinate)
+            
+            # Prepare column names for all dataframes
+            column_names = list(unlocked_coords) + ['length'] + ['moment_arm_'+coord for coord in unlocked_coords]
+            
+            # Loop through each muscle, creating a separate data array for each one
+            for muscle_name in muscles:
+               
+                # Create a fresh DataFrame for this muscle
+                results[muscle_name] = pd.DataFrame(np.zeros((combos.shape[0], len(column_names))), columns=column_names)
+                results[muscle_name].loc[:, list(unlocked_coords)] = combos
+                
+                # Get this muscle
+                muscle = self.get_muscle(muscle_name)
+                
+                # Compute lengths and moment arms for each coordinate combo
+                for i, values in enumerate(combos):
+                    for coord, value in zip(unlocked_coords, values):
+                        self.get_coordinate(coord).setValue(state, value)
+                
+                    self.model.realizePosition(state)
+                    
+                    # Get length
+                    length = muscle.getLength(state)
+                    results[muscle_name].loc[i, 'length'] = length
+                    
+                    # Get moment arms
+                    for coord_name in unlocked_coords:
+                        coord = self.get_coordinate(coord_name)
+                        moment_arm = muscle.computeMomentArm(state, coord)
+                        results[muscle_name].loc[i, f'moment_arm_{coord_name}'] = moment_arm
+                        
+        return results
+
     def get_muscle_lengths_rom(
         self, 
         muscle_names: List[str], 
         min_points: int = 10, 
         max_length: Optional[float] = None, # TODO
-        muscle_coords : Optional[List[str]] = None,
+        muscle_coords: Optional[List[str]] = None,
     ) -> pd.DataFrame: 
         """Analyze muscle length through the range of motion of all coordinates."""
         # TODO: Check for muscle crossings
@@ -306,12 +362,12 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
         data = self.get_muscle_lengths_coordinates(muscle_names, muscle_coords, min_points)
         return pd.DataFrame(data, columns=muscle_coords + muscle_names)
 
-    def get_all_muscle_lengths_rom(self, min_points : int = 10) -> Dict[str, pd.DataFrame]:
+    def get_all_muscle_lengths_rom(self, min_points: int = 10) -> dict[str, pd.DataFrame]:
         """
         Analyze muscle length through the range of motion of all coordinates.
         
         Returns:
-            Dict[str, pd.DataFrame]: A dictionary where keys are muscle names and 
+            dict[str, pd.DataFrame]: A dictionary where keys are muscle names and 
             values are DataFrames containing coordinate values and muscle lengths.
         """
         # TODO: Subsets and/or parallelization to speed up computation
