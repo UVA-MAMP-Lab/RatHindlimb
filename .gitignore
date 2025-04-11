@@ -1,1 +1,3 @@
-opensim.log
+*.log
+src/__pycache__/
+src/*.pyc
