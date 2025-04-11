@@ -354,12 +354,12 @@ def convert_points_between_meshes(points, transform_info, reverse=False):
 # Example usage
 if __name__ == "__main__":
     # Replace with your actual file paths
-    source_path = "/home/hudson/RatHindlimb/Y2J/Foot/RHFoot3g.stl"
-    target_path = "/home/hudson/RatHindlimb/Y2J/Foot/foot.stl"
-    output_path = "/home/hudson/RatHindlimb/Y2J/Foot/foot_y2j.stl"
+    source_path = "source.stl"
+    target_path = "target.stl"
+    output_path = "output.stl"
     
     # Optional debug directory - uncomment to save debug meshes
-    debug_path = "debug_meshes"
+    # debug_path = "debug_meshes"
     
     # Register meshes and save the result
     # Use seed=42 for reproducibility
@@ -367,7 +367,7 @@ if __name__ == "__main__":
         source_path, 
         target_path, 
         output_path, 
-        debug_path=debug_path,
+        # debug_path=debug_path,
         seed=42
     )
     
