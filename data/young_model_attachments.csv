@@ -55,8 +55,8 @@ FHL,Via,Foot,-1.153,-3.211,-0.656
 FHL,Via,Foot,-3.882,-1.681,-0.496							
 FHL,Insertion,Foot,19.135,-7.09,-1.929		
 MG,Origin,Femur,-5.6,-2.026,32.495				
-MG,Via,Tibia,-2.257,-42.328,-6.557	
 MG,Via,Tibia,-4.896,-6.148,1.111				
+MG,Via,Tibia,-2.257,-42.328,-6.557	
 MG,Via,Foot,-3.545,-1.398,-0.546				
 MG,Insertion,Foot,-3.158,-2.639,0.201	
 Per,Origin,Tibia,3.491,-5.378,2.735,PerL			
@@ -65,7 +65,7 @@ Per,Via,Foot,2.433,-3.706,2.352
 Per,Via,Foot,-0.692,-2.568,2.037				
 Per,Via,Foot,-3.636,-1.164,1.761				
 Per,Insertion,Foot,6.056,-4.665,0.846,PerL
-Pla,Origin,Femur,-12,-3.766,28.916				
+Pla,Origin,Femur,-12,-3.766,28.916	
 Pla,Via,Tibia,0.508,-41.618,-6.197					
 Pla,Via,Tibia,2.712,-7.046,3.975				
 Pla,Via,Foot,-4.157,-1.334,0.796				

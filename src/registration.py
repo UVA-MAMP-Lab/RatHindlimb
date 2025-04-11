@@ -12,7 +12,8 @@ def load_mesh(file_path):
 
 def compute_fpfh_features(mesh, radius_normal=0.1, radius_feature=0.3):
     """Compute FPFH features for the mesh"""
-    pcd = mesh.sample_points_poisson_disk(number_of_points=5000)
+    # Use fixed number of points with deterministic sampling instead of poisson disk
+    pcd = mesh.sample_points_uniformly(number_of_points=5000)
     pcd.estimate_normals(search_param=o3d.geometry.KDTreeSearchParamHybrid(radius=radius_normal, max_nn=30))
     
     # Compute FPFH features
@@ -117,6 +118,40 @@ def determine_registration_parameters(source_mesh, target_mesh):
     
     return radius_normal, radius_feature, distance_threshold
 
+def ensure_deterministic_mesh(mesh):
+    """Ensure mesh has deterministic vertex order for consistent point sampling"""
+    vertices = np.asarray(mesh.vertices)
+    triangles = np.asarray(mesh.triangles)
+    
+    # Sort vertices by their coordinates
+    sorted_indices = np.lexsort((vertices[:, 2], vertices[:, 1], vertices[:, 0]))
+    sorted_vertices = vertices[sorted_indices]
+    
+    # Create a mapping from old to new vertex indices
+    index_map = {old_idx: new_idx for new_idx, old_idx in enumerate(sorted_indices)}
+    
+    # Remap triangle indices
+    remapped_triangles = np.array([[index_map[v] for v in tri] for tri in triangles])
+    
+    # Create new mesh with sorted vertices
+    new_mesh = o3d.geometry.TriangleMesh()
+    new_mesh.vertices = o3d.utility.Vector3dVector(sorted_vertices)
+    new_mesh.triangles = o3d.utility.Vector3iVector(remapped_triangles)
+    
+    # Copy other properties if available
+    if mesh.has_vertex_normals():
+        normals = np.asarray(mesh.vertex_normals)
+        new_mesh.vertex_normals = o3d.utility.Vector3dVector(normals[sorted_indices])
+    
+    if mesh.has_vertex_colors():
+        colors = np.asarray(mesh.vertex_colors)
+        new_mesh.vertex_colors = o3d.utility.Vector3dVector(colors[sorted_indices])
+    
+    if mesh.has_triangle_normals():
+        new_mesh.compute_triangle_normals()
+    
+    return new_mesh
+
 def register_meshes(source_path, target_path, output_path=None, debug_path=None, seed=42):
     """
     Register two meshes and return transformation information
@@ -135,6 +170,12 @@ def register_meshes(source_path, target_path, output_path=None, debug_path=None,
     random.seed(seed)
     np.random.seed(seed)
     
+    # Also set Open3D's random seed if available
+    try:
+        o3d.utility.random.seed(seed)
+    except:
+        print("Warning: Could not set Open3D random seed directly.")
+    
     # Create debug directory if specified
     if debug_path and not os.path.exists(debug_path):
         os.makedirs(debug_path)
@@ -143,6 +184,11 @@ def register_meshes(source_path, target_path, output_path=None, debug_path=None,
     print("Loading meshes...")
     source_mesh_orig = load_mesh(source_path)
     target_mesh_orig = load_mesh(target_path)
+    
+    # Make vertex order deterministic by sorting vertices
+    # This ensures consistent behavior in point sampling
+    source_mesh_orig = ensure_deterministic_mesh(source_mesh_orig)
+    target_mesh_orig = ensure_deterministic_mesh(target_mesh_orig)
     
     if debug_path:
         o3d.io.write_triangle_mesh(os.path.join(debug_path, "1_source_orig.ply"), source_mesh_orig)
