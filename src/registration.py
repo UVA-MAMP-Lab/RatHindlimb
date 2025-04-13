@@ -396,6 +396,38 @@ def convert_points_between_meshes(points, transform_info, reverse=False):
         
         # Return the 3D points
         return transformed_homogeneous[:, :3]
+    
+def apply_transformation_to_mesh(mesh_path, transform_info, output_path=None):
+    """
+    Apply the transformation from `register_meshes` to a new mesh.
+
+    Args:
+        mesh_path: Path to the mesh file to transform.
+        transform_info: Dictionary containing transformation information from `register_meshes`.
+        output_path: Path to save the transformed mesh (optional).
+
+    Returns:
+        transformed_mesh: The transformed Open3D mesh.
+    """
+    # Load the new mesh
+    mesh = o3d.io.read_triangle_mesh(mesh_path)
+    
+    # Retrieve the complete transformation matrix
+    if 'complete_transform' in transform_info:
+        transformation = transform_info['complete_transform']
+    else:
+        raise ValueError("The transform_info does not contain a 'complete_transform' matrix.")
+    
+    # Apply the transformation to the mesh
+    mesh.transform(transformation)
+    mesh.compute_vertex_normals()
+    
+    # Save the transformed mesh if an output path is provided
+    if output_path:
+        o3d.io.write_triangle_mesh(output_path, mesh)
+        print(f"Transformed mesh saved to {output_path}")
+    
+    return mesh
 
 # Example usage
 if __name__ == "__main__":
