@@ -1375,25 +1375,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.013439889873651276 0.0098175078096747748 -0.0065176622364498549</location>
+									<location>-0.013229717820511237 0.0098054905408808991 -0.0063165953521168976</location>
 								</PathPoint>
 								<PathPoint name="BFa_pelvis_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.013619993446989432 0.0054245873004769764 -0.0018475324507197031</location>
+									<location>-0.01337877466696554 0.0053473859774945381 -0.0017075405822901553</location>
 								</PathPoint>
 								<PathPoint name="BFa_pelvis_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.013682173043833908 0.00136630214335148 -0.00027909007508120261</location>
+									<location>-0.013413589043210277 0.0012675000592528715 -0.00019529884968005938</location>
 								</PathPoint>
 								<PathPoint name="BFa_tibia_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0034867273205113026 0.031966274330483851 0.0014942161945436308</location>
+									<location>-0.0034731228217891102 0.031972662996896647 0.0014910036866461922</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -1468,19 +1468,19 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.016413978046176184 0.0037903838299599346 -0.0023762560564044273</location>
+									<location>-0.016162235231798154 0.003702338769613565 -0.002257710140349953</location>
 								</PathPoint>
 								<PathPoint name="BFp_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0036627704846112809 0.026242075163700966 0.00056151511460101049</location>
+									<location>-0.0036507242518421914 0.026249226644045838 0.00055392703660132935</location>
 								</PathPoint>
 								<PathPoint name="BFp_tibia_r_insertion_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0020250491138974818 0.026842403902261606 0.00012207634669450642</location>
+									<location>0.0020376797259212768 0.026847598621924713 0.00011941124619168736</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -1555,25 +1555,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0078858848896005869 0.010054033061307236 -0.0062906673483928673</location>
+									<location>-0.0076772753262189112 0.010075307296014187 -0.0060885087392919543</location>
 								</PathPoint>
 								<PathPoint name="CF_pelvis_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0073562660327200196 0.0055516001472464688 -0.002879155385365012</location>
+									<location>-0.0071165093189888527 0.0055297488032940208 -0.002739740065964647</location>
 								</PathPoint>
 								<PathPoint name="CF_pelvis_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0062628175528910866 0.001241052171053399 -0.0012036445125038573</location>
+									<location>-0.005994015079895651 0.001203735703175844 -0.0011243740210735884</location>
 								</PathPoint>
 								<PathPoint name="CF_femur_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0023318164412878457 -0.028002694550511704 -0.00053532617966093069</location>
+									<location>-0.0022870259604395515 -0.027993815992451862 -0.00063481846065982885</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -1648,13 +1648,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.01617958620460366 0.0027366422284145937 -0.0024584198883037954</location>
+									<location>-0.015920977612210403 0.0026513939647869545 -0.0023545170186918736</location>
 								</PathPoint>
 								<PathPoint name="STp_tibia_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0019549553423715031 0.027094709683556435 -0.0022081237282594872</location>
+									<location>0.0019695224257594264 0.027101656696183713 -0.0022106558796086721</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -1729,25 +1729,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.014886010766630455 0.0091144273686893148 -0.0056186442413351653</location>
+									<location>-0.014670766549866919 0.0090805808597508343 -0.0054268169454484037</location>
 								</PathPoint>
 								<PathPoint name="STa_pelvis_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.014893126492958271 0.0060612459658026079 -0.0030435893773642806</location>
+									<location>-0.014656627684213257 0.0059921366564091817 -0.0028941923462869022</location>
 								</PathPoint>
 								<PathPoint name="STa_pelvis_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.014916143775307627 0.0039952465610745089 -0.0018555804756776673</location>
+									<location>-0.014665527575582791 0.0039098160227850325 -0.0017348347410472537</location>
 								</PathPoint>
 								<PathPoint name="STa_tibia_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0019549553423715031 0.027094709683556435 -0.0022081237282594872</location>
+									<location>0.0019695224257594264 0.027101656696183713 -0.0022106558796086721</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -1822,13 +1822,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.016201791487787821 -0.00032660981890571912 -0.0031666092529420691</location>
+									<location>-0.01592343333533499 -0.00040186220959461056 -0.0031049562628849229</location>
 								</PathPoint>
 								<PathPoint name="SM_tibia_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.00014427512768626171 0.034004571656138169 -0.0027087430567119012</location>
+									<location>0.00016200515162526313 0.034012613030835734 -0.0027075853275623598</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -1903,13 +1903,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.014604244938232633 -0.0026659817891835831 -0.003905472112337203</location>
+									<location>-0.014310933941641558 -0.0027202676206083934 -0.0038766923407194199</location>
 								</PathPoint>
 								<PathPoint name="QF_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0030156886295175829 -0.0016447608180021982 0.0050617803061906198</location>
+									<location>-0.0031146479520181942 -0.001627740237881289 0.0049042287475217008</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -1984,13 +1984,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.016227247561997813 0.0008263805513695784 -0.001552458869893583</location>
+									<location>0.016498116236553579 0.00094155006633434089 -0.001487610053805401</location>
 								</PathPoint>
 								<PathPoint name="TFL_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0012095861724247849 -0.020644130363640878 0.0018614946207609051</location>
+									<location>0.0011172940108951713 -0.020687793710957709 0.0020978346949979418</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2065,13 +2065,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.014143292844189782 0.0027382224855356718 -0.0011292182433908888</location>
+									<location>0.0144018717619427 0.0028336429749137443 -0.0010371846959494639</location>
 								</PathPoint>
 								<PathPoint name="GMa_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0010059137996001949 -0.0089577019755981702 0.005785249634527174</location>
+									<location>-0.0012905277318383539 -0.0089693596441997835 0.0058069585108359752</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2146,13 +2146,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.025969853692997522 0.0028577104742033349 0.0023470661330839584</location>
+									<location>0.026229057176819257 0.0029827200642929177 0.0024358302967715517</location>
 								</PathPoint>
 								<PathPoint name="GMe_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0014542492294910892 0.00058253314783091872 0.0060975895438604927</location>
+									<location>0.0012683583630110937 0.00053367039017279997 0.0063642436069756524</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2227,13 +2227,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.023428017837293615 0.0012099434927506068 -0.00047757426895043368</location>
+									<location>0.023696729998425814 0.0013574830245951506 -0.000410321942599573</location>
 								</PathPoint>
 								<PathPoint name="GMi_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0015152040644812583 -0.00043210538142756467 0.0053992692847676287</location>
+									<location>0.00138072541411441 -0.00048187170604994527 0.0056736598554654651</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2308,13 +2308,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.012610912005907474 0.0035401759429823168 -6.3456924763597876e-05</location>
+									<location>0.012864775127775726 0.0036107214788305979 4.0150212846552964e-05</location>
 								</PathPoint>
 								<PathPoint name="Pir_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0019119807423102434 0.0012185664086648068 0.0054213617843485553</location>
+									<location>0.0017977644058173165 0.0011627827777361455 0.0057355248502140577</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2389,13 +2389,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.015337479127377207 -0.0048658954599053294 -0.0056929085494141166</location>
+									<location>-0.015030581294219549 -0.0049000440937163551 -0.0056940706080489522</location>
 								</PathPoint>
 								<PathPoint name="GP_tibia_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0019153114755242502 0.027978711093810664 -0.002951331708865993</location>
+									<location>0.0019308180697444432 0.027986223643742512 -0.0029532402317594812</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2470,13 +2470,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.01470807625007365 -0.0090550111683024518 -0.0092078822239787424</location>
+									<location>-0.01437540317461174 -0.0090359807962863917 -0.0092668353018262248</location>
 								</PathPoint>
 								<PathPoint name="GA_tibia_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0013524086975445439 0.030477209456098941 -0.0029031779417502059</location>
+									<location>0.0013688784207841458 0.030484911302122081 -0.0029036801077692784</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2551,13 +2551,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0052416969190687704 -0.0059396582673105014 -0.0061749952258299042</location>
+									<location>-0.0049282065931666062 -0.0059007554825905844 -0.0061948646210370209</location>
 								</PathPoint>
 								<PathPoint name="AL_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0020215045865234179 -0.0154656865137607 0.001570141666182586</location>
+									<location>-0.0019949656943450511 -0.015462386071869645 0.0015061681710486141</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2632,13 +2632,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.013353846308755222 -0.0091012891683884458 -0.0092042427289340083</location>
+									<location>-0.013020897286129558 -0.0090734148585075655 -0.009264360987338972</location>
 								</PathPoint>
 								<PathPoint name="AM_tibia_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.00060501974086238581 0.03218211671959844 -0.0027884873369013866</location>
+									<location>0.00062208236435008465 0.032190032916169259 -0.0027883159194435859</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2713,13 +2713,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.012747030623742472 -0.0080089899946605789 -0.008495903265187019</location>
+									<location>-0.012420918719149458 -0.0079870458646932544 -0.0085412318945423567</location>
 								</PathPoint>
 								<PathPoint name="AB_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0020150206883141311 -0.017467028289275651 0.0019894205556243495</location>
+									<location>-0.0020578542816949625 -0.017463536642547958 0.0019216764736658864</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2794,13 +2794,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.016204818124337921 -0.0084699708328633896 -0.0082742861676861693</location>
+									<location>-0.015875502409913703 -0.0084737303141124848 -0.0083246640285783643</location>
 								</PathPoint>
 								<PathPoint name="Pec_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0030209977037494494 -0.010634577144898261 0.0036382096302535433</location>
+									<location>-0.0031160998086112359 -0.010616740427609957 0.0034755045865462403</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2875,13 +2875,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.021473895285418588 -0.001235514495469906 -0.0021722246141685697</location>
+									<location>0.021757875300470329 -0.001077104427309124 -0.0021378421050556647</location>
 								</PathPoint>
 								<PathPoint name="IP_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00044752673066348247 -0.0044855880064872712 0.0014805035013418645</location>
+									<location>-0.00025867708179005923 -0.0045066676462255486 0.0015806003729283134</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -2956,13 +2956,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.010064586259937702 -0.0017178123303352613 -0.0035365064385676145</location>
+									<location>-0.0097774146590207216 -0.0017475090585732495 -0.0034964219098101738</location>
 								</PathPoint>
 								<PathPoint name="OE_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00216332183810828 -0.0016039730305354334 0.0017255662950847923</location>
+									<location>-0.0019475553470606423 -0.0016000614722171895 0.0016645303887254073</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3037,13 +3037,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.014052039291661234 -0.0001851607128867509 -0.0024788587261787135</location>
+									<location>-0.013774326031796439 -0.00025582021444934709 -0.0024161510110617549</location>
 								</PathPoint>
 								<PathPoint name="OI_femur_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0010311660876140424 -0.00025395556083262019 0.0032394044916573047</location>
+									<location>-0.00094521426196525981 -0.0002666082378180111 0.0032810837339887419</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3118,13 +3118,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.018791873101179021 0.0017219305860161195 -0.0011127099843609542</location>
+									<location>0.019057024016387918 0.001847753932107535 -0.001036523996534575</location>
 								</PathPoint>
 								<PathPoint name="GS_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00012040824058179138 -0.006420094359877445 0.002219126300973573</location>
+									<location>-3.1894893319643711e-05 -0.006445657884040455 0.0023446498966158439</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3199,13 +3199,13 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.012656924313266881 0.0057752430119293718 -0.0031251979784284105</location>
+									<location>-0.01241863736822215 0.0057219723744547256 -0.0029806125298927231</location>
 								</PathPoint>
 								<PathPoint name="GI_femur_r_insertion_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0020055897129574742 -0.00049572718018399756 0.0019981420425956033</location>
+									<location>-0.0018002878891510646 -0.00049421286032795271 0.0019522750145316084</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3280,19 +3280,19 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0045145448464406091 -0.00043143081275620089 0.0012896994719089087</location>
+									<location>0.0047952754089115764 -0.00043225635404778111 0.0013414411745775829</location>
 								</PathPoint>
 								<PathPoint name="RF_femur_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0030277721127619406 -0.03192995131252082 -0.0011550518295798684</location>
+									<location>0.0030490318083104548 -0.031999663023006331 -0.0007455978855376177</location>
 								</PathPoint>
 								<PathPoint name="RF_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0032534231281706387 0.040018741839619357 -0.001430159031597728</location>
+									<location>0.0032725539943493733 0.040024587717081707 -0.0014221018920282181</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3367,25 +3367,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00093328049801469023 -0.0040671085841047037 0.0067374304629635199</location>
+									<location>-0.0012372650973339679 -0.0040802076032788971 0.0067677826674772601</location>
 								</PathPoint>
 								<PathPoint name="VL_femur_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00018230882598287102 -0.032129194193195397 0.0019591422896654961</location>
+									<location>-0.00044593379729502679 -0.032151102317129858 0.0020481100317230453</location>
 								</PathPoint>
 								<PathPoint name="VL_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0024810462285885532 0.040323435491797302 0.0012054132305997563</location>
+									<location>0.0024982235470335208 0.040327640878843753 0.0012130862578874453</location>
 								</PathPoint>
 								<PathPoint name="VL_tibia_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0047250819924573115 0.035564796323226719 -0.00024750110654167139</location>
+									<location>0.00474149662456842 0.035569178286063464 -0.00024158311003262697</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3460,25 +3460,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00020774953848838986 -0.010452556621877914 0.0049042705259469636</location>
+									<location>-0.00043401944988404924 -0.010475950616187597 0.0050042393837164143</location>
 								</PathPoint>
 								<PathPoint name="VI_femur_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0018243478414729604 -0.033054208383939077 0.0013900430813754889</location>
+									<location>0.0015920539526074269 -0.033105656255073494 0.0016717739401741251</location>
 								</PathPoint>
 								<PathPoint name="VI_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0027709068356669636 0.040035156658469379 -0.00012872738750373659</location>
+									<location>0.0027890193961162815 0.04004023308333015 -0.00012103876600970654</location>
 								</PathPoint>
 								<PathPoint name="VI_tibia_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0047250819924573115 0.035564796323226719 -0.00024750110654167139</location>
+									<location>0.00474149662456842 0.035569178286063464 -0.00024158311003262697</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3553,25 +3553,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00041922139167564689 -0.0053948310053751137 0.0015902034117511051</location>
+									<location>-0.00025430432928028301 -0.005416210594330291 0.0016913731050152039</location>
 								</PathPoint>
 								<PathPoint name="VM_femur_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0020656654972831916 -0.031927086476043844 -0.003266145172454501</location>
+									<location>0.0022927442224331871 -0.031982983661233803 -0.0029387972233782117</location>
 								</PathPoint>
 								<PathPoint name="VM_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0034397730006379746 0.039912741857255706 -0.003469443551411629</location>
+									<location>0.0034604675705830566 0.039920022013106425 -0.0034613169678359406</location>
 								</PathPoint>
 								<PathPoint name="VM_tibia_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0047250819924573115 0.035564796323226719 -0.00024750110654167139</location>
+									<location>0.00474149662456842 0.035569178286063464 -0.00024158311003262697</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3646,31 +3646,31 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-1.7021761517831743e-05 -0.030392210884625025 -0.0043464821493370102</location>
+									<location>0.00034529991946498492 -0.030417789184033553 -0.004210875923028364</location>
 								</PathPoint>
 								<PathPoint name="MG_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0010547890372220384 0.034256962505228118 -0.0046444484280129079</location>
+									<location>-0.0010354327898653521 0.034266917157064015 -0.0046440468129570756</location>
 								</PathPoint>
 								<PathPoint name="MG_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00020477119802102435 -0.00013355739707789668 -0.0021972554215145506</location>
+									<location>-0.00020111881086988005 -0.00012574238882408586 -0.002221644568488809</location>
 								</PathPoint>
 								<PathPoint name="MG_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0042467988834480712 -0.00017121192092294256 0.00099925009485327403</location>
+									<location>-0.0054911665498356948 0.00026269094286084603 -0.0018011619078201026</location>
 								</PathPoint>
 								<PathPoint name="MG_foot_r_insertion_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0040361081565972109 0.00078105558040442993 0.0018364215979317618</location>
+									<location>-0.0053949690213854007 -0.001405001318175683 -0.0008772904735219432</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3745,31 +3745,31 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0012042609792716624 -0.029859793525624782 0.0029604898728934062</location>
+									<location>-0.001525298628165669 -0.029866734297945511 0.0029502723734472977</location>
 								</PathPoint>
 								<PathPoint name="LG_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0040608743525069081 0.034737502788622671 0.0030253456961413399</location>
+									<location>-0.0040473655336130052 0.034742987816927265 0.003023731722421011</location>
 								</PathPoint>
 								<PathPoint name="LG_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00058345270332582286 0.00057103369294621872 0.00078251267267777456</location>
+									<location>-0.00058186493348206646 0.00057679544245303684 0.00075834522469975035</location>
 								</PathPoint>
 								<PathPoint name="LG_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0047596090720383975 -0.00066177399723971794 0.0025196004900066246</location>
+									<location>-0.0063877215170411372 0.00056534435326475877 0.00050402908195931501</location>
 								</PathPoint>
 								<PathPoint name="LG_foot_r_insertion_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0039621516774037968 0.00034847945644280625 0.0028417508827854559</location>
+									<location>-0.0053662555968296 -0.0011053194081782581 0.00072379283721724108</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3844,31 +3844,31 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0012477404697741439 -0.029017805740202598 0.0023468478114110529</location>
+									<location>-0.0014977114368539615 -0.029024299625720486 0.0023363234778350714</location>
 								</PathPoint>
 								<PathPoint name="Pla_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00055973250281600873 0.00057175944902214523 0.00035995851171690541</location>
+									<location>-0.0042037766614964854 0.033906604297672754 0.0022628027777752604</location>
 								</PathPoint>
 								<PathPoint name="Pla_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0042175490151078743 0.033900493611104372 0.0022651592862029217</location>
+									<location>-0.00055781162774865087 0.00057782435748350179 0.00033581052388027279</location>
 								</PathPoint>
 								<PathPoint name="Pla_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0047732104909898043 -0.00049591625544550167 0.0021034937825782597</location>
+									<location>-0.0063730281348860817 0.00045802228792726383 -0.00015267534889226502</location>
 								</PathPoint>
 								<PathPoint name="Pla_foot_r_insertion_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0043914349958837301 0.00070915116583596181 0.0023587952715650199</location>
+									<location>-0.0059781666303868851 -0.0014160485255452027 -0.00013463530809624462</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -3943,25 +3943,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0044220428447024132 0.033976735370995589 0.00049491298586418122</location>
+									<location>-0.0044068455404406509 0.033984237983106895 0.00049245294301186</location>
 								</PathPoint>
 								<PathPoint name="Sol_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00052412613589688118 0.00057284888067018406 -0.00027433707495622356</location>
+									<location>-0.00052170523694442406 0.00057936886070505652 -0.00029845585119599773</location>
 								</PathPoint>
 								<PathPoint name="Sol_foot_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0047534406539052106 -0.00036076817991141788 0.0017752104384020897</location>
+									<location>-0.006316921213237554 0.00036294853063735121 -0.00066907976156200687</location>
 								</PathPoint>
 								<PathPoint name="Sol_foot_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0043916865698319148 0.0008096070383629574 0.0020123062163081148</location>
+									<location>-0.005945356536174516 -0.0014525239619760147 -0.00066817025496827614</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4036,31 +4036,31 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0035600219279717624 0.034972712680746962 -0.0019731336465645204</location>
+									<location>0.0035775590310016415 0.034978839132550552 -0.0019685702607805675</location>
 								</PathPoint>
 								<PathPoint name="TA_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0056437317681219106 0.024980029773465268 -0.0016981823819926386</location>
+									<location>0.0056570486681050414 0.024985120413303703 -0.0016993759237992933</location>
 								</PathPoint>
 								<PathPoint name="TA_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0027277875890248989 0.0022757951901824238 -0.0012589793656853686</location>
+									<location>0.0027316649281883196 0.0022817386339817778 -0.0012792765135834856</location>
 								</PathPoint>
 								<PathPoint name="TA_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0028800255999652082 0.00040477291746632066 0.00050807818399563483</location>
+									<location>0.0050214502896726325 -0.0013957211723673283 -0.0019766750862531858</location>
 								</PathPoint>
 								<PathPoint name="TA_foot_r_insertion_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0054171394202753723 0.0023658040924934951 0.00033874555879220185</location>
+									<location>0.0085655842353611362 -0.0045254996931864818 -0.0025990976383033562</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4135,31 +4135,31 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0014796280728911148 -0.031546263236853389 0.0021933609231300074</location>
+									<location>-0.0017509814595962664 -0.031549094273335576 0.0021582962869976883</location>
 								</PathPoint>
 								<PathPoint name="EDL_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00092080959879784754 0.037353838382389322 0.0030263052232365638</location>
+									<location>-0.0009062547214677588 0.037358062110422682 0.0030291004012302381</location>
 								</PathPoint>
 								<PathPoint name="EDL_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0024841536949733829 0.0020714830838494702 0.0006396084329210644</location>
+									<location>0.0024864538687213375 0.0020761194496291078 0.0006189671028902625</location>
 								</PathPoint>
 								<PathPoint name="EDL_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0025092405322954549 -8.2451014703769927e-05 0.0023490557175450196</location>
+									<location>0.0042928877600475401 -0.0012179760340384612 0.00080542827126012782</location>
 								</PathPoint>
 								<PathPoint name="EDL_foot_r_insertion_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.016007863922044476 0.0044305306880292805 0.0034435609095242489</location>
+									<location>0.02355936524876566 -0.0099394677522468486 0.0022940919142507171</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4234,31 +4234,31 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.002329593128698394 0.032180064679955087 -0.0014877884729397638</location>
+									<location>-0.0023135546737808729 0.032188195651914178 -0.0014899299041988081</location>
 								</PathPoint>
 								<PathPoint name="TP_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00031622722555453911 9.4407336589390385e-06 -0.0015483378072802317</location>
+									<location>-0.00031302863171980399 1.6820227258299491e-05 -0.0015727092296264379</location>
 								</PathPoint>
 								<PathPoint name="TP_foot_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0023830162177562704 0.0014946059460117357 0.0017236883366277974</location>
+									<location>-0.0065767252786498153 0.00019861189235390519 -0.0016224653909097291</location>
 								</PathPoint>
 								<PathPoint name="TP_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0049606956346137689 -0.00010004971523315146 0.0011886948250490728</location>
+									<location>-0.0030219442315912825 -0.0026281639167200386 -0.0011038410861740023</location>
 								</PathPoint>
 								<PathPoint name="TP_foot_r_insertion_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0022038295886261591 0.0029234334046295976 0.00065849544625287476</location>
+									<location>0.0037211127334161715 -0.0049897484559726056 -0.0026421753609855844</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4333,37 +4333,37 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0026783765810625883 0.034041420928880774 -0.00082688307205929944</location>
+									<location>-0.0026621129366433418 0.034049202112848648 -0.00082792158044357733</location>
 								</PathPoint>
 								<PathPoint name="FDL_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00020522107592577804 0.00047994647196147162 -0.0011509496898776035</location>
+									<location>-0.00020214705410954298 0.00048698721502765619 -0.0011748856377639524</location>
 								</PathPoint>
 								<PathPoint name="FDL_foot_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00028633467753373882 0.002649083405651695 0.0018309585216351855</location>
+									<location>-0.0063883913288920813 0.00029234609487133667 -0.0012590508136428244</location>
 								</PathPoint>
 								<PathPoint name="FDL_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0026309812776141371 0.001138052960521275 0.0018815570159254876</location>
+									<location>-0.0033679194702589429 -0.0021283014056733308 -0.00078533307418269984</location>
 								</PathPoint>
 								<PathPoint name="FDL_foot_r_via_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0048239020074543077 -0.00022435779531716651 0.0014026460779218237</location>
+									<location>0.00077252876207529412 -0.0046972824392414051 -0.0010520624869150791</location>
 								</PathPoint>
 								<PathPoint name="FDL_foot_r_insertion_6">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.014657742469145418 0.0061713471100947256 0.0041513975930305719</location>
+									<location>0.021280732136962743 -0.012491531067139492 0.0026180079797374694</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4438,37 +4438,37 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0010641569670652891 0.031949189326497394 -0.0014171493855672046</location>
+									<location>-0.0010482671279421413 0.031956760469489608 -0.0014184654280637017</location>
 								</PathPoint>
 								<PathPoint name="FHL_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00030437468158851181 0.00032464026443053255 -0.0019179157185759774</location>
+									<location>-0.00030075873399515451 0.00033228836589114662 -0.0019420442572533594</location>
 								</PathPoint>
 								<PathPoint name="FHL_foot_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0010366716055082088 0.0028272861277252605 0.0016068519648174909</location>
+									<location>-0.0059862014206513532 -6.7592554703994542e-06 -0.0017830636110195007</location>
 								</PathPoint>
 								<PathPoint name="FHL_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0023725312733693209 0.0015754122886583724 0.0012565378406802364</location>
+									<location>-0.0029555916313886632 -0.0025998781722884651 -0.0018044099819143618</location>
 								</PathPoint>
 								<PathPoint name="FHL_foot_r_via_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0045602791932498211 2.7927880830313926e-05 0.0010782400885840106</location>
+									<location>0.0018882383637924187 -0.0049877139704304543 -0.0013578434836169849</location>
 								</PathPoint>
 								<PathPoint name="FHL_foot_r_insertion_6">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.014576538553352412 0.0068177738814446439 0.0013118541496842514</location>
+									<location>0.021452754703282402 -0.012524027450145444 -0.0017052282937882206</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4543,37 +4543,37 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0028477391568294944 0.035218922494852915 0.0030700501416071413</location>
+									<location>-0.0028340731779410893 0.035223887613538042 0.0030697476899790343</location>
 								</PathPoint>
 								<PathPoint name="Per_tibia_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00060493121455668791 0.00057037652480713811 0.0011651331437016823</location>
+									<location>-0.00060364506966265399 0.00057586376554633035 0.0011409480746725517</location>
 								</PathPoint>
 								<PathPoint name="Per_foot_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00061517029475053144 0.0018192486456440075 0.0039574846900041552</location>
+									<location>-0.0057802535356097917 0.00051053437657518649 0.0011288645577406352</location>
 								</PathPoint>
 								<PathPoint name="Per_foot_r_via_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0019421528162897632 0.00064191887097767215 0.0034321866895003338</location>
+									<location>-0.0024949295009142197 -0.0019923383952421027 0.0016870104064211514</location>
 								</PathPoint>
 								<PathPoint name="Per_foot_r_via_5">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0043212216153292356 -0.00074847307056604632 0.0029016531794372096</location>
+									<location>0.0010780247497105357 -0.0042101755033907163 0.0023245285443719088</location>
 								</PathPoint>
 								<PathPoint name="Per_foot_r_insertion_6">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0036276976074476053 0.0031852924328230618 0.0029335527621928525</location>
+									<location>0.0055002204576756258 -0.0062774712749319728 0.00070689296215917631</location>
 								</PathPoint>
 							</objects>
 							<groups />
@@ -4648,25 +4648,25 @@
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.00069975967390886306 -0.03088439043980085 0.0027068731288791403</location>
+									<location>-0.0010140018100790122 -0.030898690422095702 0.002744641689599603</location>
 								</PathPoint>
 								<PathPoint name="Pop_femur_r_via_2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0029079843785126524 -0.030181331588846307 0.0028621971675149736</location>
+									<location>-0.0032164212450233147 -0.030163168716653203 0.0026895953063505815</location>
 								</PathPoint>
 								<PathPoint name="Pop_tibia_r_via_3">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>-0.0038575715769941809 0.034550169789506091 -0.00038074452972891544</location>
+									<location>-0.0038414550797601717 0.034558093710913659 -0.00038233512255040687</location>
 								</PathPoint>
 								<PathPoint name="Pop_tibia_r_insertion_4">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
-									<location>0.0018901569891036126 0.025082246935765468 -0.0023661400851610007</location>
+									<location>0.001904042415547042 0.025089337582067103 -0.0023702129480968346</location>
 								</PathPoint>
 							</objects>
 							<groups />
