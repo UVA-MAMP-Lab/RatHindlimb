@@ -7,13 +7,13 @@ import logging
 import math
 import pandas as pd
 
-class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Model class
+class MusculoskeletalGraph(osim.Model): #TODO: Should probably just be a wrapper for the Model class
     def __init__(self, model_path: str | osim.Model, debug: bool = False, visualize: bool = False):
 
-        self.model = osim.Model(model_path)
-        self.model.initSystem()
+        super().__init__(model_path)
+        self.initSystem()
         self.visualize = visualize
-        self.model.setUseVisualizer(visualize)
+        self.setUseVisualizer(visualize)
         self.debug = debug
         self.logger = logging.getLogger(__name__)
         self.console = logging.StreamHandler()
@@ -41,6 +41,9 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
         self.crossings_muscle: Dict[frozenset[str], Set[str]] = defaultdict(set)  # Joint names -> muscle names
         self.muscle_coords: Dict[str, Set[str]] = defaultdict(set)  # Muscle name -> coordinate names
         self.coords_muscles: Dict[frozenset[str], Set[str]] = defaultdict(set)  # Coordinate names -> muscle names
+        self.body_markers: Dict[str, Set[str]] = defaultdict(set)  # Body name -> marker names
+        self.markers: Dict[str, osim.Marker] = {}  # Marker name -> marker object
+        self.marker_bodies: Dict[str, str] = {}  # Marker name -> body name
         
         # Coordinate tracking
         self.joint_to_coords: Dict[str, Set[str]] = defaultdict(set)  # Joint name -> coordinate names
@@ -50,10 +53,11 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
         self._cache_muscle_attachments()
         self._cache_coordinate_ranges()
         self._cache_muscle_crossings()
+        self._cache_markers()
 
     def get_muscle(self, muscle_name: str) -> Optional[osim.Muscle]:
         """Get a muscle by name."""
-        muscles : osim.SetMuscles = self.model.getMuscles()
+        muscles : osim.SetMuscles = self.getMuscles()
         try:
             return muscles.get(muscle_name)
         except:
@@ -62,7 +66,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
         
     def get_body(self, body_name: str) -> Optional[osim.Body]:
         """Get a body by name."""
-        bodies : osim.BodySet = self.model.getBodySet()
+        bodies : osim.BodySet = self.getBodySet()
         try:
             return bodies.get(body_name)
         except:
@@ -71,7 +75,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
     
     def get_joint(self, joint_name: str) -> Optional[osim.Joint]:
         """Get a joint by name."""
-        joints : osim.JointSet = self.model.getJointSet()
+        joints : osim.JointSet = self.getJointSet()
         try:
             return joints.get(joint_name)
         except:
@@ -79,7 +83,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
     
     def get_coordinate(self, coord_name: str) -> Optional[osim.Coordinate]:
         """Get a coordinate by name."""
-        coords : osim.SetCoordinates = self.model.getCoordinateSet()
+        coords : osim.SetCoordinates = self.getCoordinateSet()
         try:
             return coords.get(coord_name)
         except:
@@ -102,7 +106,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
 
     def _build_skeletal_graph(self):
         """Builds the graph structure using joint relationships."""
-        joints = self.model.getJointSet()
+        joints = self.getJointSet()
         
         for i in range(joints.getSize()):
             joint : osim.Joint = joints.get(i)
@@ -150,7 +154,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
 
     def _cache_muscle_attachments(self):
         """Caches all muscle attachments using object references."""
-        muscles : osim.SetMuscles = self.model.getMuscles()
+        muscles : osim.SetMuscles = self.getMuscles()
         
         for i in range(muscles.getSize()):
             muscle : osim.Muscle = muscles.get(i)
@@ -183,7 +187,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
     
     def _cache_coordinate_ranges(self):
         """Cache coordinate information using object references."""
-        coords  : osim.SetCoordinates = self.model.getCoordinateSet()
+        coords  : osim.SetCoordinates = self.getCoordinateSet()
         
         for i in range(coords.getSize()):
             coord : osim.Coordinate = coords.get(i)
@@ -250,6 +254,20 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
 
             self.logger.debug(f"Muscle {muscle_name} crosses joints {crossed_joints}")
 
+    def _cache_markers(self):
+        """Cache marker positions."""
+        markers : osim.SetMarkers = self.getMarkerSet()
+        
+        for i in range(markers.getSize()):
+            marker : osim.Marker = markers.get(i)
+            marker_name = marker.getName()
+            parent_frame : osim.Frame = marker.getParentFrame().findBaseFrame()
+            parent_name = parent_frame.getName()
+            self.markers[marker_name] = marker
+            self.marker_bodies[marker_name] = parent_name
+            self.body_markers[parent_name].add(marker_name)
+            self.logger.debug(f"Marker {marker_name} is attached to body {parent_name}")
+    
     def get_joints_for_muscle(self, muscle_name) -> List[osim.Joint]:
         """Get all joints crossed by a muscle."""
         return self.muscle_crossings.get(muscle_name, [])
@@ -281,13 +299,13 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
         # Total points >= min_points = points per coordinate ^ number of coordinates
         points_per_coordinate = math.ceil(min_points ** (1 / len(coordinates)))
         coordinate_values = self.get_coordinate_combinations(coordinates, points_per_coordinate)
-        state = self.model.initSystem()
+        state = self.initSystem()
         data = np.zeros((coordinate_values.shape[0], len(coordinates) + len(muscle_names)))
         data[:, :len(coordinates)] = coordinate_values
         for i, values in enumerate(coordinate_values):
             for coord, value in zip(coordinates, values):
                 self.get_coordinate(coord).setValue(state, value)
-            self.model.realizePosition(state)
+            self.realizePosition(state)
             muscle_lengths = self.get_muscle_lengths(muscle_names, state)
             data[i, len(coordinates):] = muscle_lengths
         return data
@@ -304,7 +322,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
         
         results = {}
         for coord_set, muscles in self.coords_muscles.items():    
-            state = self.model.initSystem()
+            state = self.initSystem()
             
             # check for locked coordinates
             unlocked_coords = set([coord for coord in coord_set if not self.get_coordinate(coord).getDefaultLocked()])            
@@ -334,7 +352,7 @@ class MusculoskeletalGraph: #TODO: Should probably just be a wrapper for the Mod
                     for coord, value in zip(unlocked_coords, values):
                         self.get_coordinate(coord).setValue(state, value)
                 
-                    self.model.realizePosition(state)
+                    self.realizePosition(state)
                     
                     # Get length
                     length = muscle.getLength(state)
