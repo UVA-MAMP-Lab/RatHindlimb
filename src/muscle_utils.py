@@ -56,7 +56,6 @@ def thelen_to_millard(thelen : osim.Thelen2003Muscle) -> osim.Millard2012Equilib
 
     return millard 
 
-
 def model_thelen_to_millard(model : osim.Model) -> osim.Model:
     """Convert all Thelen2003Muscle to Millard2012EquilibriumMuscle in the model."""
     force_set : osim.ForceSet = model.upd_ForceSet()
