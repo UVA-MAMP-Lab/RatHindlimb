@@ -1,0 +1,113 @@
+<mujoco>
+    <compiler angle="radian" autolimits="true"/>
+    <default class="main">
+        <joint limited="true" armature="1e-05" damping="0.05"/>
+    </default>
+    <asset>
+        <mesh name="spine" file="Geometry/spine_y2j.stl"/>
+        <mesh name="pelvis_r" file="Geometry/pelvis_r_y2j.stl"/>
+        <mesh name="femur_r" file="Geometry/femur_r_y2j.stl"/>
+        <mesh name="tibia_r" file="Geometry/tibia_r_y2j.stl"/>
+        <mesh name="foot_r" file="Geometry/foot_r_y2j.stl"/>
+        <mesh name="pelvis_l" file="Geometry/pelvis_r_y2j.stl" scale="1 1 -1"/>
+        <mesh name="femur_l" file="Geometry/femur_r_y2j.stl" scale="1 1 -1"/>
+        <mesh name="tibia_l" file="Geometry/tibia_r_y2j.stl" scale="1 1 -1"/>
+        <mesh name="foot_l" file="Geometry/foot_r_y2j.stl" scale="1 1 -1"/>
+    </asset>
+    <worldbody>
+        <body name="spine" euler="90 0 0">
+            <inertial pos="0 0 0" mass="0.12" diaginertia="0.001 0.001 0.001"/>
+            <geom name="spine" type="mesh" mesh="spine" rgba="0.89 0.85 0.98 1"></geom>
+            <joint name="sacrum_x" pos="0 0 0" axis="1 0 0" type="slide" range="-0.5 0.5" damping="0"/>
+            <joint name="sacrum_y" pos="0 0 0" axis="0 1 0" type="slide" range="-0.2 0.2" damping="0"/>
+            <joint name="sacrum_z" pos="0 0 0" axis="0 0 1" type="slide" range="-0.1 0.2" damping="0"/>
+            <joint name="sacrum_pitch" pos="0 0 0" axis="0 0 1" range="-1.571 1.571" damping="0"/>
+            <joint name="sacrum_roll" pos="0 0 0" axis="1 0 0" range="-1.571 1.571" damping="0"/>
+            <joint name="sacrum_yaw" pos="0 0 0" axis="0 1 0" range="-3.142 3.142" damping="0"/>
+            <site name="SPL6" pos="0.03067 0.01512 0" rgba="1 0.1 0.5 0.5"/>
+            <site name="TAIL" pos="-0.007971 0.007758 0" rgba="1 0.1 0.5 0.5"/>
+            <body name="pelvis_l" pos="0.005 -0.003 -0.01"> 
+                <inertial pos="0 0 0" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                <geom name="pelvis_l" type="mesh" mesh="pelvis_l" rgba="0.89 0.85 0.98 1"/>
+                <joint name="sacroiliac_l_flx" pos="0 0 0" axis="0 0 1" range="-0.02618 0.1484"/>
+                <site name="LASI" pos="0.028 0.004 -0.003" rgba="1 0.1 0.5 0.5"/>
+                <site name="LHIP" pos="-0.001 0.001 -0.01" rgba="1 0.1 0.5 0.5"/>
+                <body name="femur_l">
+                    <inertial pos="0 -0.015 0" quat="0.707107 0.707107 0 0" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                    <geom name="femur_l" type="mesh" mesh="femur_l" rgba="0.89 0.85 0.98 1"/>
+                    <joint name="hip_l_flx" pos="0 0 0" axis="0 0 1" range="-0.8727 1.222"/>
+                    <joint name="hip_l_add" pos="0 0 0" axis="-1 0 0" range="-0.8727 0.3491"/>
+                    <joint name="hip_l_int" pos="0 0 0" axis="0 -1 0" range="-0.8727 0.6981"/>
+                    <site name="LKNE" pos="0 -0.035 -0.003" rgba="1 0.1 0.5 0.5"/>
+                    <body name="tibia_l" pos="0.00057 -0.03996 0.003816">
+                        <inertial pos="0 0.015 0" quat="0.707107 0.707107 0 0" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                        <geom name="tibia_l" type="mesh" mesh="tibia_l" rgba="0.89 0.85 0.98 1"/>
+                        <joint name="knee_l_translation1" pos="0 0 0" axis="1 0 0" type="slide" range="-0.005239 -0.001413"/>
+                        <joint name="knee_l_translation2" pos="0 0 0" axis="0 1 0" type="slide" range="-0.03425 -0.03206"/>
+                        <joint name="knee_l_translation3" pos="0 0 0" axis="0 0 1" type="slide" range="-0.002904 -0.002381"/>
+                        <joint name="knee_l_flx" pos="0 0 0" axis="0 0 1" range="-2.618 -0.3491"/>
+                        <joint name="knee_l_rotation2" pos="0 0 0" axis="1 0 0" range="-0.06458 0.08727"/>
+                        <site name="LANK" pos="0 0 -0.004" rgba="1 0.1 0.5 0.5"/>
+                        <body name="foot_l">
+                            <inertial pos="0.007 -0.005 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                            <geom name="foot_l" type="mesh" mesh="foot_l" rgba="0.89 0.85 0.98 1"/>
+                            <joint name="ankle_l_flx" pos="0 0 0" axis="0 0 1" range="-0.5236 1.047"/>
+                            <joint name="ankle_l_add" pos="0 0 0" axis="-1 0 0" range="-0.08727 0.6109"/>
+                            <joint name="ankle_l_int" pos="0 0 0" axis="0 -1 0" range="-0.8727 0.2618"/>
+                            <site name="LTOE" pos="0.015 -0.005 -0.005" rgba="1 0.1 0.5 0.5"/>
+                        </body> <!--foot_l-->
+                    </body> <!--tibia_l-->
+                </body> <!--femur_l-->
+            </body> <!--pelvis_l-->
+            <body name="pelvis_r" pos="0.005 -0.003 0.01">
+                <inertial pos="0 0 0" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                <geom name="pelvis_r" type="mesh" mesh="pelvis_r" rgba="0.89 0.85 0.98 1"></geom>
+                <joint name="sacroiliac_r_flx" pos="0 0 0" axis="0 0 1" range="-0.02301 0.1515"/>
+                <site name="RASI" pos="0.028 0.004 0.003" rgba="1 0.1 0.5 0.5"/>
+                <site name="RHIP" pos="-0.001 0.001 0.01" rgba="1 0.1 0.5 0.5"/>
+                <body name="femur_r">
+                    <inertial pos="0 -0.015 0" quat="0.707107 0.707107 0 0" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                    <geom name="femur_r" type="mesh" mesh="femur_r" rgba="0.89 0.85 0.98 1"></geom>
+                    <joint name="hip_r_flx" pos="0 0 0" axis="0 0 1" range="-0.8727 1.222"/>
+                    <joint name="hip_r_add" pos="0 0 0" axis="1 0 0" range="-0.8727 0.3491"/>
+                    <joint name="hip_r_int" pos="0 0 0" axis="0 1 0" range="-0.8727 0.6981"/>
+                    <site name="RKNE" pos="0 -0.035 0.003" rgba="1 0.1 0.5 0.5"/>
+                    <body name="tibia_r" pos="0.00057 -0.03996 -0.003816">
+                        <inertial pos="0 0.015 0" quat="0.707107 0.707107 0 0" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                        <geom name="tibia_r" type="mesh" mesh="tibia_r" rgba="0.89 0.85 0.98 1"></geom>
+                        <joint name="knee_r_flx" pos="0 0 0" axis="0 0 1" range="-2.618 -0.3491"/>
+                        <joint name="knee_r_rotation2" pos="0 0 0" axis="1 0 0" range="-0.08727 0.06458"/>
+                        <joint name="knee_r_translation1" pos="0 0 0" axis="1 0 0" type="slide" range="-0.005239 -0.001413"/>
+                        <joint name="knee_r_translation2" pos="0 0 0" axis="0 1 0" type="slide" range="-0.03425 -0.03206"/>
+                        <joint name="knee_r_translation3" pos="0 0 0" axis="0 0 1" type="slide" range="0.002381 0.002904"/>
+                        <site name="RANK" pos="0 0 0.004" rgba="1 0.1 0.5 0.5"/>
+                        <body name="foot_r">
+                            <inertial pos="0.007 -0.005 0" quat="0.5 0.5 0.5 0.5" mass="0.02" diaginertia="0.001 0.001 0.001"/>
+                            <geom name="foot_r" type="mesh" mesh="foot_r" rgba="0.89 0.85 0.98 1"></geom>
+                            <joint name="ankle_r_flx" pos="0 0 0" axis="0 0 1" range="-0.5236 1.047"/>
+                            <joint name="ankle_r_add" pos="0 0 0" axis="1 0 0" range="-0.08727 0.6109"/> 
+                            <joint name="ankle_r_int" pos="0 0 0" axis="0 1 0" range="-0.8727 0.2618"/>
+                            <site name="RTOE" pos="0.015 -0.005 0.005" rgba="1 0.1 0.5 0.5"/>
+                        </body> <!--foot_r-->
+                    </body> <!--tibia_r-->
+                </body> <!--femur_r-->
+            </body> <!--pelvis_r-->
+        </body> <!--spine-->
+    </worldbody>
+    <equality>
+        <joint name="sacroiliac_r_flx_locked" joint1="sacroiliac_r_flx" polycoef="0.0645772 0 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_r_translation1" joint2="knee_r_flx" polycoef="-0.0001859 0.005229 0.006019 0.002924 0.0004222" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_r_translation2" joint2="knee_r_flx" polycoef="-0.033 -0.001713 0.0001761 0.001374 0.0003792" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_r_translation3" joint2="knee_r_flx" polycoef="0.003433 0.002936 0.002519 0.0006376 2.206e-05" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_r_rotation2" joint2="knee_r_flx" polycoef="0.08935 0.07361 0.007717 0.003495 0.0005557" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint name="ankle_r_add_locked" joint1="ankle_r_add" polycoef="-0.0872665 0 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint name="ankle_r_int_locked" joint1="ankle_r_int" polycoef="0 0 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint name="sacroiliac_l_flx_locked" joint1="sacroiliac_l_flx" polycoef="0.0645772 0 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_l_translation1" joint2="knee_l_flx" polycoef="-0.0001859 0.005229 0.006019 0.002924 0.0004222" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_l_translation2" joint2="knee_l_flx" polycoef="-0.033 -0.001713 0.0001761 0.001374 0.0003792" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_l_translation3" joint2="knee_l_flx" polycoef="-0.003433 -0.002936 -0.002519 -0.0006376 -2.206e-05" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint joint1="knee_l_rotation2" joint2="knee_l_flx" polycoef="-0.08935 -0.07361 -0.007717 -0.003495 -0.0005557" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint name="ankle_l_add_locked" joint1="ankle_l_add" polycoef="0.0872665 0 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+        <joint name="ankle_l_int_locked" joint1="ankle_l_int" polycoef="0 0 0 0 0" solimp="0.9999 0.9999 0.001 0.5 2"/>
+    </equality>
+</mujoco>

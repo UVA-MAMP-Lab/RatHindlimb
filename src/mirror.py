@@ -35,12 +35,6 @@ def mirror_body(body : osim.Body, axes : list) -> osim.Body:
             break
         mirrored_body.set_attached_geometry(i, mirror_geometry(attached_geometry, axes))
         i += 1
-    
-    # Wrap objects
-    wrap_objects : osim.WrapObjectSet= mirrored_body.getWrapObjectSet()
-    for i in range(wrap_objects.getSize()):
-        wrap_object : osim.WrapObject = wrap_objects.get(i)
-        # TODO
         
 
     return mirrored_body
