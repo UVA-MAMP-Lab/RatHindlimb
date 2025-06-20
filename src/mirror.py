@@ -1,5 +1,5 @@
 import opensim as osim
-from src.musculoskeletal_graph import MusculoskeletalGraph
+from musculoskeletal_graph import MusculoskeletalGraph
 import re
 
 def mirror_body(body : osim.Body, axes : list) -> osim.Body:
@@ -45,22 +45,16 @@ def mirror_geometry(geometry : osim.Geometry, axes: list) -> osim.Geometry:
     # Validate axes
     if not all(axis in [0, 1, 2] for axis in axes):
         raise ValueError("Axes must be a list of 0, 1, or 2.")
-    mirrored_geometry : osim.Geometry = geometry.clone()
-    
-    # Scale factors
-    scale_factors = mirrored_geometry.get_scale_factors()
-    scale_factors[axes] *= -1
-    mirrored_geometry.set_scale_factors(scale_factors)
-    return mirrored_geometry
-    
-
-def mirror_joint(joint: osim.Joint, axes: list) -> osim.Joint:
-    """Mirror a joint across specified axes."""
-    if not all(axis in [0, 1, 2] for axis in axes):
-        raise ValueError("Axes must be a list of 0, 1, or 2.")
-    mirrored_joint : osim.Joint = joint.clone()
-    
-    pass
+    original_scale_factors = geometry.get_scale_factors() 
+    # Create a new list with mirrored values
+    mirrored_values = [
+        -original_scale_factors.get(i) if i in axes else original_scale_factors.get(i)
+        for i in range(3)
+    ]
+    new_scale_factors = osim.Vec3(mirrored_values[0], mirrored_values[1], mirrored_values[2])
+    # Set the new Vec3 back onto the geometry
+    geometry.set_scale_factors(new_scale_factors)
+    return geometry # Return the modified geometry (modification was in place)
 
 
 def mirror_inertia(inertia: osim.Inertia, axes: list) -> osim.Inertia:
@@ -88,13 +82,235 @@ def mirror_inertia(inertia: osim.Inertia, axes: list) -> osim.Inertia:
         products[0], products[1], products[2]
     )
 
+
+def mirror_body(body : osim.Body, axes : list) -> osim.Body:
+    """Mirror a body across specified axes."""
+    # Validate axes
+    if not all(axis in [0, 1, 2] for axis in axes):
+        raise ValueError("Axes must be a list of 0, 1, or 2.")    
+    # Center of mass
+    com = body.getMassCenter()
+    com = osim.Vec3([-com[i] if i in axes else com[i] for i in range(3)])
+    body.setMassCenter(com)
+    
+    # Inertia
+    inertia = body.getInertia()
+    body.setInertia(mirror_inertia(inertia, axes))
+    
+    # Frame geometry - This changes the body axes, not the mesh
+    # frame_geometry = body.get_frame_geometry()
+    # if frame_geometry is not None:
+    #     # Mirror the geometry
+    #     body.set_frame_geometry(mirror_geometry(frame_geometry, axes))
+
+    # Attached geometry - Assuming only one geometry at index 0
+    try:
+        # Get a reference to the geometry object held by the body at index 0
+        attached_geometry_ref : osim.Geometry = body.upd_attached_geometry(0)
+
+        if attached_geometry_ref:
+            # Mirror the geometry object directly using the reference
+            mirror_geometry(attached_geometry_ref, axes)
+        else:
+            print(f"    No geometry found at index 0 for body {body.getName()}.")
+
+    except RuntimeError as e:
+        # Catching RuntimeError specifically, as this is common for SWIG index errors
+        print(f"    Caught RuntimeError accessing index 0. Assuming no geometry attached or error. Details: {e}")
+    except Exception as e:
+        # Catch any other Python-level exceptions that might occur
+        print(f"    Caught unexpected Python exception accessing index 0: {type(e).__name__} - {e}")
+
+
+    # Wrap objects TODO: update names of wrap objects
+    wrap_objects : osim.WrapObjectSet = body.upd_WrapObjectSet()
+    for i in range(wrap_objects.getSize()):
+        wrap_object : osim.WrapObject = wrap_objects.get(i)
+        class_name = wrap_object.getConcreteClassName()
+        # TODO: Do any mirroring for specific wrap objects here
+        # Mirror xyz_body_rotation
+        xyz_body_rotation: osim.Vec3 = wrap_object.get_xyz_body_rotation()
+        # Negate the appropriate axes based on the axes
+        xyz_body_rotation = osim.Vec3([-xyz_body_rotation[i] if i not in axes else xyz_body_rotation[i] for i in range(3)])
+        wrap_object.set_xyz_body_rotation(xyz_body_rotation)
+        # Mirror translation
+        translation: osim.Vec3 = wrap_object.get_translation()
+        # Negate the appropriate axes based on the axes
+        translation = osim.Vec3([-translation[i] if i in axes else translation[i] for i in range(3)])
+        wrap_object.set_translation(translation)
+        # TODO: Deal with quadrants   
+    print(f"Successfully mirrored body {body.getName()}")
+    return body
+    
+def regex_mapping(mapping: dict[str, str], name: str) -> str:
+    """Apply regex mapping to a name."""
+    for pattern, replacement in mapping.items():
+        if re.match(pattern, name):
+            return re.sub(pattern, replacement, name)
+    return name
+
+def mirror_joint(joint: osim.Joint, axes: list) -> osim.Joint:
+    parent_frame: osim.PhysicalFrame = joint.getParentFrame()
+    child_frame: osim.PhysicalFrame = joint.getChildFrame()
+        
+    ## Coordinates
+    num_coords = joint.numCoordinates()
+    # Rename
+    for i in range(num_coords):
+        coord: osim.Coordinate = joint.upd_coordinates(i)
+        coord_name = coord.getName()
+        # Check if the coordinate is in the mirror map
+        if coord_name in mirror_map:
+            # Replace the coordinate name with the mirrored name
+            new_name = mirror_map[coord_name]
+        else:
+            # Create a new name for the mirrored coordinate
+            new_name = regex_mapping(coord_name_mapping, coord_name)
+            mirror_map[coord_name] = new_name
+        coord.setName(new_name)
+    
+    ## Joint type specific mirroring
+    joint_type = joint.getConcreteClassName()
+    match joint_type:
+        case 'PinJoint':
+            raise NotImplementedError("PinJoint mirroring not implemented.")
+        case 'SliderJoint':
+            raise NotImplementedError("SliderJoint mirroring not implemented.")
+        case 'WeldJoint':
+            raise NotImplementedError("WeldJoint mirroring not implemented.")
+        case 'CustomJoint':
+            old_joint = model.getJointSet().get(joint_name) # Have to do this for some reason
+            old_joint: osim.CustomJoint = osim.CustomJoint.safeDownCast(old_joint)
+            joint: osim.CustomJoint = osim.CustomJoint.safeDownCast(joint)
+            if old_joint is None:
+                raise ValueError("Joint is not a CustomJoint.")
+            # Get the spatial transform
+            # spatial_transform: osim.SpatialTransform = joint.updSpatialTransform()
+            old_spatial_transform: osim.SpatialTransform = old_joint.updSpatialTransform()
+            # Mirror the spatial transform
+            transform_axes : list[osim.Vec3] = old_spatial_transform.getAxes()
+            for i, vec in enumerate(transform_axes):
+                # Assume that order is always rotation1-3, translation1-3
+                get_transform_function = ('get_rotation' + str(i+1)) if i < 3 else ('get_translation' + str(i-2))
+                set_transform_function = ('set_rotation' + str(i+1)) if i < 3 else ('set_translation' + str(i-2))
+                transform_axis: osim.TransformAxis = getattr(old_spatial_transform, get_transform_function)()
+                transform_coords: osim.ArrayStr = transform_axis.getCoordinateNamesInArray()
+                for j in range(transform_coords.getSize()):
+                    coord_name = transform_coords.get(j)
+                    if coord_name in mirror_map:
+                        # Replace the coordinate name with the mirrored name
+                        new_name = mirror_map[coord_name]
+                    else:
+                        # Create a new name for the mirrored coordinate
+                        new_name = regex_mapping(coord_name_mapping, coord_name)
+                        mirror_map[coord_name] = new_name
+                    transform_axis.set_coordinates(j, new_name)
+                if any(vec[axes]):            
+                    axis_function: osim.Function = transform_axis.getFunction()
+                    concreteClass = axis_function.getConcreteClassName()
+                    match concreteClass:
+                        case 'SimmSpline':
+                            # Mirror the function
+                            axis_function: osim.SimmSpline = osim.SimmSpline.safeDownCast(axis_function)
+                            if axis_function is None:
+                                raise ValueError("Function is not a SimmSpline.")
+                            for k in range(axis_function.getSize()):
+                                y: float = axis_function.getY(k)
+                                axis_function.setY(k, -y)
+                        case 'LinearFunction':
+                            axis_function: osim.LinearFunction = osim.LinearFunction.safeDownCast(axis_function)
+                            if axis_function is None:
+                                raise ValueError("Function is not a LinearFunction.")
+                            axis_function.setSlope(-axis_function.getSlope())
+                            axis_function.setIntercept(-axis_function.getIntercept())
+                        case 'Constant':
+                            axis_function: osim.Constant = osim.Constant.safeDownCast(axis_function)
+                            if axis_function is None:
+                                raise ValueError("Function is not a Constant.")
+                            axis_function.setValue(-axis_function.getValue())
+                        case 'MultiplierFunction':
+                            axis_function: osim.MultiplierFunction = osim.MultiplierFunction.safeDownCast(axis_function)
+                            if axis_function is None:
+                                raise ValueError("Function is not a MultiplierFunction.")
+                            # For MultiplierFunction, negate the scale
+                            axis_function.setScale(-axis_function.getScale())
+                        case _:
+                            print(f"Unsupported function type: {concreteClass}, not mirroring")
+                    # Update the function in the transform axis
+                    transform_axis.setFunction(axis_function)
+                # Update the transform axis in the spatial transform
+                setattr(spatial_transform, set_transform_function)(transform_axis)
+    # Update the joint name
+    if joint_name in mirror_map:
+        new_name = mirror_map[joint_name]
+    else:
+        new_name = regex_mapping(joint_name_mapping, joint_name)
+    joint.setName(new_name)
+    ## Frames
+    # Rename and mirror translation
+    i = 0  # Initialize counter
+    while True:
+        try:
+            frame: osim.PhysicalOffsetFrame = joint.upd_frames(i)
+            if frame is None:
+                break
+        except Exception:
+            break
+        # Rename
+        frame_name = frame.getName()
+        # Check if the frame is in the mirror map
+        if frame_name in mirror_map:
+            # Replace the frame name with the mirrored name
+            new_name = mirror_map[frame_name]
+        else:
+            # Create a new name for the mirrored frame
+            new_name = regex_mapping(frame_name_mapping, frame_name)
+            mirror_map[frame_name] = new_name
+        frame.setName(new_name)
+        # Mirror translation   
+        translation = frame.get_translation()
+        # Negate the appropriate axes based on the axes
+        translation = osim.Vec3([-translation[i] if i in axes else translation[i] for i in range(3)])
+        frame.set_translation(translation)      
+        # Mirror orientation? 
+        orientation = frame.get_orientation()
+        orientation = osim.Vec3([-orientation[i] if i not in axes else orientation[i] for i in range(3)])
+        frame.set_orientation(orientation)
+        if frame_name == parent_frame.getName():
+            joint.connectSocket_parent_frame(frame)
+        if frame_name == child_frame.getName():
+            joint.connectSocket_child_frame(frame)
+        i += 1
+
+def mirror_muscle(muscle: osim.Muscle, axes: list) -> osim.Muscle:
+    """Mirror a muscle across specified axes."""
+    # Validate axes
+    if not all(axis in [0, 1, 2] for axis in axes):
+        raise ValueError("Axes must be a list of 0, 1, or 2.")
+    
+    # Get the muscle's origin and direction
+    origin = muscle.getOrigin()
+    direction = muscle.getDirection()
+    
+    # Mirror the origin and direction
+    for i in range(3):
+        if i in axes:
+            origin[i] *= -1
+            direction[i] *= -1
+    
+    # Set the new origin and direction
+    muscle.setOrigin(origin)
+    muscle.setDirection(direction)
+    
+    return muscle
+
 def mirror_model(input_model_path, output_model_path, 
                  axes: list[int]=[0, 1, 2],
                  ground_name='ground', 
                  exclude_bodies: list[str]=None,
                  joint_name_mapping: dict[str, str]={r'(.+)_r': r'\1_l'},
-                 frame_name_mapping: dict[str, str]={r'(.+)_r': r'\1_l'},
-                 
+                 frame_name_mapping: dict[str, str]={r'(.+)_r_(.+)': r'\1_l_\2'},
+                 coord_name_mapping: dict[str, str]={r'(.+)_r_(.+)': r'\1_l_\2'},
                  body_name_mapping: dict[str, str]={r'(.+)_r': r'\1_l'},
                  muscle_name_mapping: dict[str, str]={r'R_(.+)': r'L_\1'}) -> osim.Model:
     """
@@ -113,79 +329,75 @@ def mirror_model(input_model_path, output_model_path,
     if not all(axis in [0, 1, 2] for axis in axes):
         raise ValueError("Axes must be a list of 0, 1, or 2.")
 
-    model = MusculoskeletalGraph(input_model_path)
-    mirrored_model : osim.Model = model.clone()
+    model = MusculoskeletalGraph(osim.Model(input_model_path).clone())
     
-    mirrored_bodies = {}
-    
-    # Traverse joints
-    for joint_name, body_names in model.joint_bodies.items():
-        joint: osim.Joint = model.get_joint(joint_name)
-        
-        ## Frames
-        # Rename and mirror translation (what about rotation?)
-        while True:
-            try:
-                frame: osim.PhysicalOffsetFrame = joint.get_frames(i)
-                if frame is None:
-                    break
-            except Exception:
-                break
-            # Rename
-            frame_name = frame.getName()
-            # Change parent
-            # Mirror translation         
+    # Dictionary to cache original names to mirrored names
+    mirror_map = {}
 
-        ## Coordinates
-        # Rename
-        
-        
-        ## Spatial Transform
-        try:
-            custom_joint: osim.CustomJoint = osim.CustomJoint.safeDownCast(joint)
-            if custom_joint is None:
-                raise ValueError("Joint is not a CustomJoint.")
-            # Get the spatial transform
-            spatial_transform: osim.SpatialTransform = custom_joint.getSpatialTransform()
-            # Mirror the spatial transform
-            transform_axes : list[osim.Vec3] = spatial_transform.getAxes()
-            for i, transform_axis in enumerate(transform_axes):
-                if any(transform_axis[axes]):
-                    get_trans_func = 'get_translation' + str(i+1)
-                    trans: osim.TransformAxis = getattr(spatial_transform, get_trans_func)()
-                    func: osim.Function = trans.getFunction()
-                    concreteClass = func.getConcreteClassName()
-                    match concreteClass:
-                        case 'SimmSpline':
-                            # Mirror the function
-                            func: osim.SimmSpline = osim.SimmSpline.safeDownCast(func)
-                            if func is None:
-                                raise ValueError("Function is not a SimmSpline.")
-                            for i in range(func.getSize()):
-                                y: float = func.getY(i)
-                                func.setY(i, -y)
-                        case 'LinearFunction':
-                            pass
-                    
-        except Exception as e:
-            print(f"Error processing joint {joint_name}: {e}")
+    # Bodies
+    for body_name in model.body_graph.keys():
+        if exclude_bodies and (body_name in exclude_bodies or body_name == ground_name):
+            print(f"Skipping body {body_name}.")
             continue
-
-        
-    mirrored_model.finalizeConnections()
+        body: osim.Body = model.get_body(body_name)
+        print(f"Mirroring body {body_name}.")
+        # Check if the body is in the exclude list
+        # Mirror the body
+        mirrored_body = mirror_body(body.clone(), axes)
+        # Rename the body
+        # Check if the body is in the mirror map
+        if body_name in mirror_map:
+            # Replace the body name with the mirrored name
+            new_name = mirror_map[body_name]
+        else:
+            # Create a new name for the mirrored body
+            new_name = regex_mapping(body_name_mapping, body_name)
+            mirror_map[body_name] = new_name
+        mirrored_body.setName(new_name)
+        model.addBody(mirrored_body)
+    # Joints
+    for joint_name, bodies in model.joint_bodies.items():
+        if exclude_bodies and (bodies[0] in exclude_bodies and bodies[1] in exclude_bodies):
+            print(f"Skipping joint {joint_name}.")
+            continue
+        joint: osim.Joint = model.get_joint(joint_name)
+        print(f"Mirroring joint {joint_name}.")
+        mirrorred_joint = mirror_joint(joint.clone(), axes)
+        # Add the mirrored joint to the model
+        model.addJoint(joint)
+    
+    # Muscles TODO
+    for muscle_name, body_names in model.muscle_attachments.items():
+        muscle: osim.Muscle = model.get_muscle(muscle_name)
+        print(f"Mirroring muscle {muscle_name}.")
+        # Check if the muscle is in the exclude list
+        # Mirror the muscle
+        mirrored_muscle = mirror_muscle(muscle.clone(), axes)
+        # Rename the muscle
+        # Check if the muscle is in the mirror map
+        if muscle_name in mirror_map:
+            # Replace the muscle name with the mirrored name
+            new_name = mirror_map[muscle_name]
+        else:
+            # Create a new name for the mirrored muscle
+            new_name = regex_mapping(muscle_name_mapping, muscle_name)
+            mirror_map[muscle_name] = new_name
+        mirrored_muscle.setName(new_name)
+        model.updMuscles().append(mirrored_muscle)
+    model.finalizeConnections()
     # Save the mirrored model
-    mirrored_model.printToXML(output_model_path)
+    model.printToXML(output_model_path)
+    print(f"Mirrored model saved to {output_model_path}.")  
+    
+
 # Example usage
 if __name__ == "__main__":
-    input_model = "models/rat_hindlimb_millard_y2j.osim"
-    output_model = "models/rat_hindlimb_millard_y2j_bilateral.osim"
+    input_model = "models/rat_hindlimb_millard_y2j_tsl_r.osim"
+    output_model = "models/rat_hindlimb_millard_y2j_tsl_bilateral.osim"
     mirror_model(input_model, output_model, 
                  ground_name='ground', 
                  axes=[2], 
-                 exclude_bodies=['ground', 'spine'], 
-                 joint_name_mapping={'(.+)_r': r'\1_l'}, 
-                 body_name_mapping={'(.+)_r': r'\1_l'}, 
-                 muscle_name_mapping={'R_(.+)': r'L_\1'}
-    )
+                 exclude_bodies=['ground', 'spine']
+                )
 
 
