@@ -9,9 +9,7 @@ def thelen_to_millard(thelen : osim.Thelen2003Muscle) -> osim.Millard2012Equilib
     try:
         thelen = osim.Thelen2003Muscle.safeDownCast(thelen)
     except:
-        print(f"Input muscle {thelen.getName()} is not a Thelen2003Muscle object.")
-        return None
-
+        raise TypeError(f"Input muscle {thelen.getName()} is not a Thelen2003Muscle object.")
     millard = osim.Millard2012EquilibriumMuscle()
     millard.setName(thelen.getName())
 
