@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<OpenSimDocument Version="40000">
+<OpenSimDocument Version="40500">
 	<Model name="RatHindlimbRight">
 		<defaults>
 			<ControlLinear name="default">
@@ -16,8 +16,13 @@
 				<kv>20</kv>
 			</ControlLinear>
 			<Thelen2003Muscle name="default">
-				<!--The set of points defining the path of the actuator.-->
-				<GeometryPath name="geometrypath">
+				<!--The path of the actuator which defines length and lengthening speed.-->
+				<GeometryPath name="path">
+					<!--Default appearance attributes for this AbstractGeometryPath.-->
+					<Appearance>
+						<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+						<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+					</Appearance>
 					<!--The set of points defining the path-->
 					<PathPointSet>
 						<objects />
@@ -28,11 +33,6 @@
 						<objects />
 						<groups />
 					</PathWrapSet>
-					<!--Default appearance attributes for this GeometryPath-->
-					<Appearance>
-						<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-						<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-					</Appearance>
 				</GeometryPath>
 				<!--Maximum isometric force that the fibers can generate-->
 				<max_isometric_force>1000</max_isometric_force>
@@ -1201,8 +1201,8 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
-								<y> -0.0872665 -0.0750492 -0.0645772 -0.0523599 -0.0401426 -0.0296706 -0.0174533 -0.00523599 0.00523599 0.0174533 0.0296706 0.0401426 0.0523599 0.0645772</y>
+								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
+								<y> -0.087266499999999996851 -0.075049199999999996469 -0.064577200000000001268 -0.052359900000000000886 -0.040142600000000000504 -0.029670599999999998364 -0.017453300000000001452 -0.0052359900000000002621 0.0052359900000000002621 0.017453300000000001452 0.029670599999999998364 0.040142600000000000504 0.052359900000000000886 0.064577200000000001268</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="rotation3">
@@ -1212,8 +1212,8 @@
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
-								<y> 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799 0.261799</y>
+								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
+								<y> 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393 0.26179900000000000393</y>
 							</SimmSpline>
 						</TransformAxis>
 						<!--3 Axes for translations are listed next.-->
@@ -1224,8 +1224,8 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
-								<y> -0.02492 -0.0301 -0.03449 -0.03798 -0.04049 -0.04196 -0.04232 -0.04156 -0.03968 -0.0367 -0.03267 -0.02769 -0.02188 -0.01539</y>
+								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
+								<y> -0.024920000000000001178 -0.030099999999999998285 -0.034489999999999999825 -0.037979999999999999871 -0.040489999999999998215 -0.0419599999999999973 -0.042320000000000003448 -0.04155999999999999972 -0.039679999999999999993 -0.036700000000000003453 -0.032669999999999997653 -0.027689999999999999336 -0.021880000000000000143 -0.015389999999999999167</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="translation2">
@@ -1235,8 +1235,8 @@
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
-								<y> 0.00082 -0.00322 -0.00805 -0.01353 -0.01952 -0.02588 -0.03244 -0.03905 -0.04552 -0.05167 -0.05732 -0.06229 -0.0664 -0.0695</y>
+								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
+								<y> 0.00081999999999999998238 -0.0032200000000000002058 -0.008049999999999999864 -0.01353000000000000036 -0.019519999999999999157 -0.025880000000000000226 -0.032439999999999996616 -0.039050000000000001377 -0.045519999999999997964 -0.051670000000000000651 -0.057320000000000002893 -0.062289999999999998148 -0.066400000000000000688 -0.069500000000000006217</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="translation3">
@@ -1246,8 +1246,8 @@
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
-								<y> 0.00227 0.00198 0.00161 0.00117 0.00067 0.00013 -0.00043 -0.00101 -0.00157 -0.00211 -0.00261 -0.00305 -0.00342 -0.00371</y>
+								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
+								<y> 0.0022699999999999998825 0.0019799999999999999892 0.0016100000000000001029 0.001170000000000000033 0.00067000000000000002262 0.00012999999999999998861 -0.00042999999999999998944 -0.001010000000000000047 -0.001569999999999999998 -0.0021099999999999998965 -0.0026099999999999999069 -0.0030500000000000001936 -0.003419999999999999863 -0.00371000000000000019</y>
 							</SimmSpline>
 						</TransformAxis>
 					</SpatialTransform>
@@ -1376,7 +1376,7 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
+								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1387,7 +1387,7 @@
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
+								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1398,7 +1398,7 @@
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
+								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1424,8 +1424,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -1466,11 +1471,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>3.3999999999999999</max_isometric_force>
@@ -1510,8 +1510,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -1552,11 +1557,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>12.5</max_isometric_force>
@@ -1596,8 +1596,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -1638,11 +1643,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.1000000000000001</max_isometric_force>
@@ -1682,8 +1682,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -1732,11 +1737,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>3.3999999999999999</max_isometric_force>
@@ -1776,8 +1776,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -1818,11 +1823,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>12.5</max_isometric_force>
@@ -1862,8 +1862,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -1896,11 +1901,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>10.300000000000001</max_isometric_force>
@@ -1940,8 +1940,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -1974,11 +1979,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>3</max_isometric_force>
@@ -2018,8 +2018,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2043,11 +2048,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.8999999999999999</max_isometric_force>
@@ -2087,8 +2087,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2121,11 +2126,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>9.3000000000000007</max_isometric_force>
@@ -2165,8 +2165,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2207,11 +2212,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>18.800000000000001</max_isometric_force>
@@ -2251,8 +2251,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2276,11 +2281,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>7.4000000000000004</max_isometric_force>
@@ -2320,8 +2320,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2345,11 +2350,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>11.199999999999999</max_isometric_force>
@@ -2389,8 +2389,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2423,11 +2428,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.3999999999999999</max_isometric_force>
@@ -2467,8 +2467,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2501,11 +2506,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>1.6000000000000001</max_isometric_force>
@@ -2545,8 +2545,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2570,11 +2575,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>1</max_isometric_force>
@@ -2614,8 +2614,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2639,11 +2644,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>3</max_isometric_force>
@@ -2683,8 +2683,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2708,11 +2713,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>12.199999999999999</max_isometric_force>
@@ -2752,8 +2752,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2777,11 +2782,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>3.7000000000000002</max_isometric_force>
@@ -2821,8 +2821,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2846,11 +2851,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>16.300000000000001</max_isometric_force>
@@ -2890,8 +2890,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2915,11 +2920,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>7.2000000000000002</max_isometric_force>
@@ -2959,8 +2959,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -2984,11 +2989,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>3</max_isometric_force>
@@ -3028,8 +3028,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3053,11 +3058,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>0.40000000000000002</max_isometric_force>
@@ -3097,8 +3097,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3122,11 +3127,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.8999999999999999</max_isometric_force>
@@ -3166,8 +3166,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3208,11 +3213,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>16.5</max_isometric_force>
@@ -3252,8 +3252,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3294,11 +3299,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>14.9</max_isometric_force>
@@ -3338,8 +3338,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3380,11 +3385,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.6000000000000001</max_isometric_force>
@@ -3424,8 +3424,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3466,11 +3471,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>6.0999999999999996</max_isometric_force>
@@ -3510,8 +3510,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3535,11 +3540,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>11.699999999999999</max_isometric_force>
@@ -3579,8 +3579,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3604,11 +3609,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>18.300000000000001</max_isometric_force>
@@ -3648,8 +3648,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3673,11 +3678,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>5.5999999999999996</max_isometric_force>
@@ -3717,8 +3717,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3742,11 +3747,6 @@
 							<objects />
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>1.3999999999999999</max_isometric_force>
@@ -3786,8 +3786,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3828,11 +3833,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>8.5999999999999996</max_isometric_force>
@@ -3872,8 +3872,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -3914,11 +3919,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.2000000000000002</max_isometric_force>
@@ -3958,8 +3958,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -4000,11 +4005,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>3.6000000000000001</max_isometric_force>
@@ -4044,8 +4044,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -4086,11 +4091,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>11.1</max_isometric_force>
@@ -4130,8 +4130,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -4172,11 +4177,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>0.20000000000000001</max_isometric_force>
@@ -4216,8 +4216,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -4258,11 +4263,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>7.7000000000000002</max_isometric_force>
@@ -4302,8 +4302,13 @@
 					<min_control>0.01</min_control>
 					<!--Maximum allowed value for control signal. Used primarily when solving for control values.-->
 					<max_control>1</max_control>
-					<!--The set of points defining the path of the actuator.-->
-					<GeometryPath name="geometrypath">
+					<!--The path of the actuator which defines length and lengthening speed.-->
+					<GeometryPath name="path">
+						<!--Default appearance attributes for this AbstractGeometryPath.-->
+						<Appearance>
+							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
+							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
+						</Appearance>
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
@@ -4336,11 +4341,6 @@
 							</objects>
 							<groups />
 						</PathWrapSet>
-						<!--Default appearance attributes for this GeometryPath-->
-						<Appearance>
-							<!--The color, (red, green, blue), [0, 1], used to display the geometry. -->
-							<color>0.80000000000000004 0.10000000000000001 0.10000000000000001</color>
-						</Appearance>
 					</GeometryPath>
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.8999999999999999</max_isometric_force>

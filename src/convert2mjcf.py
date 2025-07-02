@@ -14,7 +14,7 @@ kwargs['add_ground_geom'] = True                # Add ground to the model
 kwargs['treat_as_normal_path_point'] = False    # Use original constraints to represent moving and conditional path points
 
 # Osim model info & target saving folder
-osim_file = '../models/rat_hindlimb_millard_y2j_no_wraps.osim'
+osim_file = '../models/rat_hindlimb_bilateral.osim'
 geometry_folder = '../models/Geometry'
 output_folder = '../models/converted'
 

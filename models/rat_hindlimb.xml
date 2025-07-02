@@ -4,15 +4,15 @@
         <joint limited="true" armature="1e-05" damping="0.05"/>
     </default>
     <asset>
-        <mesh name="spine" file="Geometry/spine_y2j.stl"/>
-        <mesh name="pelvis_r" file="Geometry/pelvis_r_y2j.stl"/>
-        <mesh name="femur_r" file="Geometry/femur_r_y2j.stl"/>
-        <mesh name="tibia_r" file="Geometry/tibia_r_y2j.stl"/>
-        <mesh name="foot_r" file="Geometry/foot_r_y2j.stl"/>
-        <mesh name="pelvis_l" file="Geometry/pelvis_r_y2j.stl" scale="1 1 -1"/>
-        <mesh name="femur_l" file="Geometry/femur_r_y2j.stl" scale="1 1 -1"/>
-        <mesh name="tibia_l" file="Geometry/tibia_r_y2j.stl" scale="1 1 -1"/>
-        <mesh name="foot_l" file="Geometry/foot_r_y2j.stl" scale="1 1 -1"/>
+        <mesh name="spine" file="Geometry/spine.stl"/>
+        <mesh name="pelvis_r" file="Geometry/pelvis_r.stl"/>
+        <mesh name="femur_r" file="Geometry/femur_r.stl"/>
+        <mesh name="tibia_r" file="Geometry/tibia_r.stl"/>
+        <mesh name="foot_r" file="Geometry/foot_r.stl"/>
+        <mesh name="pelvis_l" file="Geometry/pelvis_r.stl" scale="1 1 -1"/>
+        <mesh name="femur_l" file="Geometry/femur_r.stl" scale="1 1 -1"/>
+        <mesh name="tibia_l" file="Geometry/tibia_r.stl" scale="1 1 -1"/>
+        <mesh name="foot_l" file="Geometry/foot_r.stl" scale="1 1 -1"/>
     </asset>
     <worldbody>
         <body name="spine" euler="90 0 0">

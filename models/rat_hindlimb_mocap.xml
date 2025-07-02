@@ -1,5 +1,5 @@
 <mujoco>    
-    <include file="rat_hindlimb.xml"/>
+    <include file="converted/rat_hindlimb_bilateral_cvt2.xml"/>
 
     <visual>
         <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3" specular="0 0 0"/>
