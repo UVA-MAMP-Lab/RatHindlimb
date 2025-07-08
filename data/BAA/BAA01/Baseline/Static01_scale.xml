@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<OpenSimDocument Version="40500">
+<OpenSimDocument Version="40600">
 	<ScaleSet name="ScaleSet">
 		<objects>
 			<Scale>
@@ -33,47 +33,47 @@
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 0.89711305221432147139 0.89711305221432147139 0.89711305221432147139</scales>
+				<scales> 0.897113 0.897113 0.897113</scales>
 				<segment>spine</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 0.79049954286447776663 0.79049954286447776663 0.92518874304283960086</scales>
+				<scales> 0.7905 0.7905 0.925189</scales>
 				<segment>pelvis_r</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 0.99083552552225884202 0.99083552552225884202 0.99083552552225884202</scales>
+				<scales> 0.990836 0.990836 0.990836</scales>
 				<segment>femur_r</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 1.0457108300207893503 1.0457108300207893503 1.0457108300207893503</scales>
+				<scales> 1.04571 1.04571 1.04571</scales>
 				<segment>tibia_r</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 1.0406578405344459881 1.0406578405344459881 1.0406578405344459881</scales>
+				<scales> 1.04066 1.04066 1.04066</scales>
 				<segment>foot_r</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 0.79049954286447776663 0.79049954286447776663 0.92518874304283960086</scales>
+				<scales> 0.7905 0.7905 0.925189</scales>
 				<segment>pelvis_l</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 1.006563073546421716 1.006563073546421716 1.006563073546421716</scales>
+				<scales> 1.00656 1.00656 1.00656</scales>
 				<segment>femur_l</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 1.0457108300207893503 1.0457108300207893503 1.0457108300207893503</scales>
+				<scales> 1.04571 1.04571 1.04571</scales>
 				<segment>tibia_l</segment>
 				<apply>true</apply>
 			</Scale>
 			<Scale>
-				<scales> 0.97289718333910635284 0.97289718333910635284 0.97289718333910635284</scales>
+				<scales> 0.972897 0.972897 0.972897</scales>
 				<segment>foot_l</segment>
 				<apply>true</apply>
 			</Scale>
