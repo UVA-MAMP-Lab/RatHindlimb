@@ -91,13 +91,25 @@ def valid_walk(trial: Trial, required_markers: list[str]) -> bool:
             warnings.warn(f"Trial {trial.name} has events out of order or with incorrect context/label")
             return False
     # Check for required markers for every frame between first and last events
-    first_event = trial.events[0].get_frame(trial.points.rate) or 0
-    last_event = trial.events[-1].get_frame(trial.points.rate) or trial.points.total_frames
-    if trial.check_point_gaps(required_markers, regions = [(first_event, last_event)]):
-        warnings.warn(f"Trial {trial.name} has gaps in required markers between events")
+    first_event_frame = trial.events[0].get_frame(trial.points.rate)
+    last_event_frame = trial.events[-1].get_frame(trial.points.rate)
+    
+    # Ensure we have valid frame numbers
+    if first_event_frame is None:
+        warnings.warn(f"Trial {trial.name} first event has no valid frame number")
+        return False
+    if last_event_frame is None:
+        warnings.warn(f"Trial {trial.name} last event has no valid frame number")
         return False
     
-    # TODO: Check for force plate contexts labeled for left and right
+    # Check for gaps in required markers between events
+    gaps = trial.check_point_gaps(required_markers, regions=[(first_event_frame, last_event_frame)])
+    if gaps:
+        # Check if any marker has gaps
+        has_gaps = any(gap_list for gap_list in gaps.values())
+        if has_gaps:
+            warnings.warn(f"Trial {trial.name} has gaps in required markers between events: {gaps}")
+            return False
     
     return True
 
@@ -296,6 +308,7 @@ def process_session(session_path: str,
                     force_units: str = 'N',
                     moment_units: str = 'Nm',
 ):
+    session_path = os.path.normpath(session_path)
     if not os.path.isdir(session_path):
         raise ValueError(f"Session path is not a directory: {session_path}")
     
@@ -365,4 +378,60 @@ def process_session(session_path: str,
         except Exception as e:
             print(f"Error processing walking trial {walk_file}: {e}")
             continue
+    return results
+
+def create_session_globs(spec: dict) -> list[str]:
+    """
+    Create glob patterns for session directories based on the control group specification.
+    
+    Specification format:
+    {
+        "Classification": {
+            "SubjectPattern": ["Session1", "Session2", ...]
+        }
+    }
+    """
+    session_globs = []
+    for classification, subjects in spec.items():
+        for subject_pattern, sessions in subjects.items():
+            for session in sessions:
+                if subject_pattern == "*":
+                    # Use glob wildcard for all subjects
+                    pattern = os.path.join(classification, "*", session)
+                else:
+                    # Use specific subject name
+                    pattern = os.path.join(classification, subject_pattern, session)
+                session_globs.append(pattern)
+                print(f"Created pattern: {pattern}")  # Debug output
+    return session_globs
+
+def process_spec(root_dir: str, spec: dict) -> dict:
+    """
+    Process the control group specification to create a structured dictionary of session globs.
+    """
+    results = {}
+    for session_glob in create_session_globs(spec):
+        # Find all matching session directories
+        full_pattern = os.path.join(root_dir, session_glob)
+        print(f"Searching with pattern: {full_pattern}")
+        session_dirs = glob.glob(full_pattern)
+        print(f"Found {len(session_dirs)} matching directories")
+        
+        for session_dir in session_dirs:
+            # Process each session directory
+            print(f"Processing session: {session_dir}")
+            try:
+                session_results = process_session(session_dir)
+                classification = os.path.basename(os.path.dirname(os.path.dirname(session_dir)))
+                subject = os.path.basename(os.path.dirname(session_dir))
+                session_name = os.path.basename(session_dir)
+
+                if classification not in results:
+                    results[classification] = {}
+                if subject not in results[classification]:
+                    results[classification][subject] = {}
+                results[classification][subject][session_name] = session_results
+
+            except Exception as e:
+                print(f"Error processing session {session_dir}: {e}")
     return results
