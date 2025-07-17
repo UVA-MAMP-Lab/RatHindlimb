@@ -548,7 +548,7 @@
 									</SurfaceProperties>
 								</Appearance>
 								<!--The radius of the cylinder.-->
-								<radius>0.0026752572</radius>
+								<radius>0.0026752572000000004</radius>
 								<!--The length of the cylinder.-->
 								<length>0.030299764879999996</length>
 							</WrapCylinder>
@@ -3640,9 +3640,9 @@
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>18.800000000000001</max_isometric_force>
 					<!--Optimal length of the muscle fibers-->
-					<optimal_fiber_length>0.016260548706726503</optimal_fiber_length>
+					<optimal_fiber_length>0.01626054870672651</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0061503654327351434</tendon_slack_length>
+					<tendon_slack_length>0.0061503654327351451</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.21991148999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7128,9 +7128,9 @@
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>18.800000000000001</max_isometric_force>
 					<!--Optimal length of the muscle fibers-->
-					<optimal_fiber_length>0.016325005125993986</optimal_fiber_length>
+					<optimal_fiber_length>0.016325005125993941</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0043662411850042696</tendon_slack_length>
+					<tendon_slack_length>0.0043662411850042583</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.21991148999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -9649,9 +9649,9 @@
 					<!--Maximum isometric force that the fibers can generate-->
 					<max_isometric_force>2.8999999999999999</max_isometric_force>
 					<!--Optimal length of the muscle fibers-->
-					<optimal_fiber_length>0.0066071221581520054</optimal_fiber_length>
+					<optimal_fiber_length>0.0066071221581520071</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0095598297378096213</tendon_slack_length>
+					<tendon_slack_length>0.009559829737809623</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.24260076999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -9762,7 +9762,7 @@
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
 					<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
-					<location>0.017169364145935225 0.0023835298472377475 0.011947801562629812</location>
+					<location>0.017169364145603307 0.0023835298477859201 0.011947801562725294</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
 					<fixed>false</fixed>
 				</Marker>
@@ -9770,7 +9770,7 @@
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
 					<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
-					<location>-0.0045568285430396052 0.0025397529293204602 0.0078913738397267223</location>
+					<location>-0.0045568285433417975 0.0025397529297775112 0.0078913738396595053</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
 					<fixed>false</fixed>
 				</Marker>
@@ -9778,7 +9778,7 @@
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
 					<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
-					<location>-0.0032257554359588058 -0.029419562530194045 0.015200787060019025</location>
+					<location>-0.0032257554356675891 -0.029419562530061026 0.015200787059824986</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
 					<fixed>false</fixed>
 				</Marker>
@@ -9802,7 +9802,7 @@
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
 					<socket_parent_frame>/bodyset/spine</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
-					<location>-0.0079676910509007964 0.0030636511758302398 -0.0040364947418786573</location>
+					<location>-0.007967691051060613 0.003063651175932422 -0.004036494742065546</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
 					<fixed>false</fixed>
 				</Marker>
@@ -9818,7 +9818,7 @@
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
 					<socket_parent_frame>/bodyset/pelvis_l</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
-					<location>0.023474359275259121 -0.00038416441894666142 -0.0069217040646129581</location>
+					<location>0.023474359275201927 -0.00038416441898245224 -0.00692170406442651</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
 					<fixed>false</fixed>
 				</Marker>
@@ -9826,7 +9826,7 @@
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
 					<socket_parent_frame>/bodyset/pelvis_l</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
-					<location>0.0017139475657311533 0.00067221475206395709 -0.010589796299016005</location>
+					<location>0.0017139475656997409 0.00067221475194323421 -0.010589796299006981</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
 					<fixed>false</fixed>
 				</Marker>
@@ -9834,7 +9834,7 @@
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
 					<socket_parent_frame>/bodyset/femur_l</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
-					<location>-0.00026494203685903384 -0.035863997392087607 -0.0082953807117943784</location>
+					<location>-0.00026494203683584405 -0.035863997392075506 -0.0082953807114467606</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
 					<fixed>false</fixed>
 				</Marker>

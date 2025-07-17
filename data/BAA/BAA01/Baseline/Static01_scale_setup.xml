@@ -12,9 +12,9 @@
 		<!--Specifies the name of the unscaled model (.osim) and the marker set.-->
 		<GenericModelMaker>
 			<!--Model file (.osim) for the unscaled model.-->
-			<model_file>c:\Users\hpb7kr\Documents\GitHub\RatHindlimb\models\osim\FinalBilateral_millard_tsl_gait.osim</model_file>
+			<model_file>/home/hudson/RatHindlimb/models/osim/FinalBilateral_millard_tsl_gait.osim</model_file>
 			<!--Set of model markers used to scale the model. Scaling is done based on distances between model markers compared to the same distances between the corresponding experimental markers.-->
-			<marker_set_file>c:\Users\hpb7kr\Documents\GitHub\RatHindlimb\models\osim\rat_hindlimb_bilateral_markerset.xml</marker_set_file>
+			<marker_set_file>/home/hudson/RatHindlimb/models/osim/rat_hindlimb_bilateral_markerset.xml</marker_set_file>
 		</GenericModelMaker>
 		<!--Specifies parameters for scaling the model.-->
 		<ModelScaler>
@@ -197,9 +197,9 @@
 			<!--Flag (true or false) indicating whether or not to preserve relative mass between segments.-->
 			<preserve_mass_distribution>false</preserve_mass_distribution>
 			<!--Name of OpenSim model file (.osim) to write when done scaling.-->
-			<output_model_file>c:\Users\hpb7kr\Documents\GitHub\RatHindlimb\data\BAA\BAA01\Baseline\Static01_scaled.osim</output_model_file>
+			<output_model_file>/home/hudson/RatHindlimb/data/BAA/BAA01/Baseline/Static01_scaled.osim</output_model_file>
 			<!--Name of file to write containing the scale factors that were applied to the unscaled model (optional).-->
-			<output_scale_file>c:\Users\hpb7kr\Documents\GitHub\RatHindlimb\data\BAA\BAA01\Baseline\Static01_scale.xml</output_scale_file>
+			<output_scale_file>/home/hudson/RatHindlimb/data/BAA/BAA01/Baseline/Static01_scale.xml</output_scale_file>
 		</ModelScaler>
 		<!--Specifies parameters for placing markers on the model once a model is scaled. -->
 		<MarkerPlacer>

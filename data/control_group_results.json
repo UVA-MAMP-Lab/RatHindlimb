@@ -1,0 +1,17 @@
+{
+    "BAA": {
+        "BAA01": {
+            "Baseline": {
+                "static_trial": "data/BAA/BAA01/Baseline/Static01.pkl",
+                "scaled_model": "/home/hudson/RatHindlimb/data/BAA/BAA01/Baseline/Static01_marker.osim",
+                "walking_trials": {
+                    "data/BAA/BAA01/Baseline/Walk05.pkl": {
+                        "ik": "data/BAA/BAA01/Baseline/Walk05_ik.mot",
+                        "id": "data/BAA/BAA01/Baseline/Walk05_id.mot",
+                        "grf": "data/BAA/BAA01/Baseline/Walk05_fp_setup.xml"
+                    }
+                }
+            }
+        }
+    }
+}

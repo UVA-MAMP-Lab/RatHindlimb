@@ -1,4 +1,4 @@
-PathFileType	4	(X/Y/Z)	data\BAA\BAA01\Baseline\Static01.trc
+PathFileType	4	(X/Y/Z)	data/BAA/BAA01/Baseline/Static01.trc
 DataRate	CameraRate	NumFrames	NumMarkers	Units	OrigDataRate	OrigDataStartFrame	OrigNumFrames
 200.0	200.0	676	12	m	200.0	0	676
 Frame#	Time	TAIL			SPL6			RASI			LASI			LHIP			LKNE			LANK			LTOE			RHIP			RKNE			RANK			RTOE			

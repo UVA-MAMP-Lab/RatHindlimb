@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<OpenSimDocument Version="40500">
+<OpenSimDocument Version="40600">
 	<ExternalLoads>
 		<objects>
 			<ExternalForce name="FP3">
@@ -16,7 +16,7 @@
 				<!--Identifier (string) to locate the torque to be applied in the data source.-->
 				<torque_identifier>moment3_</torque_identifier>
 				<!--Name of the data source (Storage) that will supply the force data.-->
-				<data_source_name>Walk05_FP.mot</data_source_name>
+				<data_source_name>data/BAA/BAA01/Baseline/Walk05_fp.mot</data_source_name>
 			</ExternalForce>
 			<ExternalForce name="FP4">
 				<!--Name of the body the force is applied to.-->
@@ -32,11 +32,11 @@
 				<!--Identifier (string) to locate the torque to be applied in the data source.-->
 				<torque_identifier>moment4_</torque_identifier>
 				<!--Name of the data source (Storage) that will supply the force data.-->
-				<data_source_name>Walk05_FP.mot</data_source_name>
+				<data_source_name>data/BAA/BAA01/Baseline/Walk05_fp.mot</data_source_name>
 			</ExternalForce>
 		</objects>
 		<groups />
 		<!--Storage file (.sto) containing (3) components of force and/or torque and point of application.Note: this file overrides the data source specified by the individual external forces if specified.-->
-		<datafile>Walk05_FP.mot</datafile>
+		<datafile>data/BAA/BAA01/Baseline/Walk05_fp.mot</datafile>
 	</ExternalLoads>
 </OpenSimDocument>

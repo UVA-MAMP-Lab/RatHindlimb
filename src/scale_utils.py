@@ -1,6 +1,8 @@
 import opensim as osim
 from movedb.core import Trial
 import numpy as np
+import os
+
 
 # Drawn from Johnson's opensim rat model
 base_femur_length: float = float(np.linalg.norm([-0.0035000000000000001, -0.031199999999999999, -0.0050000000000000001]) * 1000)
@@ -76,7 +78,6 @@ def foot_moi(side: str, foot_length: float, mass: float) -> tuple[float, float, 
         (0.000364591)*(mass)*(foot_length/1000)**2
     )
 
-import os
 def scale_opensim_model(trial: Trial,
                         unscaled_model_path: str, 
                         marker_set_path: str, 
@@ -145,14 +146,12 @@ def scale_opensim_model(trial: Trial,
     generic_model_maker.setModelFileName(unscaled_model_path)
     generic_model_maker.setMarkerSetFileName(marker_set_path)
 
-    scale_setup_path = os.path.join(output_dir, f"{trial.name}_scale_setup.xml")
-    scale_tool.printToXML(scale_setup_path)
-    trial.link_file("scale_setup", scale_setup_path)
-    
-    scale_tool = osim.ScaleTool(scale_setup_path) # I don't think this is necessary, but it seems to be MAMP convention
+    new_scale_setup_path = os.path.join(output_dir, f"{trial.name}_scale_setup.xml")
+    scale_tool.printToXML(new_scale_setup_path)
+
+    scale_tool = osim.ScaleTool(new_scale_setup_path) # I don't think this is necessary, but it seems to be MAMP convention
 
     scale_tool.run()
-    trial.link_file("scale_factors", scale_factors_path)
     
     
     scaled_model = osim.Model(scaled_model_path)
@@ -186,6 +185,6 @@ def scale_opensim_model(trial: Trial,
             foot.set_inertia(osim.Vec6(*foot_moi(side, foot_length, subject_mass), 0, 0, 0))
         out_path = os.path.join(output_dir, model.getName() + ".osim")
         model.printToXML(out_path)
-    trial.link_file("scaled_model", scaled_model_path)
-    trial.link_file("marker_model", marker_model_path)
+
+    return scaled_model_path, marker_model_path, new_scale_setup_path, scale_factors_path
 
