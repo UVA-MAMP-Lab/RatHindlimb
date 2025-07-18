@@ -46,7 +46,7 @@ def valid_static(trial: Trial,
         - Parameters needed for scaling
     """
     # There must be at least one frame with all required markers
-    if not trial.find_full_frames(required_markers):
+    if not trial.points.find_full_frames(required_markers):
         warnings.warn(f"Trial {trial.name} has no frames with all required markers")
         return False
     for parameter in required_parameters:
@@ -59,57 +59,48 @@ def valid_walk(trial: Trial, required_markers: list[str]) -> bool:
     """
     For rat trials, a valid walk trial will have:
         - 7 events in frame / time order:
-        - Lead Foot Strike
-        - Opposite Foot Off
-        - Opposite Foot Strike
-        - Lead Foot Off
-        - Lead Foot Strike
-        - Opposite Foot Off
-        - Opposite Foot Strike
+            - Lead Foot Strike
+            - Opposite Foot Off
+            - Opposite Foot Strike
+            - Lead Foot Off
+            - Lead Foot Strike
+            - Opposite Foot Off
+            - Opposite Foot Strike
         - Markers for every frame in events
         - Force plate contexts labeled for left and right
         - If > 1 force plate labeled for either left or right, must be consecutive (?)
     """
-    # Check order of events
-    if len(trial.events) != 7:
-        warnings.warn(f"Trial {trial.name} has {len(trial.events)} events, expected 7")
+    # Check for stance swing phase events
+    for side in ['Left', 'Right']:
+        lead_context = side
+        opposite_context = 'Right' if side == 'Left' else 'Left'
+        stance_swing_events = [
+            (lead_context, "Foot Strike"),
+            (opposite_context, "Foot Off"),
+            (opposite_context, "Foot Strike"),
+            (lead_context, "Foot Off"),
+            (lead_context, "Foot Strike"),
+            (opposite_context, "Foot Off"),
+            (opposite_context, "Foot Strike")
+        ]
+        phases = trial.get_event_sequences(stance_swing_events, strict=True)
+        if len(phases) >= 1:
+            print(f"Found {len(phases)} stance-swing phases for {side} side in trial {trial.name}")
+            break
+    else:
+        warnings.warn(f"Trial {trial.name} does not have valid stance-swing phases for Left or Right side")
         return False
-    # Check for correct context + label order (Events should already be in order by frame/time)
-    lead_context = trial.events[0].context
-    opposite_context = "Right" if lead_context == "Left" else "Left"
-    expected_order = [
-        (lead_context, "Foot Strike"),
-        (opposite_context, "Foot Off"),
-        (opposite_context, "Foot Strike"),
-        (lead_context, "Foot Off"),
-        (lead_context, "Foot Strike"),
-        (opposite_context, "Foot Off"),
-        (opposite_context, "Foot Strike"),
-    ]        
-    for event, expected in zip(trial.events, expected_order):
-        if (event.context, event.label) != expected:
-            warnings.warn(f"Trial {trial.name} has events out of order or with incorrect context/label")
-            return False
+    
     # Check for required markers for every frame between first and last events
     first_event_frame = trial.events[0].get_frame(trial.points.rate)
     last_event_frame = trial.events[-1].get_frame(trial.points.rate)
     
-    # Ensure we have valid frame numbers
-    if first_event_frame is None:
-        warnings.warn(f"Trial {trial.name} first event has no valid frame number")
-        return False
-    if last_event_frame is None:
-        warnings.warn(f"Trial {trial.name} last event has no valid frame number")
-        return False
-    
     # Check for gaps in required markers between events
-    gaps = trial.check_point_gaps(required_markers, regions=[(first_event_frame, last_event_frame)])
-    if gaps:
-        # Check if any marker has gaps
-        has_gaps = any(gap_list for gap_list in gaps.values())
-        if has_gaps:
-            warnings.warn(f"Trial {trial.name} has gaps in required markers between events: {gaps}")
-            return False
+    gaps = trial.points.get_gaps(required_markers, regions=[(first_event_frame, last_event_frame)])
+    has_gaps = any(gap_list for gap_list in gaps.values())
+    if has_gaps:
+        warnings.warn(f"Trial {trial.name} has gaps in required markers between events: {gaps}")
+        return False
     
     return True
 
