@@ -239,7 +239,7 @@ def process_walking(trial: Trial,
             force_identifier=force_identifier,
             point_identifier=point_identifier,
             torque_identifier=torque_identifier,
-            data_source_name=mot_path
+            data_source_name=os.path.basename(mot_path),
         ))
 
         # Apply rotation to the force platform data        
@@ -280,9 +280,9 @@ def process_walking(trial: Trial,
     export_external_loads(
         filepath=external_loads_path,
         external_forces=ext_forces,
-        datafile_name=mot_path
+        datafile_name=os.path.basename(mot_path)
     )
-    
+    # TODO: Deal with paths
     id_results_path, id_setup_path = opensim_id(
         name=trial.name,
         model_path=model_path,
@@ -363,7 +363,8 @@ def process_session(session_path: str,
             walk_results = {
                 'ik': walk_file.replace('.c3d', '_ik.mot'),
                 'id': walk_file.replace('.c3d', '_id.sto'),
-                'grf': walk_file.replace('.c3d', '_fp_setup.xml')
+                'fp_setup': walk_file.replace('.c3d', '_fp_setup.xml'),
+                'fp_mot': walk_file.replace('.c3d', '_fp.mot'),
             }
             results['walking_trials'][pkl_path] = walk_results
         except Exception as e:
