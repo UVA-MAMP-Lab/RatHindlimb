@@ -327,7 +327,7 @@ class MusculoskeletalGraph(osim.Model): #TODO: Should probably just be a wrapper
             # check for locked coordinates
             unlocked_coords = set([coord for coord in coord_set if not self.get_coordinate(coord).getDefaultLocked()])            
             if not unlocked_coords:
-                self.logger.warning(f"All coordinates in {coord_set} are locked for muscles {muscles}")
+                self.logger.warninging(f"All coordinates in {coord_set} are locked for muscles {muscles}")
                 continue
             
             # Iterate through coordinate combos
@@ -394,11 +394,11 @@ class MusculoskeletalGraph(osim.Model): #TODO: Should probably just be a wrapper
             # check for locked coordinates
             unlocked_coords = set([coord for coord in coord_set if not self.get_coordinate(coord).getDefaultLocked()])
             if not unlocked_coords:
-                self.logger.warning(f"All coordinates in {coord_set} are locked for muscles {muscles}")
+                self.logger.warninging(f"All coordinates in {coord_set} are locked for muscles {muscles}")
                 continue
             diff = coord_set.difference(unlocked_coords)
             if diff:
-                self.logger.warning(f"Locked coordinates {diff} for muscles {muscles}")
+                self.logger.warninging(f"Locked coordinates {diff} for muscles {muscles}")
             df = self.get_muscle_lengths_rom(list(muscles), muscle_coords=list(unlocked_coords), min_points=min_points)
             # Add the coordinate values and muscle lengths to the results dictionary for each muscle
             results.update({muscle: df[list(unlocked_coords) + [muscle]] for muscle in muscles})

@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.signal import butter, filtfilt
 from typing import Callable, Iterable
-import warnings
+from loguru import logger
 
 def _apply_filter_with_nan_handling(data: Iterable, filter_func: Callable) -> np.ndarray:
     """
