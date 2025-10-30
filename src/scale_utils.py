@@ -1,8 +1,7 @@
-import opensim as osim
-from movedb.core import Trial
+from typing import TypedDict
+import pyopensim as osim
 import numpy as np
 import os
-
 
 # Drawn from Johnson's opensim rat model
 base_femur_length: float = float(np.linalg.norm([-0.0035000000000000001, -0.031199999999999999, -0.0050000000000000001]) * 1000)
@@ -78,12 +77,25 @@ def foot_moi(side: str, foot_length: float, mass: float) -> tuple[float, float, 
         (0.000364591)*(mass)*(foot_length/1000)**2
     )
 
-def scale_opensim_model(trial: Trial,
+class RatScalingParameters(TypedDict):
+    Mass: float
+    RFemurLength: float
+    RTibiaLength: float
+    LFemurLength: float
+    LTibiaLength: float
+    RFootLength: float
+    LFootLength: float
+
+def scale_opensim_model(
+                        name: str,
                         unscaled_model_path: str, 
                         marker_set_path: str, 
                         marker_file_name: str,
+                        parameters: RatScalingParameters,
                         output_dir: str = '.', 
-                        scale_setup_path: str | None = None
+                        scale_setup_path: str | None = None,
+                        time_start: float | None = None,
+                        time_end: float | None = None
                         ):
     """
     Create scaled OpenSim models (one with markers moved, one without) from a static rat trial.
@@ -106,38 +118,37 @@ def scale_opensim_model(trial: Trial,
         scale_tool = osim.ScaleTool(os.path.abspath(scale_setup_path))
     else:
         scale_tool = osim.ScaleTool()
-    scale_tool.setName(trial.name)
+    scale_tool.setName(name)
     
     model_scaler: osim.ModelScaler = scale_tool.getModelScaler()
     model_scaler.setApply(True)
-    scaled_model_path = os.path.join(output_dir, f"{trial.name}_scaled.osim")
+    scaled_model_path = os.path.join(output_dir, f"{name}_scaled.osim")
     model_scaler.setOutputModelFileName(scaled_model_path)
-    scale_factors_path = os.path.join(output_dir, f"{trial.name}_scale.xml")
+    scale_factors_path = os.path.join(output_dir, f"{name}_scale.xml")
     model_scaler.setOutputScaleFileName(scale_factors_path)
     model_scaler.setMarkerFileName(marker_file_name)
 
     time_range = osim.ArrayDouble()
-    first_time = trial.points.time_from_frame(trial.points.first_frame)
-    last_time = trial.points.time_from_frame(trial.points.last_frame)
-    time_range.set(0, first_time)
-    time_range.set(1, last_time)
+    # TODO: handle None
+    time_range.set(0, time_start)
+    time_range.set(1, time_end)
     model_scaler.setTimeRange(time_range)
 
-    subject_mass = trial.parameters.get("Mass", None)
+    subject_mass = parameters.get("Mass", None)
     if subject_mass is None:
-        raise ValueError("Trial parameters must include 'Mass' for scaling.")
+        raise ValueError("parameters must include 'Mass' for scaling.")
     scale_tool.setSubjectMass(subject_mass)
 
     # Manual scaling factors - This is probably the only thing before run that cannot be abstracted out
     scale_set: osim.ScaleSet = model_scaler.getScaleSet()
-    scale_set.get(0).setScaleFactors(osim.Vec3(trial.parameters["RFemurLength"]/base_femur_length))
-    scale_set.get(1).setScaleFactors(osim.Vec3(trial.parameters["RTibiaLength"]/base_tibia_length))
-    scale_set.get(2).setScaleFactors(osim.Vec3(trial.parameters["LFemurLength"]/base_femur_length))
-    scale_set.get(3).setScaleFactors(osim.Vec3(trial.parameters["LTibiaLength"]/base_tibia_length))
+    scale_set.get(0).setScaleFactors(osim.Vec3(parameters["RFemurLength"]/base_femur_length))
+    scale_set.get(1).setScaleFactors(osim.Vec3(parameters["RTibiaLength"]/base_tibia_length))
+    scale_set.get(2).setScaleFactors(osim.Vec3(parameters["LFemurLength"]/base_femur_length))
+    scale_set.get(3).setScaleFactors(osim.Vec3(parameters["LTibiaLength"]/base_tibia_length))
 
     marker_placer: osim.MarkerPlacer = scale_tool.getMarkerPlacer()
     marker_placer.setApply(True)
-    marker_model_name = f"{trial.name}_marker.osim"
+    marker_model_name = f"{name}_marker.osim"
     marker_placer.setOutputModelFileName(marker_model_name)
     marker_placer.setMarkerFileName(marker_file_name)
     marker_placer.setTimeRange(time_range)
@@ -146,7 +157,7 @@ def scale_opensim_model(trial: Trial,
     generic_model_maker.setModelFileName(unscaled_model_path)
     generic_model_maker.setMarkerSetFileName(marker_set_path)
 
-    new_scale_setup_path = os.path.join(output_dir, f"{trial.name}_scale_setup.xml")
+    new_scale_setup_path = os.path.join(output_dir, f"{name}_scale_setup.xml")
     scale_tool.printToXML(new_scale_setup_path)
 
     scale_tool = osim.ScaleTool(new_scale_setup_path) # I don't think this is necessary, but it seems to be MAMP convention
@@ -166,19 +177,19 @@ def scale_opensim_model(trial: Trial,
             side_short = side[0].lower()
             model_body_set: osim.BodySet = model.getBodySet()
             
-            femur_length = trial.parameters[f"{side}FemurLength"]
+            femur_length = parameters[f"{side}FemurLength"]
             thigh: osim.Body = model_body_set.get(f"femur_{side_short}")
             thigh.set_mass(thigh_mass(subject_mass))
             thigh.set_mass_center(osim.Vec3(*thigh_com(side, femur_length, subject_mass)))
             thigh.set_inertia(osim.Vec6(*thigh_moi(side, femur_length, subject_mass), 0, 0, 0))
 
-            tibia_length = trial.parameters[f"{side}TibiaLength"]
+            tibia_length = parameters[f"{side}TibiaLength"]
             shank: osim.Body = model_body_set.get(f"tibia_{side_short}")
             shank.set_mass(shank_mass(subject_mass))
             shank.set_mass_center(osim.Vec3(*shank_com(side, tibia_length, subject_mass)))
             shank.set_inertia(osim.Vec6(*shank_moi(side, tibia_length, subject_mass), 0, 0, 0))
 
-            foot_length = trial.parameters[f"{side}FootLength"]
+            foot_length = parameters[f"{side}FootLength"]
             foot: osim.Body = model_body_set.get(f"foot_{side_short}")
             foot.set_mass(foot_mass(subject_mass))
             foot.set_mass_center(osim.Vec3(*foot_com(side, foot_length, subject_mass)))

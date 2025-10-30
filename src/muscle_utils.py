@@ -1,8 +1,4 @@
-import opensim as osim
-import numpy as np
-import pandas as pd
-
-from src.manal_optimization import TSLOptimization
+import pyopensim as osim
 
 def thelen_to_millard(thelen : osim.Thelen2003Muscle) -> osim.Millard2012EquilibriumMuscle:
     """Convert Thelen2003Muscle to Millard2012EquilibriumMuscle."""
@@ -73,33 +69,6 @@ def model_thelen_to_millard(model : osim.Model) -> osim.Model:
             # print(f"Converted muscle {muscle.getName()} to Millard2012EquilibriumMuscle.")
     for i in indices_to_remove[::-1]:
         force_set.remove(i)
-    return model
-
-def optimize_model_tsl(model: osim.Model, 
-                       muscle_lengths: dict[str, pd.DataFrame], 
-                       lm_norm_range: tuple[float, float] = (0.5, 1.6),
-                       method: str = 'SLSQP',
-                       objective: str = 'ssdp',
-                       max_tsl: float = 1.5
-                       ) -> osim.Model:
-    for muscle_name, muscle_data in muscle_lengths.items():
-        muscle = model.getMuscles().get(muscle_name)
-        if muscle is None:
-            print(f"Warning: Muscle {muscle_name} not found in the model.")
-            continue
-        opt = TSLOptimization.from_osim_muscle(muscle, lm_norm_range)
-        lmt_raw = muscle_data['length']
-        lmt = lmt_raw.drop_duplicates().sort_values().to_numpy()
-        lts = opt.optimize(lmt, method=method, objective=objective)
-        # print(f"Muscle: {muscle_name}, Tendon slack lengths: {lts}")
-        lts = lts[lts > np.finfo(float).eps]  # Remove any zero values
-        lts = lts[lts < max_tsl]
-        if len(lts) == 0:
-            print(f"Warning: No valid tendon slack lengths found for muscle {muscle_name}. Setting it to rigid.")
-            model.getMuscles().get(muscle_name).set_ignore_tendon_compliance(True)
-            continue
-        # Set the tendon slack length in the model
-        model.getMuscles().get(muscle_name).set_tendon_slack_length(np.mean(lts))
     return model
 
 def attachments_to_csv(model: osim.Model, filename: str) -> bool:

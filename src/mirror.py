@@ -1,5 +1,4 @@
-import opensim as osim
-from musculoskeletal_graph import MusculoskeletalGraph
+import pyopensim as osim
 import re
 
 def mirror_geometry(geometry : osim.Geometry, axes: list) -> osim.Geometry:
@@ -300,5 +299,3 @@ if __name__ == "__main__":
                  axes=[2], 
                  exclude_bodies=['ground', 'spine']
                 )
-
-
