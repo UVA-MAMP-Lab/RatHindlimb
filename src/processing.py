@@ -8,6 +8,8 @@ from movedb.models import Trial
 from movedb.osim import export_trc, export_mot, export_external_loads, opensim_id, opensim_ik, OpenSimExternalForce
 from .filters import marker_filter, force_plate_filter
 
+from loguru import logger
+
 # Model and setup file paths
 unscaled_model_path = os.path.join('models', 'osim', 'FinalBilateral_millard_tsl_gait.osim')
 marker_set_path = os.path.join('models', 'osim', 'rat_hindlimb_bilateral_markerset.xml')
@@ -36,11 +38,9 @@ def valid_static(trial: Trial,
         - OpenSim takes the average of all frames to calculate marker distances for scaling
         - Parameters needed for scaling
     """
-    # Check if all required markers are present in the trial
-    marker_names = {marker.name for marker in trial.markers}
-    missing_markers = [m for m in required_markers if m not in marker_names]
-    if missing_markers:
-        print(f"Trial {trial.name} is missing required markers: {missing_markers}")
+    # There must be at least one frame with all required markers
+    if not trial.points.find_full_frames(required_markers):
+        logger.warning(f"Trial {trial.name} has no frames with all required markers")
         return False
         
     # Check if we have enough data frames (at least one frame with all markers)
@@ -54,7 +54,7 @@ def valid_static(trial: Trial,
     
     for parameter in required_parameters:
         if parameter not in trial.parameters:
-            print(f"Trial {trial.name} is missing required parameter {parameter}")
+            logger.warning(f"Trial {trial.name} is missing required parameter {parameter}")
             return False
     return True
 
@@ -91,7 +91,7 @@ def valid_walk(trial: Trial, required_markers: list[str]) -> bool:
             print(f"Found {len(phases)} stance-swing phases for {side} side in trial {trial.name}")
             break
     else:
-        print(f"Trial {trial.name} does not have valid stance-swing phases for Left or Right side")
+        logger.warning(f"Trial {trial.name} does not have valid stance-swing phases for Left or Right side")
         return False
     
     # Check if all required markers are present
@@ -102,15 +102,19 @@ def valid_walk(trial: Trial, required_markers: list[str]) -> bool:
         return False
     
     # Check for gaps in required markers between events
-    # This is a simplified check - we would need to implement more sophisticated gap detection
-    # For now, just check that we have data for all required markers
-    for marker in trial.markers:
-        if marker.name in required_markers:
-            marker_df = marker.to_polars
-            if marker_df.is_empty():
-                print(f"Trial {trial.name} has no data for marker {marker.name}")
-                return False
+    gaps = trial.points.get_gaps(required_markers, regions=[(first_event_frame, last_event_frame)])
+    has_gaps = any(gap_list for gap_list in gaps.values())
+    if has_gaps:
+        logger.warning(f"Trial {trial.name} has gaps in required markers between events: {gaps}")
+        return False
     
+    # Check for force plate contexts labeled for left and right from ENF file
+    if not trial.force_platforms:
+        logger.warning(f"Trial {trial.name} has no force platforms")
+        return False
+    if len(trial.force_platforms) < 2:
+        logger.warning(f"Trial {trial.name} has less than 2 force platforms, cannot determine left/right")
+        return False
     return True
 
 def process_static(trial: Trial,
@@ -224,8 +228,12 @@ def process_walking(trial: Trial,
                     position_units: str = 'm',
                     force_units: str = 'N',
                     moment_units: str = 'Nm',
-                    ):
-    
+                    ) -> bool:
+    # Get applied bodies from the ENF file
+    contacted_fp = get_applied_bodies(enf_path)
+    if 'foot_l' not in contacted_fp.values() or 'foot_r' not in contacted_fp.values():
+        logger.warning(f"Trial {trial.name} does not have left and right foot force platforms labeled in ENF file")
+        return False
     if not valid_walk(trial, required_markers):
         raise ValueError(f"Not a valid walking trial: {trial.name}")
     
@@ -295,8 +303,7 @@ def process_walking(trial: Trial,
         end_time=end_time,
     )
     
-    # Get applied bodies from the ENF file
-    contacted_fp = get_applied_bodies(enf_path)
+    
     
     mot_path = os.path.join(output_dir, f"{trial.name}_fp.mot")
     mot_data = pl.DataFrame()
@@ -307,7 +314,7 @@ def process_walking(trial: Trial,
         torque_identifier = f'moment{i+1}_'
         
         if i + 1 not in contacted_fp:
-            print(f"Force platform {i+1} not found in ENF file, skipping.")
+            logger.warning(f"Force platform {i+1} not found in ENF file, skipping.")
             continue
         ext_forces.append(OpenSimExternalForce(
             name=f"FP{i+1}",
@@ -382,6 +389,8 @@ def process_walking(trial: Trial,
         external_loads_file=external_loads_path,
         excluded_forces=['Muscles']
     )
+    
+    return True
 
 def process_session(session_path: str,
                     rotation: np.ndarray = np.array([[1, 0, 0], [0, 0, 1], [0, -1, 0]]),
@@ -392,7 +401,6 @@ def process_session(session_path: str,
     session_path = os.path.normpath(session_path)
     if not os.path.isdir(session_path):
         raise ValueError(f"Session path is not a directory: {session_path}")
-    
     
     session = os.path.basename(session_path)
     classification = os.path.basename(os.path.dirname(session_path))
@@ -439,7 +447,8 @@ def process_session(session_path: str,
             adapter = C3DAdapter.from_file(walk_file)
             trial = adapter.to_trial(name=trial_name)
             enf_file = walk_file.replace('.c3d', '.Trial.enf')
-            process_walking(
+            
+            success = process_walking(
                 trial,
                 model_path=marker_model_path,
                 enf_path=enf_file,
@@ -450,6 +459,9 @@ def process_session(session_path: str,
                 force_units=force_units,
                 moment_units=moment_units,
             )
+            if not success:
+                print(f"Skipping walking trial {walk_file} due to validation failure")
+                continue
             print(f"Successfully processed walking trial: {os.path.basename(walk_file)}")
             walk_results = {
                 'ik': walk_file.replace('.c3d', '_ik.mot'),
