@@ -5,7 +5,7 @@ import polars as pl
 from .scale_utils import scale_opensim_model, RatScalingParameters
 from movedb.ingest import C3DAdapter, parse_enf_file
 from movedb.models import Trial
-from movedb.osim import export_trc, export_mot, export_external_loads, opensim_id, opensim_ik, OpenSimExternalForce
+from movedb.osim import export_trc, export_mot, export_external_loads, OpenSimExternalForce
 from .filters import marker_filter, force_plate_filter
 
 from loguru import logger
@@ -103,17 +103,16 @@ def valid_walk(trial: Trial, required_markers: list[str]) -> bool:
     
     # Check for gaps in required markers between events
     gaps = trial.points.get_gaps(required_markers, regions=[(first_event_frame, last_event_frame)])
-    has_gaps = any(gap_list for gap_list in gaps.values())
-    if has_gaps:
+    if any(gap_list for gap_list in gaps.values()):
         logger.warning(f"Trial {trial.name} has gaps in required markers between events: {gaps}")
         return False
     
     # Check for force plate contexts labeled for left and right from ENF file
-    if not trial.force_platforms:
-        logger.warning(f"Trial {trial.name} has no force platforms")
+    if not trial.forceplates:
+        logger.warning(f"Trial {trial.name} has no forceplates")
         return False
-    if len(trial.force_platforms) < 2:
-        logger.warning(f"Trial {trial.name} has less than 2 force platforms, cannot determine left/right")
+    if len(trial.forceplates) < 2:
+        logger.warning(f"Trial {trial.name} has less than 2 forceplates, cannot determine left/right")
         return False
     return True
 
@@ -473,62 +472,4 @@ def process_session(session_path: str,
         except Exception as e:
             print(f"Error processing walking trial {walk_file}: {e}")
             continue
-    return results
-
-def create_session_globs(spec: dict) -> list[str]:
-    """
-    Create glob patterns for session directories based on the control group specification.
-    
-    Specification format:
-    {
-        "Classification": {
-            "SubjectPattern": ["Session1", "Session2",Let me first examine the current movedb models to understand the new structure, and then analyze the differences with the old version used in the processing functions.
-
- ...]
-        }
-    }
-    """
-    session_globs = []
-    for classification, subjects in spec.items():
-        for subject_pattern, sessions in subjects.items():
-            for session in sessions:
-                if subject_pattern == "*":
-                    # Use glob wildcard for all subjects
-                    pattern = os.path.join(classification, "*", session)
-                else:
-                    # Use specific subject name
-                    pattern = os.path.join(classification, subject_pattern, session)
-                session_globs.append(pattern)
-                print(f"Created pattern: {pattern}")  # Debug output
-    return session_globs
-
-def process_spec(root_dir: str, spec: dict) -> dict:
-    """
-    Process the control group specification to create a structured dictionary of session globs.
-    """
-    results = {}
-    for session_glob in create_session_globs(spec):
-        # Find all matching session directories
-        full_pattern = os.path.join(root_dir, session_glob)
-        print(f"Searching with pattern: {full_pattern}")
-        session_dirs = glob.glob(full_pattern)
-        print(f"Found {len(session_dirs)} matching directories")
-        
-        for session_dir in session_dirs:
-            # Process each session directory
-            print(f"Processing session: {session_dir}")
-            try:
-                session_results = process_session(session_dir)
-                classification = os.path.basename(os.path.dirname(os.path.dirname(session_dir)))
-                subject = os.path.basename(os.path.dirname(session_dir))
-                session_name = os.path.basename(session_dir)
-
-                if classification not in results:
-                    results[classification] = {}
-                if subject not in results[classification]:
-                    results[classification][subject] = {}
-                results[classification][subject][session_name] = session_results
-
-            except Exception as e:
-                print(f"Error processing session {session_dir}: {e}")
     return results

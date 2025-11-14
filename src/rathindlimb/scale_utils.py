@@ -1,5 +1,9 @@
 from typing import TypedDict
-import pyopensim as osim
+
+from pyopensim.tools import ScaleTool, ModelScaler, MarkerPlacer, GenericModelMaker
+from pyopensim.simulation import Body, Model, BodySet
+from pyopensim.simbody import Vec3, Vec6
+from pyopensim.common import ArrayDouble, ScaleSet
 import numpy as np
 import os
 
@@ -115,12 +119,12 @@ def scale_opensim_model(
     marker_file_name = os.path.basename(marker_file_name) # Ensure we only use the file name, not the path
     
     if scale_setup_path is not None and os.path.exists(scale_setup_path):
-        scale_tool = osim.ScaleTool(os.path.abspath(scale_setup_path))
+        scale_tool = ScaleTool(os.path.abspath(scale_setup_path))
     else:
-        scale_tool = osim.ScaleTool()
+        scale_tool = ScaleTool()
     scale_tool.setName(name)
-    
-    model_scaler: osim.ModelScaler = scale_tool.getModelScaler()
+
+    model_scaler: ModelScaler = scale_tool.getModelScaler()
     model_scaler.setApply(True)
     scaled_model_path = os.path.join(output_dir, f"{name}_scaled.osim")
     model_scaler.setOutputModelFileName(scaled_model_path)
@@ -128,7 +132,7 @@ def scale_opensim_model(
     model_scaler.setOutputScaleFileName(scale_factors_path)
     model_scaler.setMarkerFileName(marker_file_name)
 
-    time_range = osim.ArrayDouble()
+    time_range = ArrayDouble()
     # TODO: handle None
     time_range.set(0, time_start)
     time_range.set(1, time_end)
@@ -140,60 +144,60 @@ def scale_opensim_model(
     scale_tool.setSubjectMass(subject_mass)
 
     # Manual scaling factors - This is probably the only thing before run that cannot be abstracted out
-    scale_set: osim.ScaleSet = model_scaler.getScaleSet()
-    scale_set.get(0).setScaleFactors(osim.Vec3(parameters["RFemurLength"]/base_femur_length))
-    scale_set.get(1).setScaleFactors(osim.Vec3(parameters["RTibiaLength"]/base_tibia_length))
-    scale_set.get(2).setScaleFactors(osim.Vec3(parameters["LFemurLength"]/base_femur_length))
-    scale_set.get(3).setScaleFactors(osim.Vec3(parameters["LTibiaLength"]/base_tibia_length))
+    scale_set: ScaleSet = model_scaler.getScaleSet()
+    scale_set.get(0).setScaleFactors(Vec3(parameters["RFemurLength"]/base_femur_length))
+    scale_set.get(1).setScaleFactors(Vec3(parameters["RTibiaLength"]/base_tibia_length))
+    scale_set.get(2).setScaleFactors(Vec3(parameters["LFemurLength"]/base_femur_length))
+    scale_set.get(3).setScaleFactors(Vec3(parameters["LTibiaLength"]/base_tibia_length))
 
-    marker_placer: osim.MarkerPlacer = scale_tool.getMarkerPlacer()
+    marker_placer: MarkerPlacer = scale_tool.getMarkerPlacer()
     marker_placer.setApply(True)
     marker_model_name = f"{name}_marker.osim"
     marker_placer.setOutputModelFileName(marker_model_name)
     marker_placer.setMarkerFileName(marker_file_name)
     marker_placer.setTimeRange(time_range)
     
-    generic_model_maker: osim.GenericModelMaker = scale_tool.getGenericModelMaker()
+    generic_model_maker: GenericModelMaker = scale_tool.getGenericModelMaker()
     generic_model_maker.setModelFileName(unscaled_model_path)
     generic_model_maker.setMarkerSetFileName(marker_set_path)
 
     new_scale_setup_path = os.path.join(output_dir, f"{name}_scale_setup.xml")
     scale_tool.printToXML(new_scale_setup_path)
 
-    scale_tool = osim.ScaleTool(new_scale_setup_path) # I don't think this is necessary, but it seems to be MAMP convention
+    scale_tool = ScaleTool(new_scale_setup_path) # I don't think this is necessary, but it seems to be MAMP convention
 
     scale_tool.run()
     
     
-    scaled_model = osim.Model(scaled_model_path)
+    scaled_model = Model(scaled_model_path)
     scaled_model.setName(scaled_model_path.replace(".osim", ""))
 
     marker_model_path = os.path.join(output_dir, marker_model_name)
-    marker_model = osim.Model(marker_model_path)
+    marker_model = Model(marker_model_path)
     marker_model.setName(marker_model_name.replace(".osim", ""))
     
     for model in [scaled_model, marker_model]:
         for side in ["L", "R"]:
             side_short = side[0].lower()
-            model_body_set: osim.BodySet = model.getBodySet()
+            model_body_set: BodySet = model.getBodySet()
             
             femur_length = parameters[f"{side}FemurLength"]
-            thigh: osim.Body = model_body_set.get(f"femur_{side_short}")
+            thigh: Body = model_body_set.get(f"femur_{side_short}")
             thigh.set_mass(thigh_mass(subject_mass))
-            thigh.set_mass_center(osim.Vec3(*thigh_com(side, femur_length, subject_mass)))
-            thigh.set_inertia(osim.Vec6(*thigh_moi(side, femur_length, subject_mass), 0, 0, 0))
+            thigh.set_mass_center(Vec3(*thigh_com(side, femur_length, subject_mass)))
+            thigh.set_inertia(Vec6(*thigh_moi(side, femur_length, subject_mass), 0, 0, 0))
 
             tibia_length = parameters[f"{side}TibiaLength"]
-            shank: osim.Body = model_body_set.get(f"tibia_{side_short}")
+            shank: Body = model_body_set.get(f"tibia_{side_short}")
             shank.set_mass(shank_mass(subject_mass))
-            shank.set_mass_center(osim.Vec3(*shank_com(side, tibia_length, subject_mass)))
-            shank.set_inertia(osim.Vec6(*shank_moi(side, tibia_length, subject_mass), 0, 0, 0))
+            shank.set_mass_center(Vec3(*shank_com(side, tibia_length, subject_mass)))
+            shank.set_inertia(Vec6(*shank_moi(side, tibia_length, subject_mass), 0, 0, 0))
 
             foot_length = parameters[f"{side}FootLength"]
-            foot: osim.Body = model_body_set.get(f"foot_{side_short}")
+            foot: Body = model_body_set.get(f"foot_{side_short}")
             foot.set_mass(foot_mass(subject_mass))
-            foot.set_mass_center(osim.Vec3(*foot_com(side, foot_length, subject_mass)))
-            foot.set_inertia(osim.Vec6(*foot_moi(side, foot_length, subject_mass), 0, 0, 0))
+            foot.set_mass_center(Vec3(*foot_com(side, foot_length, subject_mass)))
+            foot.set_inertia(Vec6(*foot_moi(side, foot_length, subject_mass), 0, 0, 0))
         out_path = os.path.join(output_dir, model.getName() + ".osim")
         model.printToXML(out_path)
 

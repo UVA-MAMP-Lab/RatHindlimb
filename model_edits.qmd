@@ -1,0 +1,197 @@
+---
+title: "Rat Hindlimb Model Edits"
+format:
+  html:
+    code-fold: false
+jupyter: python3
+---
+Original model drawn from https://simtk.org/projects/rat_hlimb_model 
+
+```{python}
+import pyopensim as osim
+
+model = osim.Model('./models/osim/rat_hindlimb.osim')
+```
+
+## Conversion to Millard muscles
+The original model uses Thelen muscle models, which have been largely superseded by Millard muscle models in OpenSim. We can convert the muscles using the [`model_thelen_to_millard`](src/rathindlimb/muscle_utils.py) function. 
+```{python} 
+from rathindlimb import model_thelen_to_millard
+
+millard_model = model_thelen_to_millard(model)
+millard_model.printToXML('./models/osim/rat_hindlimb_millard.osim')
+```
+
+## Muscle path analysis
+The model is moved through its full range of motion and muscle lengths are analyzed to identify discontinuties that may indicate problems with muscle path definitions. The `OsimGraph` class from `movedb` is used to represent an OpenSim model as a graph structure, which allows for efficient analysis of muscle paths.
+```{python}
+from movedb import OsimGraph
+
+graph = OsimGraph(millard_model)
+graph.analyze_muscle_lengths()
+```
+
+The muscle lengths are plotted on parallel coordinate plots with the joint angles that influence them. This allows for visual identification of muscles with discontinuous length changes.
+
+```{python}
+import plotly.graph_objects as go
+import os
+figure_dir = './figs'
+# TODO
+```
+
+### Discontinuous muscles
+The following muscles were identified as having discontinuous length changes:
+
+- BFa 
+![](./figs/BFa/BFa_length.png)
+
+Investigating the root cause of this, we found that the likely culprit is a hard-coded value in [OpenSim's WrapCylinder.cpp code](https://github.com/opensim-org/opensim-core/blob/f9cd558ec3ea99dda206e5e412e62e23cf19bd7e/OpenSim/Simulation/Wrap/WrapCylinder.cpp#L668) that determines the number of segments used to approximate the muscle path over a wrapping cylinder:
+
+```c
+// Each muscle segment on the surface of the cylinder should be
+// 0.002 meters long. This assumes the model is in meters, of course.
+int numWrapSegments = (int)(aWrapResult.wrap_path_length / 0.002);
+if (numWrapSegments < 1) numWrapSegments = 1;
+```
+
+This means that for cylinders with small circumferences, the muscle path may be approximated with very few segments, leading to abrupt changes in path length as the muscle wraps around the cylinder. To address this issue, we either need to modify the OpenSim source code to increase the number of segments used for wrapping or modify the wrapping paths in the model. 
+
+Johnson's original model relied heavily on wrapping surfaces, but a more recent work that built upon that original model and drew from Greene's original anatomical text defined a large set of attachment points for muscles instead of relying on wrapping surfaces. This newer model may avoid some of the issues with discontinuous muscle lengths. Unfortunately, that model was created for a software called [Animatlab](https://www.animatlab.com/), and there was no existing OpenSim version of it. 
+
+We were able to get in touch with the author of the Animatlab model, Dr. Young who provided the original files and assisted in understanding the model structure. From there, we manually recorded the muscle attachment points seen in the model as seen in @tbl-young-attachments.
+
+```{python}
+#| label: tbl-young-attachments
+
+from IPython.display import Markdown as md
+from tabulate import tabulate
+import polars as pl
+
+data = pl.read_csv('./data/attachments/young_model_attachments.csv')
+
+md(tabulate(data, headers='keys', tablefmt='pipe'))
+```
+
+The coordinate systems used in Animatlab differ from those in OpenSim, so a direct conversion is non-trivial. To be able to transfer the attachment points into our OpenSim model we needed to determine the necessary transformations between the coordinate systems. 
+The method we chose to do this was using mesh registration to align the bone geometries from the Animatlab model to those in our OpenSim model. Once aligned, we could apply the same transformations to the muscle attachment points to bring them into the OpenSim coordinate system. 
+
+We utilize the [`open3d`](http://www.open3d.org/) library to perform the mesh registration based on feature computation and the iterative closest point (ICP) algorithm [@missing-reference]. Additionally, we implement a function to compute the transformation matrices that will be used to transform the attachment points between models. 
+
+To make this process deterministic, we set the number of threads to one as RANSAC often runs-multi-threaded and the timing of thread completions can introduce stochastic behavior.
+
+TODO: Before and after and show muscle length plots to prove that what we did worked
+
+## Knee joint definition
+
+** TODO: Show plots proving what we say **
+
+In Johnson's orginal model, the tibia offset frame used as the parent frame for the knee joint is defined at the distal end of the tibia, and the spatial transform is handled by a `SimmSpline` component. When the model is scaled to subject-specific parameters, the knee motion is incorrect because the `SimmSpline` trajectory does not change, and the tibia offset frame does not move, so there is nothing to account for the new tibia length. To fix this, we adjust the tibia offset frame to be at the approximate joint center of the knee as determined by the instantaneous center of rotation (ICR) of the knee shown in @fig-knee
+
+![Knee ICR](./figs/knee-icr.png){#fig-knee}
+
+```{python}
+import pyopensim as osim
+
+#TODO: Move these somewhere else
+new_frame = [-0.00057, 0.0399598, 0.0038162]
+rotation2 = [-0.087266499999999996851, -0.075049199999999996469, -0.064577200000000001268, -0.052359900000000000886, -0.040142600000000000504, -0.029670599999999998364, -0.017453300000000001452, -0.0052359900000000002621, 0.0052359900000000002621, 0.017453300000000001452, 0.029670599999999998364, 0.040142600000000000504, 0.052359900000000000886, 0.064577200000000001268]
+rotation3 = [0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393, 0.26179900000000000393]
+translation1 = [-0.0052385299999999999226, -0.0046464799999999997077, -0.0040425699999999996706, -0.0034725400000000000884, -0.0029796499999999999202, -0.0025907899999999999333, -0.0022994299999999998768, -0.0021100099999999998371, -0.001995639999999999914, -0.0019320699999999999246, -0.0018704800000000001026, -0.0017793500000000000722, -0.0016382700000000000474, -0.0014133999999999999862]
+translation2 = [-0.034168400000000001548, -0.03425389999999999685, -0.034185599999999996546, -0.033972299999999996944, -0.033651100000000003232, -0.033278500000000002523, -0.032889799999999996816, -0.032550400000000000167, -0.032282499999999998697, -0.032116100000000001591, -0.032063200000000000034, -0.032110500000000000154, -0.032239700000000003077, -0.032414400000000002933]
+translation3 = [0.0026030200000000001601, 0.0028034100000000001032, 0.0028536500000000001101, 0.002903750000000000081, 0.0028935800000000001971, 0.0027731800000000000894, 0.0027023500000000000645, 0.0026110500000000001763, 0.002469499999999999907, 0.0024171399999999999136, 0.0024041000000000001605, 0.0023809000000000000302, 0.002496410000000000122, 0.0026910400000000000119]
+
+model = osim.Model('./models/osim/rat_hindlimb_millard_y2j.osim')
+model.initSystem()
+knee: osim.CustomJoint = osim.CustomJoint.safeDownCast(model.getJointSet().get('knee_r'))
+tibia_offset: osim.PhysicalOffsetFrame = osim.PhysicalOffsetFrame.safeDownCast(knee.getChildFrame())
+tibia_offset.set_translation(osim.Vec3(new_frame[0], new_frame[1], new_frame[2]))
+
+spatial_transform: osim.SpatialTransform = knee.get_SpatialTransform()
+rot2: osim.TransformAxis = spatial_transform.get_rotation2()
+rot3: osim.TransformAxis = spatial_transform.get_rotation3()
+rot3.set_function(osim.Constant(rotation3[0]))
+trans1: osim.TransformAxis = spatial_transform.get_translation1()
+simm1: osim.SimmSpline = osim.SimmSpline.safeDownCast(trans1.get_function())
+for i, value in enumerate(translation1):
+    simm1.setY(i, value)
+trans2: osim.TransformAxis = spatial_transform.get_translation2()
+simm2: osim.SimmSpline = osim.SimmSpline.safeDownCast(trans2.get_function())
+for i, value in enumerate(translation2):
+    simm2.setY(i, value)
+trans3: osim.TransformAxis = spatial_transform.get_translation3()
+simm3: osim.SimmSpline = osim.SimmSpline.safeDownCast(trans3.get_function())
+for i, value in enumerate(translation3):
+    simm3.setY(i, value)
+
+model.finalizeFromProperties()
+model.finalizeConnections()
+
+
+model.printToXML('./models/osim/rat_hindlimb_millard_y2j_knee.osim'
+
+```
+
+## Change marker set
+
+Our model uses a slightly different marker set than the one used in Johnson's.
+
+```{python}
+#TODO: Visualize
+import pyopensim as osim
+marker_set = osim.MarkerSet('./models/osim/rat_hindlimb_unilateral_markerset.xml')
+
+model = osim.Model('./models/osim/rat_hindlimb_millard_y2j_knee.osim')
+model.getMarkerSet().clearAndDestroy()
+model.updateMarkerSet(marker_set)
+model.printToXML('./models/osim/rat_hindlimb_millard_y2j_knee_markers.osim'
+```
+
+## Update muscle parameters
+
+The original Johnson model from 2008 had estimated parameters. In a subsequent paper in 2011, @tbl-johnson-params
+
+```{python}
+#| label: tbl-johnson-params
+
+import polars as pl
+import numpy as np
+import pyopensim as osim
+from tabulate import tabulate
+from IPython.display import Markdown as md
+
+johnson_params = pl.read_csv('./data/parameters/johnson_2011_parameters.csv')
+eng_params = pl.read_csv('./data/parameters/eng_2008_parameters.csv')
+
+md(tabulate(johnson_params, headers='keys', tablefmt='pipe'))
+```
+
+Thus, Johnson's parameters were chosen for the model.
+
+```{python}
+model = osim.Model('./models/osim/rat_hindlimb_millard_y2j_knee_markers.osim')
+muscles : osim.SetMuscles = model.getMuscles()
+for i in range(muscles.getSize()):
+    muscle : osim.Muscle = muscles.get(i)
+    muscle_name = muscle.getName().replace('R_', '')
+    params = muscle_params[muscle_params['Abbreviation'] == muscle_name]
+    if params.empty:
+        print(f"Muscle {muscle_name} not found in parameters file.")
+        continue
+    f0 = params['Fo (N)'].values[0]
+    l0 = params['l0 (mm)'].values[0] / 1000  # Convert mm to m
+    lts = params['lts (mm)'].values[0] / 1000  # Convert mm to m
+    alpha = params['θ0 (deg)'].values[0] * np.pi / 180  # Convert deg to rad
+    muscle.setMaxIsometricForce(f0)
+    muscle.setOptimalFiberLength(l0)
+    muscle.setTendonSlackLength(lts)
+    muscle.setPennationAngleAtOptimalFiberLength(alpha)
+    print(f"Updated {muscle_name}: F0={f0}, l0={l0}, lts={lts}, alpha={alpha}")
+    
+model.printToXML('models/osim/rat_hindlimb_final.osim'
+```
+
+## Estimate tendon slack length
+
+Johnson reports tendon slack lengths based on anatomical measurements. However, the literature reports large inaccuracies for measured tendon slack length values. It is also said to be one of the most influential parameters in simulating muscle force production. Its role, though based in a physiological concept is 
+

@@ -1,6 +1,5 @@
 *.log
-src/__pycache__/
-src/*.pyc
-myoconverter/
+*__pycache__/
 .vscode/
 *.egg-info/
+.venv/
