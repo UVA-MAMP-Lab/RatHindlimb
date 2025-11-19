@@ -2,7 +2,8 @@
 title: "Rat Hindlimb Model Edits"
 format:
   html:
-    code-fold: false
+    code-fold: true
+    code-summary: "Show Code"
 jupyter: python3
 ---
 Original model drawn from https://simtk.org/projects/rat_hlimb_model 
@@ -44,7 +45,15 @@ figure_dir = './figs'
 The following muscles were identified as having discontinuous length changes:
 
 - BFa 
-![](./figs/BFa/BFa_length.png)
+![BFa Length](./figs/BFa/BFa_length.png)
+- CF
+![CF Length](./figs/CF/CF_length.png)
+- STp
+![STp Length](./figs/STp/STp_length.png)
+- TA
+![TA Length](./figs/TA/TA_length.png)
+- VL
+![VL Length](./figs/VL/VL_length.png)
 
 Investigating the root cause of this, we found that the likely culprit is a hard-coded value in [OpenSim's WrapCylinder.cpp code](https://github.com/opensim-org/opensim-core/blob/f9cd558ec3ea99dda206e5e412e62e23cf19bd7e/OpenSim/Simulation/Wrap/WrapCylinder.cpp#L668) that determines the number of segments used to approximate the muscle path over a wrapping cylinder:
 
@@ -81,6 +90,10 @@ We utilize the [`open3d`](http://www.open3d.org/) library to perform the mesh re
 To make this process deterministic, we set the number of threads to one as RANSAC often runs-multi-threaded and the timing of thread completions can introduce stochastic behavior.
 
 TODO: Before and after and show muscle length plots to prove that what we did worked
+
+```{python}
+import open3d as o3d
+```
 
 ## Knee joint definition
 
@@ -128,7 +141,7 @@ model.finalizeFromProperties()
 model.finalizeConnections()
 
 
-model.printToXML('./models/osim/rat_hindlimb_millard_y2j_knee.osim'
+model.printToXML('./models/osim/rat_hindlimb_millard_y2j_knee.osim')
 
 ```
 
@@ -144,7 +157,7 @@ marker_set = osim.MarkerSet('./models/osim/rat_hindlimb_unilateral_markerset.xml
 model = osim.Model('./models/osim/rat_hindlimb_millard_y2j_knee.osim')
 model.getMarkerSet().clearAndDestroy()
 model.updateMarkerSet(marker_set)
-model.printToXML('./models/osim/rat_hindlimb_millard_y2j_knee_markers.osim'
+model.printToXML('./models/osim/rat_hindlimb_millard_y2j_knee_markers.osim')
 ```
 
 ## Update muscle parameters
@@ -188,10 +201,227 @@ for i in range(muscles.getSize()):
     muscle.setPennationAngleAtOptimalFiberLength(alpha)
     print(f"Updated {muscle_name}: F0={f0}, l0={l0}, lts={lts}, alpha={alpha}")
     
-model.printToXML('models/osim/rat_hindlimb_final.osim'
+model.printToXML('models/osim/rat_hindlimb_final.osim')
 ```
+
+
+## Update mass and inertia properties
+
 
 ## Estimate tendon slack length
 
-Johnson reports tendon slack lengths based on anatomical measurements. However, the literature reports large inaccuracies for measured tendon slack length values. It is also said to be one of the most influential parameters in simulating muscle force production. Its role, though based in a physiological concept is 
+Johnson reports tendon slack lengths based on anatomical measurements. However, the literature reports large inaccuracies for tendon slack length values measured this way. It is also said to be one of the most influential parameters in simulating muscle force production. Its role, though based in a physiological concept, is primarily a model parameter that helps define the force-length behavior of the muscle-tendon unit. 
 
+A method for reducing the error in tendon slack length estimation is to optimize it based on muscle fiber lengths observed during motion. This method was originally proposed in [Manal 2008] but was limited to a single muscle crossing a single joint. Subsequent works, namely Charles 2016, have applied this methodology to an array of muscles crossing multiple joints. 
+
+The method can be summarized as follows:
+
+Two ranges of motion are used to estimate the optimal fiber length and tendon slack length of muscles based on observed fiber lengths during motion. The first is the model's full range of motion, and the second is the observed range of motion during walking.
+
+```{python}
+from movedb.osim import OsimGraph
+from tsl_optimization import optimize_fiber_length
+
+model = osim.Model('./models/osim/rat_hindlimb_final.osim')
+graph = OsimGraph(model)
+full_rom_data = graph.get_all_muscle_lengths_rom(min_points = 20)
+
+
+
+```
+
+## Mirror the model
+
+To mirror the right side of the model to the left, a series of steps needs to happen:
+- Duplicate bodies
+    - Follow the naming convention of `{body}_l` and `{body}_r`
+    - For the left side, the attached_geometry will be the same as the right side, but the scale_factors will be 1 1 -1
+    - The mass and inertia properties will need to be updated to reflect the new bodies
+- Duplicate joints 
+    - Follow the naming convention of `{joint}_l` and `{joint}_r`
+    - Frames that reference bodies will need to be updated to reference the new bodies
+    - Physical offset frames with Z translations will need to be negated
+    - Spatial transforms with Z translations will need to be negated
+- Duplicate muscles
+    - Follow the naming convention of `L_{muscle}` and `R_{muscle}`
+    - Path points will need to be updated to reference the new bodies
+    - For the left side Z translations will need to be negated
+- Duplicate markers 
+    - Follow the naming convention of `L{marker}` and `R{marker}`
+    - Markers will need to be updated to reference the new bodies
+    - For the left side Z translations will need to be negated
+
+```{python}
+
+model = osim.Model('./models/osim/rat_hindlimb_millard_y2j_knee_markers_tsl.osim')
+
+# Don't duplicate spine, but duplicate the rest
+body_set: osim.BodySet = model.getBodySet()
+cloned_bodies = {}
+n_bodies = body_set.getSize()
+for i in range(n_bodies):
+    body: osim.Body = model.getBodySet().get(i)
+    body_name: str = body.getName()
+    new_body_name = body_name
+    if body_name != 'spine':
+        new_body: osim.Body = body.clone()
+        new_body_name = body_name.replace('_r', '_l')
+        new_body.setName(new_body_name)
+        geom: osim.Geometry = new_body.get_attached_geometry(0)
+        geom.setName(geom.getName().replace('_r', '_l'))
+        geom.set_scale_factors(osim.Vec3(1, 1, -1))
+        com: osim.Vec3 = new_body.getMassCenter()
+        new_body.setMassCenter(osim.Vec3([com.get(0), com.get(1), -com.get(2)]))
+        moi: osim.Inertia = new_body.getInertia()
+        moments: osim.Vec3 = moi.getMoments()
+        products: osim.Vec3 = moi.getProducts()
+        new_body.setInertia(osim.Inertia(
+                            moments.get(0), moments.get(1), moments.get(2),
+                            products.get(0), -products.get(1), -products.get(2)))
+        model.addBody(new_body)
+    cloned_bodies[body_name] = new_body_name
+
+joint_set: osim.JointSet = model.getJointSet()
+left_joint_set: osim.JointSet = joint_set.clone()
+# Remove ground_spine
+left_joint_set.remove(left_joint_set.get('ground_spine'))
+
+left_joint_set_file = './models/osim/left_joint_set.xml'
+left_joint_set.printToXML(left_joint_set_file)
+with open(left_joint_set_file, 'r') as file:
+    joint_set_content = file.read()
+
+for old_body_name, new_body_name in cloned_bodies.items():
+    joint_set_content = joint_set_content.replace(old_body_name, new_body_name)
+
+new_joint_names = []
+for i in range(left_joint_set.getSize()):
+    joint: osim.Joint = left_joint_set.get(i)
+    joint_name: str = joint.getName()
+    new_joint_name: str = joint_name.replace('_r', '_l')
+    joint_set_content = joint_set_content.replace(joint_name, new_joint_name)
+    new_joint_names.append(new_joint_name)
+    
+with open(left_joint_set_file, 'w') as file:
+    file.write(joint_set_content)
+    
+left_joint_set = osim.JointSet(left_joint_set_file)
+# Remove the left_joint_set file
+import os
+os.remove(left_joint_set_file)
+    
+js: osim.JointSet = model.getJointSet()
+for i in range(left_joint_set.getSize()):
+    js.cloneAndAppend(left_joint_set.get(i))
+
+model.initSystem()
+for joint_name in new_joint_names:
+    joint: osim.CustomJoint = osim.CustomJoint.safeDownCast(model.getJointSet().get(joint_name))
+    if joint is None:
+        print(f"Joint {joint_name} not found in the model.")
+        continue
+    # Mirror the parent and child frames
+    parent_offset: osim.PhysicalOffsetFrame = osim.PhysicalOffsetFrame.safeDownCast(joint.getParentFrame())
+    parent_pos = parent_offset.get_translation()
+    parent_rot = parent_offset.get_orientation()
+    child_offset: osim.PhysicalOffsetFrame = osim.PhysicalOffsetFrame.safeDownCast(joint.getChildFrame())
+    child_pos = child_offset.get_translation()
+    child_rot = child_offset.get_orientation()
+    parent_offset.set_translation(osim.Vec3(parent_pos.get(0), parent_pos.get(1), -parent_pos.get(2)))
+    child_offset.set_translation(osim.Vec3(child_pos.get(0), child_pos.get(1), -child_pos.get(2)))
+    
+    # Mirror the spatial transform
+    spatial_transform: osim.SpatialTransform = joint.get_SpatialTransform()
+    transform_axes: list[osim.Vec3] = spatial_transform.getAxes()
+    for i, vec in enumerate(transform_axes):
+        # For rotations, negate x and y components
+        # For translations, negate z component
+        if i <= 2 and vec[2]:  # Skip the first three axes (rotation1-3)
+            continue
+        elif i > 2 and not vec[2]:  # Skip the first three axes (translation1-3)
+            continue
+            
+        # Assume that order is always rotation1-3, translation1-3
+        get_transform_function = ('get_rotation' + str(i+1)) if i < 3 else ('get_translation' + str(i-2))
+        transform_axis: osim.TransformAxis = getattr(spatial_transform, get_transform_function)()
+        axis_function: osim.Function = transform_axis.getFunction()
+        concreteClass = axis_function.getConcreteClassName()
+        match concreteClass:
+            case 'SimmSpline':
+                # Mirror the function
+                simm_spline: osim.SimmSpline = osim.SimmSpline.safeDownCast(axis_function)
+                if simm_spline is None:
+                    raise ValueError("Function is not a SimmSpline.")
+                for k in range(simm_spline.getSize()):
+                    y: float = simm_spline.getY(k)
+                    simm_spline.setY(k, -y)
+            case 'LinearFunction':
+                linear_func: osim.LinearFunction = osim.LinearFunction.safeDownCast(axis_function)
+                if linear_func is None:
+                    raise ValueError("Function is not a LinearFunction.")
+                linear_func.setSlope(-linear_func.getSlope())
+                linear_func.setIntercept(-linear_func.getIntercept())
+            case 'Constant':
+                constant_func: osim.Constant = osim.Constant.safeDownCast(axis_function)
+                if constant_func is None:
+                    raise ValueError("Function is not a Constant.")
+                constant_func.setValue(-constant_func.getValue())
+            case 'MultiplierFunction':
+                mult_func: osim.MultiplierFunction = osim.MultiplierFunction.safeDownCast(axis_function)
+                if mult_func is None:
+                    raise ValueError("Function is not a MultiplierFunction.")
+                # For MultiplierFunction, negate the scale
+                mult_func.setScale(-mult_func.getScale())
+            case _:
+                print(f"Unsupported function type: {concreteClass}, not mirroring")
+
+# Update muscles 
+muscle_set: osim.ForceSet = model.getForceSet()
+left_muscle_set_file = 'models/osim/left_muscle_set.xml'
+muscle_set.printToXML(left_muscle_set_file)
+with open(left_muscle_set_file, 'r') as file:
+    muscle_set_content = file.read()
+
+for old_body_name, new_body_name in cloned_bodies.items():
+    muscle_set_content = muscle_set_content.replace(old_body_name, new_body_name)
+    
+new_muscle_names = []
+for i in range(muscle_set.getSize()):
+    muscle: osim.Muscle = muscle_set.get(i)
+    muscle_name: str = muscle.getName()
+    new_muscle_name: str = muscle_name.replace('R_', 'L_')
+    muscle_set_content = muscle_set_content.replace(muscle_name, new_muscle_name)
+    new_muscle_names.append(new_muscle_name)
+
+for old_body_name, new_body_name in cloned_bodies.items():
+    muscle_set_content = muscle_set_content.replace(old_body_name, new_body_name)
+
+with open(left_muscle_set_file, 'w') as file:
+    file.write(muscle_set_content)
+    
+left_muscle_set = osim.ForceSet(left_muscle_set_file)
+os.remove(left_muscle_set_file)
+
+for muscle_name in new_muscle_names:
+    muscle: osim.Muscle = osim.Muscle.safeDownCast(left_muscle_set.get(muscle_name))
+    path_points: osim.PathPointSet = muscle.getGeometryPath().getPathPointSet()
+    for i in range(path_points.getSize()):
+        path_point: osim.PathPoint = osim.PathPoint.safeDownCast(path_points.get(i))
+        loc: osim.Vec3 = path_point.get_location()
+        path_point.setLocation(osim.Vec3(loc.get(0), loc.get(1), -loc.get(2)))
+    muscle_set.append(muscle)
+
+# Make sure to update the model before printing
+model.finalizeFromProperties()
+model.finalizeConnections()
+
+# For some reason this has to happen after finalizing connections
+marker_set = osim.MarkerSet('models/osim/rat_hindlimb_bilateral_markerset.xml')
+model.getMarkerSet().clearAndDestroy()
+model.updateMarkerSet(marker_set)
+
+model.printToXML('models/osim/rat_hindlimb_bilateral.osim')
+```
+
+## Conclusion
+% TODO: Summarize the changes made to the model and potential future work.

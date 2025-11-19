@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<OpenSimDocument Version="40500">
-	<Model name="RatHindlimbBilateral">
+<OpenSimDocument Version="40600">
+	<Model name="RatHindlimbRight">
 		<!--The model's ground reference frame.-->
 		<Ground name="ground">
 			<!--The geometry used to display the axes of this Frame.-->
@@ -41,7 +41,7 @@
 		<!--Publications and references associated with the model.-->
 		<publications>List of publications related to model...</publications>
 		<!--Units for all lengths.-->
-		<length_units>m</length_units>
+		<length_units>mm</length_units>
 		<!--Units for all forces.-->
 		<force_units>N</force_units>
 		<!--List of bodies that make up this model.-->
@@ -931,8 +931,8 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> -0.087266499999999996851 -0.075049199999999996469 -0.064577200000000001268 -0.052359900000000000886 -0.040142600000000000504 -0.029670599999999998364 -0.017453300000000001452 -0.0052359900000000002621 0.0052359900000000002621 0.017453300000000001452 0.029670599999999998364 0.040142600000000000504 0.052359900000000000886 0.064577200000000001268</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> -0.0872665 -0.0750492 -0.0645772 -0.0523599 -0.0401426 -0.0296706 -0.0174533 -0.00523599 0.00523599 0.0174533 0.0296706 0.0401426 0.0523599 0.0645772</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="rotation3">
@@ -953,8 +953,8 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> -0.0052385299999999999226 -0.0046464799999999997077 -0.0040425699999999996706 -0.0034725400000000000884 -0.0029796499999999999202 -0.0025907899999999999333 -0.0022994299999999998768 -0.0021100099999999998371 -0.001995639999999999914 -0.0019320699999999999246 -0.0018704800000000001026 -0.0017793500000000000722 -0.0016382700000000000474 -0.0014133999999999999862</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> -0.00523853 -0.00464648 -0.00404257 -0.00347254 -0.00297965 -0.00259079 -0.00229943 -0.00211001 -0.00199564 -0.00193207 -0.00187048 -0.00177935 -0.00163827 -0.0014134</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="translation2">
@@ -964,8 +964,8 @@
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> -0.034168400000000001548 -0.03425389999999999685 -0.034185599999999996546 -0.033972299999999996944 -0.033651100000000003232 -0.033278500000000002523 -0.032889799999999996816 -0.032550400000000000167 -0.032282499999999998697 -0.032116100000000001591 -0.032063200000000000034 -0.032110500000000000154 -0.032239700000000003077 -0.032414400000000002933</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> -0.0341684 -0.0342539 -0.0341856 -0.0339723 -0.0336511 -0.0332785 -0.0328898 -0.0325504 -0.0322825 -0.0321161 -0.0320632 -0.0321105 -0.0322397 -0.0324144</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="translation3">
@@ -975,8 +975,8 @@
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> 0.0026030200000000001601 0.0028034100000000001032 0.0028536500000000001101 0.002903750000000000081 0.0028935800000000001971 0.0027731800000000000894 0.0027023500000000000645 0.0026110500000000001763 0.002469499999999999907 0.0024171399999999999136 0.0024041000000000001605 0.0023809000000000000302 0.002496410000000000122 0.0026910400000000000119</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> 0.00260302 0.00280341 0.00285365 0.00290375 0.00289358 0.00277318 0.00270235 0.00261105 0.0024695 0.00241714 0.0024041 0.0023809 0.00249641 0.00269104</y>
 							</SimmSpline>
 						</TransformAxis>
 					</SpatialTransform>
@@ -1105,7 +1105,7 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
+								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1116,7 +1116,7 @@
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
+								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1127,7 +1127,7 @@
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
+								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1478,8 +1478,8 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> 0.087266499999999996851 0.075049199999999996469 0.064577200000000001268 0.052359900000000000886 0.040142600000000000504 0.029670599999999998364 0.017453300000000001452 0.0052359900000000002621 -0.0052359900000000002621 -0.017453300000000001452 -0.029670599999999998364 -0.040142600000000000504 -0.052359900000000000886 -0.064577200000000001268</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> 0.0872665 0.0750492 0.0645772 0.0523599 0.0401426 0.0296706 0.0174533 0.00523599 -0.00523599 -0.0174533 -0.0296706 -0.0401426 -0.0523599 -0.0645772</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="rotation3">
@@ -1500,8 +1500,8 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> -0.0052385299999999999226 -0.0046464799999999997077 -0.0040425699999999996706 -0.0034725400000000000884 -0.0029796499999999999202 -0.0025907899999999999333 -0.0022994299999999998768 -0.0021100099999999998371 -0.001995639999999999914 -0.0019320699999999999246 -0.0018704800000000001026 -0.0017793500000000000722 -0.0016382700000000000474 -0.0014133999999999999862</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> -0.00523853 -0.00464648 -0.00404257 -0.00347254 -0.00297965 -0.00259079 -0.00229943 -0.00211001 -0.00199564 -0.00193207 -0.00187048 -0.00177935 -0.00163827 -0.0014134</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="translation2">
@@ -1511,8 +1511,8 @@
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> -0.034168400000000001548 -0.03425389999999999685 -0.034185599999999996546 -0.033972299999999996944 -0.033651100000000003232 -0.033278500000000002523 -0.032889799999999996816 -0.032550400000000000167 -0.032282499999999998697 -0.032116100000000001591 -0.032063200000000000034 -0.032110500000000000154 -0.032239700000000003077 -0.032414400000000002933</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> -0.0341684 -0.0342539 -0.0341856 -0.0339723 -0.0336511 -0.0332785 -0.0328898 -0.0325504 -0.0322825 -0.0321161 -0.0320632 -0.0321105 -0.0322397 -0.0324144</y>
 							</SimmSpline>
 						</TransformAxis>
 						<TransformAxis name="translation3">
@@ -1522,8 +1522,8 @@
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -2.6179899999999998172 -2.4434599999999999653 -2.2689300000000001134 -2.0943999999999998174 -1.9198599999999999 -1.745330000000000048 -1.5707999999999999741 -1.3962600000000000566 -1.2217299999999999827 -1.0471999999999999087 -0.87266500000000002402 -0.6981319999999999748 -0.52359900000000003661 -0.3490659999999999874</x>
-								<y> -0.0026030200000000001601 -0.0028034100000000001032 -0.0028536500000000001101 -0.002903750000000000081 -0.0028935800000000001971 -0.0027731800000000000894 -0.0027023500000000000645 -0.0026110500000000001763 -0.002469499999999999907 -0.0024171399999999999136 -0.0024041000000000001605 -0.0023809000000000000302 -0.002496410000000000122 -0.0026910400000000000119</y>
+								<x> -2.61799 -2.44346 -2.26893 -2.0944 -1.91986 -1.74533 -1.5708 -1.39626 -1.22173 -1.0472 -0.872665 -0.698132 -0.523599 -0.349066</x>
+								<y> -0.00260302 -0.00280341 -0.00285365 -0.00290375 -0.00289358 -0.00277318 -0.00270235 -0.00261105 -0.0024695 -0.00241714 -0.0024041 -0.0023809 -0.00249641 -0.00269104</y>
 							</SimmSpline>
 						</TransformAxis>
 					</SpatialTransform>
@@ -1652,7 +1652,7 @@
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
+								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1663,7 +1663,7 @@
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
+								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
 								<y> 0 0 0 0 0 0 0 0 0 0</y>
 							</SimmSpline>
 						</TransformAxis>
@@ -1674,13 +1674,14 @@
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
 							<SimmSpline name="function">
-								<x> -0.52359900000000003661 -0.3490659999999999874 -0.1745329999999999937 0 0.1745329999999999937 0.3490659999999999874 0.52359900000000003661 0.6981319999999999748 0.87266500000000002402 1.0471999999999999087</x>
+								<x> -0.523599 -0.349066 -0.174533 0 0.174533 0.349066 0.523599 0.698132 0.872665 1.0472</x>
 								<y> -0 -0 -0 -0 -0 -0 -0 -0 -0 -0</y>
 							</SimmSpline>
 						</TransformAxis>
 					</SpatialTransform>
 				</CustomJoint>
 			</objects>
+			<groups />
 		</JointSet>
 		<!--Controllers that provide the control inputs for Actuators.-->
 		<ControllerSet name="controllerset">
@@ -1748,11 +1749,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.038899999999999997</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0</tendon_slack_length>
+					<tendon_slack_length>0.0056015395882346415</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.0069813200000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>true</ignore_tendon_compliance>
+					<ignore_tendon_compliance>false</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -1835,7 +1836,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.036900000000000002</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0030141279171658998</tendon_slack_length>
+					<tendon_slack_length>0.0056012109906502152</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.12740904</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2009,11 +2010,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.038899999999999997</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0</tendon_slack_length>
+					<tendon_slack_length>4.270464795976156e-05</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.0069813200000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>true</ignore_tendon_compliance>
+					<ignore_tendon_compliance>false</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -2102,7 +2103,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.036900000000000002</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.003027257601564505</tendon_slack_length>
+					<tendon_slack_length>0.0070154498452501685</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.12740904</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2264,7 +2265,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.010800000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0027069867115053596</tendon_slack_length>
+					<tendon_slack_length>0.0032054629856943045</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.050614550000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2345,7 +2346,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.014999999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0063894082527083292</tendon_slack_length>
+					<tendon_slack_length>0.0074564962300633043</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.14835298999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2507,11 +2508,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.019599999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0</tendon_slack_length>
+					<tendon_slack_length>0.0052650603223105066</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.21991148999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>true</ignore_tendon_compliance>
+					<ignore_tendon_compliance>false</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -2588,7 +2589,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.011599999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.010558204610476907</tendon_slack_length>
+					<tendon_slack_length>0.011054915439517445</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.28623399999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2669,7 +2670,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0106</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0020452963804519241</tendon_slack_length>
+					<tendon_slack_length>0.0024412488187449117</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.28623399999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2750,7 +2751,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0287</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0064454012822468204</tendon_slack_length>
+					<tendon_slack_length>0.0068301850758954877</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.05759587</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2831,7 +2832,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.029700000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0042165732273913041</tendon_slack_length>
+					<tendon_slack_length>0.0042474801273290827</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -2993,7 +2994,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.027900000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0043590223722332561</tendon_slack_length>
+					<tendon_slack_length>0.0049898917081694838</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3155,7 +3156,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0080999999999999996</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.010720494414201854</tendon_slack_length>
+					<tendon_slack_length>0.011072104022282049</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.097738439999999996</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3236,11 +3237,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.017000000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.00024207918231915204</tendon_slack_length>
+					<tendon_slack_length>0</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.15009832000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>false</ignore_tendon_compliance>
+					<ignore_tendon_compliance>true</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -3317,7 +3318,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0057999999999999996</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0034616266460348413</tendon_slack_length>
+					<tendon_slack_length>0.0035863377461557034</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.29845129999999997</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3398,7 +3399,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0044000000000000003</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0081749660956310852</tendon_slack_length>
+					<tendon_slack_length>0.0084050895632860334</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.12217305000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3479,7 +3480,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0060000000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.012291465222810169</tendon_slack_length>
+					<tendon_slack_length>0.012716346698222596</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.18849556000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3560,7 +3561,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0041000000000000003</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0082813318367839887</tendon_slack_length>
+					<tendon_slack_length>0.0085537045432438705</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.32986723000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3647,7 +3648,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.011900000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.023365658307874144</tendon_slack_length>
+					<tendon_slack_length>0.026862819605616678</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.19722221000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3740,7 +3741,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.019400000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.01962915343050569</tendon_slack_length>
+					<tendon_slack_length>0.020811620184722268</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.25481807000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3833,7 +3834,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.011299999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.022903889765321685</tendon_slack_length>
+					<tendon_slack_length>0.023560387032172087</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.24958208000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -3926,7 +3927,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.015299999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.023026312069461562</tendon_slack_length>
+					<tendon_slack_length>0.023841014321177592</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.20245819000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4025,7 +4026,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0143</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.030630764597089237</tendon_slack_length>
+					<tendon_slack_length>0.031549020193635882</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.23736478</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4124,7 +4125,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0123</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.033123104915983095</tendon_slack_length>
+					<tendon_slack_length>0.033619049371279158</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.16755160999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4223,7 +4224,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0123</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.032898478302176029</tendon_slack_length>
+					<tendon_slack_length>0.033464630587052346</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.19722221000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4316,7 +4317,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.015599999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.022016846721670941</tendon_slack_length>
+					<tendon_slack_length>0.022740727747863843</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.076794490000000007</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4415,7 +4416,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0149</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.023395188730156263</tendon_slack_length>
+					<tendon_slack_length>0.024165387498846745</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.16406095000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4514,7 +4515,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0134</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.041856738651390696</tendon_slack_length>
+					<tendon_slack_length>0.042362720026990479</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.1850049</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4613,7 +4614,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0053</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.037110428637764425</tendon_slack_length>
+					<tendon_slack_length>0.037327406317932764</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.099483769999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4718,7 +4719,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0088000000000000005</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.046669988678284202</tendon_slack_length>
+					<tendon_slack_length>0.047092782731517596</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.19373155</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4823,7 +4824,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0054000000000000003</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.047365388154767547</tendon_slack_length>
+					<tendon_slack_length>0.047584558449730523</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.022689279999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -4928,7 +4929,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0088000000000000005</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.037344799998539353</tendon_slack_length>
+					<tendon_slack_length>0.037841871937878829</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.10995574</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -5021,7 +5022,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0063</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.012985201998006356</tendon_slack_length>
+					<tendon_slack_length>0.013299699084646739</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.24260076999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -5114,11 +5115,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.038899999999999997</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0</tendon_slack_length>
+					<tendon_slack_length>0.0056015395882346415</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.0069813200000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>true</ignore_tendon_compliance>
+					<ignore_tendon_compliance>false</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -5201,7 +5202,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.036900000000000002</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0030141279171658998</tendon_slack_length>
+					<tendon_slack_length>0.0056012109906502152</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.12740904</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -5375,11 +5376,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.038899999999999997</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0</tendon_slack_length>
+					<tendon_slack_length>4.270464795976156e-05</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.0069813200000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>true</ignore_tendon_compliance>
+					<ignore_tendon_compliance>false</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -5468,7 +5469,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.036900000000000002</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.003027257601564505</tendon_slack_length>
+					<tendon_slack_length>0.0070154498452501685</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.12740904</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -5630,7 +5631,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.010800000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0027069867115053596</tendon_slack_length>
+					<tendon_slack_length>0.0032054629856943045</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.050614550000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -5711,7 +5712,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.014999999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0063894082527083292</tendon_slack_length>
+					<tendon_slack_length>0.0074564962300633043</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.14835298999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -5873,11 +5874,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.019599999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0</tendon_slack_length>
+					<tendon_slack_length>0.0052650603223105066</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.21991148999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>true</ignore_tendon_compliance>
+					<ignore_tendon_compliance>false</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -5954,7 +5955,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.011599999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.010558204610476907</tendon_slack_length>
+					<tendon_slack_length>0.011054915439517445</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.28623399999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6035,7 +6036,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0106</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0020452963804519241</tendon_slack_length>
+					<tendon_slack_length>0.0024412488187449117</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.28623399999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6116,7 +6117,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0287</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0064454012822468204</tendon_slack_length>
+					<tendon_slack_length>0.0068301850758954877</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.05759587</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6197,7 +6198,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.029700000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0042165732273913041</tendon_slack_length>
+					<tendon_slack_length>0.0042474801273290827</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6359,7 +6360,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.027900000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0043590223722332561</tendon_slack_length>
+					<tendon_slack_length>0.0049898917081694838</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6521,7 +6522,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0080999999999999996</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.010720494414201854</tendon_slack_length>
+					<tendon_slack_length>0.011072104022282049</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.097738439999999996</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6602,11 +6603,11 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.017000000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.00024207918231915204</tendon_slack_length>
+					<tendon_slack_length>0</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.15009832000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
-					<ignore_tendon_compliance>false</ignore_tendon_compliance>
+					<ignore_tendon_compliance>true</ignore_tendon_compliance>
 					<!--The linear damping of the fiber.-->
 					<fiber_damping>0.10000000000000001</fiber_damping>
 					<!--Assumed initial activation level if none is assigned.-->
@@ -6683,7 +6684,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0057999999999999996</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0034616266460348413</tendon_slack_length>
+					<tendon_slack_length>0.0035863377461557034</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.29845129999999997</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6764,7 +6765,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0044000000000000003</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0081749660956310852</tendon_slack_length>
+					<tendon_slack_length>0.0084050895632860334</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.12217305000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6845,7 +6846,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0060000000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.012291465222810169</tendon_slack_length>
+					<tendon_slack_length>0.012716346698222596</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.18849556000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -6926,7 +6927,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0041000000000000003</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.0082813318367839887</tendon_slack_length>
+					<tendon_slack_length>0.0085537045432438705</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.32986723000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7013,7 +7014,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.011900000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.023365658307874144</tendon_slack_length>
+					<tendon_slack_length>0.026862819605616678</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.19722221000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7106,7 +7107,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.019400000000000001</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.01962915343050569</tendon_slack_length>
+					<tendon_slack_length>0.020811620184722268</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.25481807000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7199,7 +7200,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.011299999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.022903889765321685</tendon_slack_length>
+					<tendon_slack_length>0.023560387032172087</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.24958208000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7292,7 +7293,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.015299999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.023026312069461562</tendon_slack_length>
+					<tendon_slack_length>0.023841014321177592</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.20245819000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7391,7 +7392,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0143</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.030630764597089237</tendon_slack_length>
+					<tendon_slack_length>0.031549020193635882</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.23736478</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7490,7 +7491,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0123</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.033123104915983095</tendon_slack_length>
+					<tendon_slack_length>0.033619049371279158</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.16755160999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7589,7 +7590,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0123</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.032898478302176029</tendon_slack_length>
+					<tendon_slack_length>0.033464630587052346</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.19722221000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7682,7 +7683,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.015599999999999999</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.022016846721670941</tendon_slack_length>
+					<tendon_slack_length>0.022740727747863843</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.076794490000000007</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7781,7 +7782,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0149</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.023395188730156263</tendon_slack_length>
+					<tendon_slack_length>0.024165387498846745</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.16406095000000001</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7880,7 +7881,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0134</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.041856738651390696</tendon_slack_length>
+					<tendon_slack_length>0.042362720026990479</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.1850049</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -7979,7 +7980,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0053</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.037110428637764425</tendon_slack_length>
+					<tendon_slack_length>0.037327406317932764</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.099483769999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -8084,7 +8085,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0088000000000000005</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.046669988678284202</tendon_slack_length>
+					<tendon_slack_length>0.047092782731517596</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.19373155</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -8189,7 +8190,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0054000000000000003</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.047365388154767547</tendon_slack_length>
+					<tendon_slack_length>0.047584558449730523</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.022689279999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -8294,7 +8295,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0088000000000000005</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.037344799998539353</tendon_slack_length>
+					<tendon_slack_length>0.037841871937878829</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.10995574</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
@@ -8387,7 +8388,7 @@
 					<!--Optimal length of the muscle fibers-->
 					<optimal_fiber_length>0.0063</optimal_fiber_length>
 					<!--Resting length of the tendon-->
-					<tendon_slack_length>0.012985201998006356</tendon_slack_length>
+					<tendon_slack_length>0.013299699084646739</tendon_slack_length>
 					<!--Angle between tendon and fibers at optimal fiber length expressed in radians-->
 					<pennation_angle_at_optimal>0.24260076999999999</pennation_angle_at_optimal>
 					<!--Compute muscle dynamics ignoring tendon compliance. Tendon is assumed to be rigid.-->
