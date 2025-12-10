@@ -5,6 +5,10 @@ format:
     code-fold: true
     code-summary: "Show Code"
 jupyter: python3
+execute:
+  daemon: false
+  keep-ipynb: true
+  cache: true
 ---
 Original model drawn from https://simtk.org/projects/rat_hlimb_model which is based on Johnson et al. 2008 [@missing-reference].
 
@@ -15,7 +19,9 @@ from pathlib import Path
 import polars as pl
 import numpy as np
 import re
-
+from loguru import logger
+osim.Logger.setLevelString('error')
+logger.remove()
 model_dir = Path('./models/osim')
 model_file = model_dir / 'rat_hindlimb.osim'
 
@@ -213,16 +219,16 @@ for i in range(n_bodies):
     wrap_set.clearAndDestroy()
 
 # Add new path points to the muscles
-muscles : osim.SetMuscles = model.updMuscles()
+muscles : osim.SetMuscles = model.getMuscles()
 for i in range(muscles.getSize()):
     muscle : osim.Muscle = muscles.get(i)
     muscle_name = muscle.getName()
     
-    geo_path: osim.GeometryPath = muscle.updGeometryPath()
-    path_points: osim.PathPointSet = geo_path.updPathPointSet()
+    geo_path: osim.GeometryPath = muscle.getGeometryPath()
+    path_points: osim.PathPointSet = geo_path.getPathPointSet()
     existing_path_points = path_points.getSize()
     
-    path_wraps: osim.PathWrapSet = geo_path.updWrapSet()
+    path_wraps: osim.PathWrapSet = geo_path.getWrapSet()
     path_wraps.clearAndDestroy()
     # existing_wraps = path_wraps.getSize()
     # # Remove the old path wraps
@@ -241,12 +247,12 @@ for i in range(muscles.getSize()):
         loc = convert_points_between_meshes(young_loc, transforms[frame])
         vec = osim.Vec3(loc[0][0], loc[0][1], loc[0][2])
         muscle.addNewPathPoint(point_name, mesh, vec)
-        logger.debug(f"Added path point for muscle: {muscle_name}, body: {mesh.getName()}, location: {loc}")
+        # logger.debug(f"Added path point for muscle: {muscle_name}, body: {mesh.getName()}, location: {loc}")
         index += 1
     # Remove the old path points
     for j in range(existing_path_points - 1, -1, -1):
         path_points.remove(j)
-        logger.debug(f"Removed path point index: {j} for muscle: {muscle_name}")
+        # logger.debug(f"Removed path point index: {j} for muscle: {muscle_name}")
 
 model.finalizeFromProperties()
 model.finalizeConnections()
