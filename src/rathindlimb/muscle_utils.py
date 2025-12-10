@@ -1,27 +1,17 @@
-from pyopensim.simulation import (
-    Thelen2003Muscle, 
-    Millard2012EquilibriumMuscle,
-    ActiveForceLengthCurve,
-    ForceVelocityCurve,
-    FiberForceLengthCurve,
-    TendonForceLengthCurve,
-    Model,
-    ForceSet,
-    Muscle,
-    SetMuscles,
-    PathPoint,
-    PathPointSet,
-    GeometryPath,
-    PhysicalFrame
-)   
-from pyopensim.simbody import Vec3
-def thelen_to_millard(thelen : Thelen2003Muscle) -> Millard2012EquilibriumMuscle:
+import opensim as osim
+
+
+def thelen_to_millard(
+    thelen: osim.Thelen2003Muscle,
+) -> osim.Millard2012EquilibriumMuscle:
     """Convert Thelen2003Muscle to Millard2012EquilibriumMuscle."""
     try:
-        thelen = Thelen2003Muscle.safeDownCast(thelen)
-    except:
-        raise TypeError(f"Input muscle {thelen.getName()} is not a Thelen2003Muscle object.")
-    millard = Millard2012EquilibriumMuscle()
+        thelen = osim.Thelen2003Muscle.safeDownCast(thelen)
+    except Exception as e:
+        raise TypeError(
+            f"Input muscle {thelen.getName()} is not a Thelen2003Muscle object: {e}"
+        )
+    millard = osim.Millard2012EquilibriumMuscle()
     millard.setName(thelen.getName())
 
     # Copy geometry path
@@ -33,9 +23,9 @@ def thelen_to_millard(thelen : Thelen2003Muscle) -> Millard2012EquilibriumMuscle
     # Optimal fiber length
     millard.set_optimal_fiber_length(thelen.get_optimal_fiber_length())
 
-    # Tendon slack length    
+    # Tendon slack length
     millard.set_tendon_slack_length(thelen.get_tendon_slack_length())
-    
+
     # Pennation angle at optimal
     millard.set_pennation_angle_at_optimal(thelen.get_pennation_angle_at_optimal())
 
@@ -52,26 +42,27 @@ def thelen_to_millard(thelen : Thelen2003Muscle) -> Millard2012EquilibriumMuscle
     millard.set_minimum_activation(thelen.get_minimum_activation())
 
     # Active Force Length Curve
-    millard.set_ActiveForceLengthCurve(ActiveForceLengthCurve())
+    millard.set_ActiveForceLengthCurve(osim.ActiveForceLengthCurve())
 
     # Force Velocity Curve
-    millard.set_ForceVelocityCurve(ForceVelocityCurve())
+    millard.set_ForceVelocityCurve(osim.ForceVelocityCurve())
 
     # Fiber Force Length Curve
-    millard.set_FiberForceLengthCurve(FiberForceLengthCurve())
+    millard.set_FiberForceLengthCurve(osim.FiberForceLengthCurve())
 
     # Tendon Force Length Curve
-    millard.set_TendonForceLengthCurve(TendonForceLengthCurve())
+    millard.set_TendonForceLengthCurve(osim.TendonForceLengthCurve())
 
-    return millard 
+    return millard
 
-def model_thelen_to_millard(model : Model) -> Model:
+
+def model_thelen_to_millard(model: osim.Model) -> osim.Model:
     """Convert all Thelen2003Muscle to Millard2012EquilibriumMuscle in the model."""
-    force_set : ForceSet = model.upd_ForceSet()
+    force_set: osim.ForceSet = model.upd_ForceSet()
     indices_to_remove = []
     for i in range(force_set.getSize()):
         try:
-            muscle = Thelen2003Muscle.safeDownCast(force_set.get(i))
+            muscle = osim.Thelen2003Muscle.safeDownCast(force_set.get(i))
             if muscle is None:
                 continue
         except:
@@ -86,10 +77,11 @@ def model_thelen_to_millard(model : Model) -> Model:
         force_set.remove(i)
     return model
 
-def attachments_to_csv(model: Model, filename: str) -> bool:
+
+def attachments_to_csv(model: osim.Model, filename: str) -> bool:
     """
     Write the muscle attachment points to a CSV file.
-    
+
     Columns will be:
     - muscle_name
     - frame_name
@@ -98,28 +90,30 @@ def attachments_to_csv(model: Model, filename: str) -> bool:
     - z
     """
     try:
-        # Initialize the system 
+        # Initialize the system
         model.initSystem()
-        with open(filename, 'w') as f:
+        with open(filename, "w") as f:
             f.write("muscle_name,frame_name,x,y,z\n")
-            muscles : SetMuscles = model.getMuscles()
+            muscles: osim.SetMuscles = model.getMuscles()
             for i in range(muscles.getSize()):
-                muscle : Muscle = muscles.get(i)
-                geo_path : GeometryPath = muscle.getGeometryPath()
+                muscle: osim.Muscle = muscles.get(i)
+                geo_path: osim.GeometryPath = muscle.getGeometryPath()
                 if geo_path is None:
                     continue
-                path_points : PathPointSet = geo_path.getPathPointSet()
+                path_points: osim.PathPointSet = geo_path.getPathPointSet()
                 for j in range(path_points.getSize()):
-                    path_point : PathPoint = PathPoint.safeDownCast(path_points.get(j))
-                    frame : PhysicalFrame = path_point.getParentFrame()
-                    loc : Vec3 = path_point.get_location()
+                    path_point: osim.PathPoint = osim.PathPoint.safeDownCast(
+                        path_points.get(j)
+                    )
+                    frame: osim.PhysicalFrame = path_point.getParentFrame()
+                    loc: osim.Vec3 = path_point.get_location()
                     x = loc.get(0)
                     y = loc.get(1)
                     z = loc.get(2)
-                    f.write(f"{muscle.getName()},{frame.getName()},{x},{y},{z}\n")   
+                    f.write(f"{muscle.getName()},{frame.getName()},{x},{y},{z}\n")
     except Exception as e:
         print(f"Error writing attachment points to {filename}: {e}")
         return False
-    
+
     print(f"Attachment points written to {filename}.")
     return True

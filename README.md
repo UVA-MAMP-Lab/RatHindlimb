@@ -1,9 +1,4 @@
 # RatHindlimb
 
-Dependencies are managed with UV.
+TODO: Replace opensim conda package with pyopensim when it isn't a pain
 
-To install dependencies, run:
-
-```shell
-uv 
-```

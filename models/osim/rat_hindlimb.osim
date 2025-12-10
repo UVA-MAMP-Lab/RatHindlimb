@@ -46,9 +46,9 @@
 				<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 				<!--passive muscle strain at maximum isometric muscle force-->
 				<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-				<!--shape factor for Gaussian active muscle force-length relationship-->
+				<!--shape factor for Gaussian active muscle force-length relationship_r-->
 				<KshapeActive>0.5</KshapeActive>
-				<!--exponential shape factor for passive force-length relationship-->
+				<!--exponential shape factor for passive force-length relationship_r-->
 				<KshapePassive>4</KshapePassive>
 				<!--force-velocity shape factor-->
 				<Af>0.29999999999999999</Af>
@@ -84,7 +84,7 @@
 						<color>1 1 1</color>
 					</Appearance>
 					<!--Name of geometry file.-->
-					<mesh_file>ground.vtp</mesh_file>
+					<mesh_file>ground.stl</mesh_file>
 				</Mesh>
 			</attached_geometry>
 			<!--Set of wrap objects fixed to this body that GeometryPaths can wrap over.This property used to be a member of Body but was moved up with the introduction of Frames.-->
@@ -129,7 +129,7 @@
 								<color>1 1 1</color>
 							</Appearance>
 							<!--Name of geometry file.-->
-							<mesh_file>spine.vtp</mesh_file>
+							<mesh_file>spine.stl</mesh_file>
 						</Mesh>
 					</attached_geometry>
 					<!--Set of wrap objects fixed to this body that GeometryPaths can wrap over.This property used to be a member of Body but was moved up with the introduction of Frames.-->
@@ -144,7 +144,7 @@
 					<!--The elements of the inertia tensor (Vec6) as [Ixx Iyy Izz Ixy Ixz Iyz] measured about the mass_center and not the body origin.-->
 					<inertia>4.7999999999999998e-06 4.7999999999999998e-06 4.7999999999999998e-06 0 0 0</inertia>
 				</Body>
-				<Body name="pelvis">
+				<Body name="pelvis_r">
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -154,7 +154,7 @@
 					</FrameGeometry>
 					<!--List of geometry attached to this Frame. Note, the geometry are treated as fixed to the frame and they share the transform of the frame when visualized-->
 					<attached_geometry>
-						<Mesh name="pelvis_geom_1">
+						<Mesh name="pelvis_r_geom_1">
 							<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
 							<socket_frame>..</socket_frame>
 							<!--Scale factors in X, Y, Z directions respectively.-->
@@ -167,13 +167,13 @@
 								<color>1 1 1</color>
 							</Appearance>
 							<!--Name of geometry file.-->
-							<mesh_file>pelvis.vtp</mesh_file>
+							<mesh_file>pelvis_r.stl</mesh_file>
 						</Mesh>
 					</attached_geometry>
 					<!--Set of wrap objects fixed to this body that GeometryPaths can wrap over.This property used to be a member of Body but was moved up with the introduction of Frames.-->
 					<WrapObjectSet name="wrapobjectset">
 						<objects>
-							<WrapCylinder name="hip_cylinder_small">
+							<WrapCylinder name="hip_r_cylinder_small">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -201,7 +201,7 @@
 								<!--The length of the cylinder.-->
 								<length>0.059999999999999998</length>
 							</WrapCylinder>
-							<WrapCylinder name="hip_cylinder_small2">
+							<WrapCylinder name="hip_r_cylinder_small2">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -229,7 +229,7 @@
 								<!--The length of the cylinder.-->
 								<length>0.059999999999999998</length>
 							</WrapCylinder>
-							<WrapCylinder name="hip_cylinder_large2">
+							<WrapCylinder name="hip_r_cylinder_large2">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -267,7 +267,7 @@
 					<!--The elements of the inertia tensor (Vec6) as [Ixx Iyy Izz Ixy Ixz Iyz] measured about the mass_center and not the body origin.-->
 					<inertia>3.9999999999999998e-06 3.4999999999999999e-06 3.4999999999999999e-06 0 0 0</inertia>
 				</Body>
-				<Body name="femur">
+				<Body name="femur_r">
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -277,7 +277,7 @@
 					</FrameGeometry>
 					<!--List of geometry attached to this Frame. Note, the geometry are treated as fixed to the frame and they share the transform of the frame when visualized-->
 					<attached_geometry>
-						<Mesh name="femur_geom_1">
+						<Mesh name="femur_r_geom_1">
 							<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
 							<socket_frame>..</socket_frame>
 							<!--Scale factors in X, Y, Z directions respectively.-->
@@ -290,13 +290,13 @@
 								<color>1 1 1</color>
 							</Appearance>
 							<!--Name of geometry file.-->
-							<mesh_file>femur.vtp</mesh_file>
+							<mesh_file>femur_r.stl</mesh_file>
 						</Mesh>
 					</attached_geometry>
 					<!--Set of wrap objects fixed to this body that GeometryPaths can wrap over.This property used to be a member of Body but was moved up with the introduction of Frames.-->
 					<WrapObjectSet name="wrapobjectset">
 						<objects>
-							<WrapCylinder name="femur_prox">
+							<WrapCylinder name="femur_r_prox">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -324,7 +324,7 @@
 								<!--The length of the cylinder.-->
 								<length>0.050000000000000003</length>
 							</WrapCylinder>
-							<WrapCylinder name="femur_prox2">
+							<WrapCylinder name="femur_r_prox2">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -352,7 +352,7 @@
 								<!--The length of the cylinder.-->
 								<length>0.050000000000000003</length>
 							</WrapCylinder>
-							<WrapTorus name="femur_dist">
+							<WrapTorus name="femur_r_dist">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -380,7 +380,7 @@
 								<!--The outer radius of the Torus.-->
 								<outer_radius>0.0060000000000000001</outer_radius>
 							</WrapTorus>
-							<WrapCylinder name="femur_shaft_large">
+							<WrapCylinder name="femur_r_shaft_large">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -408,7 +408,7 @@
 								<!--The length of the cylinder.-->
 								<length>0.03058</length>
 							</WrapCylinder>
-							<WrapCylinder name="femur_shaft_small">
+							<WrapCylinder name="femur_r_shaft_small">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -446,7 +446,7 @@
 					<!--The elements of the inertia tensor (Vec6) as [Ixx Iyy Izz Ixy Ixz Iyz] measured about the mass_center and not the body origin.-->
 					<inertia>1.6199999999999999e-06 2.4999999999999999e-07 1.6199999999999999e-06 0 0 0</inertia>
 				</Body>
-				<Body name="tibia">
+				<Body name="tibia_r">
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -456,7 +456,7 @@
 					</FrameGeometry>
 					<!--List of geometry attached to this Frame. Note, the geometry are treated as fixed to the frame and they share the transform of the frame when visualized-->
 					<attached_geometry>
-						<Mesh name="tibia_geom_1">
+						<Mesh name="tibia_r_geom_1">
 							<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
 							<socket_frame>..</socket_frame>
 							<!--Scale factors in X, Y, Z directions respectively.-->
@@ -469,13 +469,13 @@
 								<color>1 1 1</color>
 							</Appearance>
 							<!--Name of geometry file.-->
-							<mesh_file>tibia.vtp</mesh_file>
+							<mesh_file>tibia_r.stl</mesh_file>
 						</Mesh>
 					</attached_geometry>
 					<!--Set of wrap objects fixed to this body that GeometryPaths can wrap over.This property used to be a member of Body but was moved up with the introduction of Frames.-->
 					<WrapObjectSet name="wrapobjectset">
 						<objects>
-							<WrapSphere name="tibia_prox">
+							<WrapSphere name="tibia_r_prox">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -501,7 +501,7 @@
 								<!--The radius of the sphere.-->
 								<radius>0.0050000000000000001</radius>
 							</WrapSphere>
-							<WrapCylinder name="tibia_shaft">
+							<WrapCylinder name="tibia_r_shaft">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -529,7 +529,7 @@
 								<!--The length of the cylinder.-->
 								<length>0.028199999999999999</length>
 							</WrapCylinder>
-							<WrapCylinder name="tibia_shaft2">
+							<WrapCylinder name="tibia_r_shaft2">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -557,7 +557,7 @@
 								<!--The length of the cylinder.-->
 								<length>0.028199999999999999</length>
 							</WrapCylinder>
-							<WrapSphere name="ankle_sphere">
+							<WrapSphere name="ankle_r_sphere">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -583,7 +583,7 @@
 								<!--The radius of the sphere.-->
 								<radius>0.0025000000000000001</radius>
 							</WrapSphere>
-							<WrapTorus name="ankle_torus">
+							<WrapTorus name="ankle_r_torus">
 								<!--Whether or not the WrapObject is considered active in computing paths-->
 								<active>true</active>
 								<!--Body-fixed Euler angle sequence for the orientation of the WrapObject-->
@@ -621,7 +621,7 @@
 					<!--The elements of the inertia tensor (Vec6) as [Ixx Iyy Izz Ixy Ixz Iyz] measured about the mass_center and not the body origin.-->
 					<inertia>1.6199999999999999e-06 2.4999999999999999e-07 1.6199999999999999e-06 0 0 0</inertia>
 				</Body>
-				<Body name="foot">
+				<Body name="foot_r">
 					<!--The geometry used to display the axes of this Frame.-->
 					<FrameGeometry name="frame_geometry">
 						<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -631,7 +631,7 @@
 					</FrameGeometry>
 					<!--List of geometry attached to this Frame. Note, the geometry are treated as fixed to the frame and they share the transform of the frame when visualized-->
 					<attached_geometry>
-						<Mesh name="foot_geom_1">
+						<Mesh name="foot_r_geom_1">
 							<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
 							<socket_frame>..</socket_frame>
 							<!--Scale factors in X, Y, Z directions respectively.-->
@@ -644,7 +644,7 @@
 								<color>1 1 1</color>
 							</Appearance>
 							<!--Name of geometry file.-->
-							<mesh_file>foot.vtp</mesh_file>
+							<mesh_file>foot_r.stl</mesh_file>
 						</Mesh>
 					</attached_geometry>
 					<!--Set of wrap objects fixed to this body that GeometryPaths can wrap over.This property used to be a member of Body but was moved up with the introduction of Frames.-->
@@ -856,14 +856,14 @@
 						</TransformAxis>
 					</SpatialTransform>
 				</CustomJoint>
-				<CustomJoint name="sacroiliac">
+				<CustomJoint name="sacroiliac_r">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The parent frame for the joint.).-->
 					<socket_parent_frame>spine_offset</socket_parent_frame>
 					<!--Path to a Component that satisfies the Socket 'child_frame' of type PhysicalFrame (description: The child frame for the joint.).-->
-					<socket_child_frame>pelvis_offset</socket_child_frame>
+					<socket_child_frame>pelvis_r_offset</socket_child_frame>
 					<!--List containing the generalized coordinates (q's) that parameterize this joint.-->
 					<coordinates>
-						<Coordinate name="sacroiliac_flx">
+						<Coordinate name="sacroiliac_r_flx">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>0.064577179999999998</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -895,7 +895,7 @@
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
 							<orientation>0 0 0</orientation>
 						</PhysicalOffsetFrame>
-						<PhysicalOffsetFrame name="pelvis_offset">
+						<PhysicalOffsetFrame name="pelvis_r_offset">
 							<!--The geometry used to display the axes of this Frame.-->
 							<FrameGeometry name="frame_geometry">
 								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -904,7 +904,7 @@
 								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
 							</FrameGeometry>
 							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>/bodyset/pelvis</socket_parent>
+							<socket_parent>/bodyset/pelvis_r</socket_parent>
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
@@ -916,7 +916,7 @@
 						<!--3 Axes for rotations are listed first.-->
 						<TransformAxis name="rotation1">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>sacroiliac_flx</coordinates>
+							<coordinates>sacroiliac_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -977,14 +977,14 @@
 						</TransformAxis>
 					</SpatialTransform>
 				</CustomJoint>
-				<CustomJoint name="hip">
+				<CustomJoint name="hip_r">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The parent frame for the joint.).-->
-					<socket_parent_frame>pelvis_offset</socket_parent_frame>
+					<socket_parent_frame>pelvis_r_offset</socket_parent_frame>
 					<!--Path to a Component that satisfies the Socket 'child_frame' of type PhysicalFrame (description: The child frame for the joint.).-->
-					<socket_child_frame>femur_offset</socket_child_frame>
+					<socket_child_frame>femur_r_offset</socket_child_frame>
 					<!--List containing the generalized coordinates (q's) that parameterize this joint.-->
 					<coordinates>
-						<Coordinate name="hip_flx">
+						<Coordinate name="hip_r_flx">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>0.69813170000000002</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -998,7 +998,7 @@
 							<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 							<prescribed>false</prescribed>
 						</Coordinate>
-						<Coordinate name="hip_add">
+						<Coordinate name="hip_r_add">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>-0.17453293</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -1012,7 +1012,7 @@
 							<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 							<prescribed>false</prescribed>
 						</Coordinate>
-						<Coordinate name="hip_int">
+						<Coordinate name="hip_r_int">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>0</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -1029,7 +1029,7 @@
 					</coordinates>
 					<!--Physical offset frames owned by the Joint that are typically used to satisfy the owning Joint's parent and child frame connections (sockets). PhysicalOffsetFrames are often used to describe the fixed transformation from a Body's origin to another location of interest on the Body (e.g., the joint center). When the joint is deleted, so are the PhysicalOffsetFrame components in this list.-->
 					<frames>
-						<PhysicalOffsetFrame name="pelvis_offset">
+						<PhysicalOffsetFrame name="pelvis_r_offset">
 							<!--The geometry used to display the axes of this Frame.-->
 							<FrameGeometry name="frame_geometry">
 								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1038,13 +1038,13 @@
 								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
 							</FrameGeometry>
 							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>/bodyset/pelvis</socket_parent>
+							<socket_parent>/bodyset/pelvis_r</socket_parent>
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
 							<orientation>0 0 0</orientation>
 						</PhysicalOffsetFrame>
-						<PhysicalOffsetFrame name="femur_offset">
+						<PhysicalOffsetFrame name="femur_r_offset">
 							<!--The geometry used to display the axes of this Frame.-->
 							<FrameGeometry name="frame_geometry">
 								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1053,7 +1053,7 @@
 								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
 							</FrameGeometry>
 							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>/bodyset/femur</socket_parent>
+							<socket_parent>/bodyset/femur_r</socket_parent>
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
@@ -1065,7 +1065,7 @@
 						<!--3 Axes for rotations are listed first.-->
 						<TransformAxis name="rotation1">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>hip_flx</coordinates>
+							<coordinates>hip_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1075,7 +1075,7 @@
 						</TransformAxis>
 						<TransformAxis name="rotation2">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>hip_add</coordinates>
+							<coordinates>hip_r_add</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1085,7 +1085,7 @@
 						</TransformAxis>
 						<TransformAxis name="rotation3">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>hip_int</coordinates>
+							<coordinates>hip_r_int</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1126,14 +1126,14 @@
 						</TransformAxis>
 					</SpatialTransform>
 				</CustomJoint>
-				<CustomJoint name="knee">
+				<CustomJoint name="knee_r">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The parent frame for the joint.).-->
-					<socket_parent_frame>femur_offset</socket_parent_frame>
+					<socket_parent_frame>femur_r_offset</socket_parent_frame>
 					<!--Path to a Component that satisfies the Socket 'child_frame' of type PhysicalFrame (description: The child frame for the joint.).-->
-					<socket_child_frame>tibia_offset</socket_child_frame>
+					<socket_child_frame>tibia_r_offset</socket_child_frame>
 					<!--List containing the generalized coordinates (q's) that parameterize this joint.-->
 					<coordinates>
-						<Coordinate name="knee_flx">
+						<Coordinate name="knee_r_flx">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>-2.0943950999999998</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -1150,7 +1150,7 @@
 					</coordinates>
 					<!--Physical offset frames owned by the Joint that are typically used to satisfy the owning Joint's parent and child frame connections (sockets). PhysicalOffsetFrames are often used to describe the fixed transformation from a Body's origin to another location of interest on the Body (e.g., the joint center). When the joint is deleted, so are the PhysicalOffsetFrame components in this list.-->
 					<frames>
-						<PhysicalOffsetFrame name="femur_offset">
+						<PhysicalOffsetFrame name="femur_r_offset">
 							<!--The geometry used to display the axes of this Frame.-->
 							<FrameGeometry name="frame_geometry">
 								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1159,13 +1159,13 @@
 								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
 							</FrameGeometry>
 							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>/bodyset/femur</socket_parent>
+							<socket_parent>/bodyset/femur_r</socket_parent>
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
 							<orientation>0 0 0</orientation>
 						</PhysicalOffsetFrame>
-						<PhysicalOffsetFrame name="tibia_offset">
+						<PhysicalOffsetFrame name="tibia_r_offset">
 							<!--The geometry used to display the axes of this Frame.-->
 							<FrameGeometry name="frame_geometry">
 								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1174,7 +1174,7 @@
 								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
 							</FrameGeometry>
 							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>/bodyset/tibia</socket_parent>
+							<socket_parent>/bodyset/tibia_r</socket_parent>
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
@@ -1186,7 +1186,7 @@
 						<!--3 Axes for rotations are listed first.-->
 						<TransformAxis name="rotation1">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>knee_flx</coordinates>
+							<coordinates>knee_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1196,7 +1196,7 @@
 						</TransformAxis>
 						<TransformAxis name="rotation2">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>knee_flx</coordinates>
+							<coordinates>knee_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1207,7 +1207,7 @@
 						</TransformAxis>
 						<TransformAxis name="rotation3">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>knee_flx</coordinates>
+							<coordinates>knee_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1219,7 +1219,7 @@
 						<!--3 Axes for translations are listed next.-->
 						<TransformAxis name="translation1">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>knee_flx</coordinates>
+							<coordinates>knee_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1230,7 +1230,7 @@
 						</TransformAxis>
 						<TransformAxis name="translation2">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>knee_flx</coordinates>
+							<coordinates>knee_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1241,7 +1241,7 @@
 						</TransformAxis>
 						<TransformAxis name="translation3">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>knee_flx</coordinates>
+							<coordinates>knee_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1252,14 +1252,14 @@
 						</TransformAxis>
 					</SpatialTransform>
 				</CustomJoint>
-				<CustomJoint name="ankle">
+				<CustomJoint name="ankle_r">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The parent frame for the joint.).-->
-					<socket_parent_frame>tibia_offset</socket_parent_frame>
+					<socket_parent_frame>tibia_r_offset</socket_parent_frame>
 					<!--Path to a Component that satisfies the Socket 'child_frame' of type PhysicalFrame (description: The child frame for the joint.).-->
-					<socket_child_frame>foot_offset</socket_child_frame>
+					<socket_child_frame>foot_r_offset</socket_child_frame>
 					<!--List containing the generalized coordinates (q's) that parameterize this joint.-->
 					<coordinates>
-						<Coordinate name="ankle_flx">
+						<Coordinate name="ankle_r_flx">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>0.87266463000000005</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -1273,7 +1273,7 @@
 							<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 							<prescribed>false</prescribed>
 						</Coordinate>
-						<Coordinate name="ankle_add">
+						<Coordinate name="ankle_r_add">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>-0.087266460000000004</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -1287,7 +1287,7 @@
 							<!--Flag indicating whether or not the values of the coordinates should be prescribed according to the function above. It is ignored if the no prescribed function is specified.-->
 							<prescribed>false</prescribed>
 						</Coordinate>
-						<Coordinate name="ankle_int">
+						<Coordinate name="ankle_r_int">
 							<!--The value of this coordinate before any value has been set. Rotational coordinate value is in radians and Translational in meters.-->
 							<default_value>0</default_value>
 							<!--The minimum and maximum values that the coordinate can range between. Rotational coordinate range in radians and Translational in meters.-->
@@ -1304,7 +1304,7 @@
 					</coordinates>
 					<!--Physical offset frames owned by the Joint that are typically used to satisfy the owning Joint's parent and child frame connections (sockets). PhysicalOffsetFrames are often used to describe the fixed transformation from a Body's origin to another location of interest on the Body (e.g., the joint center). When the joint is deleted, so are the PhysicalOffsetFrame components in this list.-->
 					<frames>
-						<PhysicalOffsetFrame name="tibia_offset">
+						<PhysicalOffsetFrame name="tibia_r_offset">
 							<!--The geometry used to display the axes of this Frame.-->
 							<FrameGeometry name="frame_geometry">
 								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1313,13 +1313,13 @@
 								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
 							</FrameGeometry>
 							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>/bodyset/tibia</socket_parent>
+							<socket_parent>/bodyset/tibia_r</socket_parent>
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
 							<orientation>0 0 0</orientation>
 						</PhysicalOffsetFrame>
-						<PhysicalOffsetFrame name="foot_offset">
+						<PhysicalOffsetFrame name="foot_r_offset">
 							<!--The geometry used to display the axes of this Frame.-->
 							<FrameGeometry name="frame_geometry">
 								<!--Path to a Component that satisfies the Socket 'frame' of type Frame.-->
@@ -1328,7 +1328,7 @@
 								<scale_factors>0.20000000000000001 0.20000000000000001 0.20000000000000001</scale_factors>
 							</FrameGeometry>
 							<!--Path to a Component that satisfies the Socket 'parent' of type C (description: The parent frame to this frame.).-->
-							<socket_parent>/bodyset/foot</socket_parent>
+							<socket_parent>/bodyset/foot_r</socket_parent>
 							<!--Translational offset (in meters) of this frame's origin from the parent frame's origin, expressed in the parent frame.-->
 							<translation>0 0 0</translation>
 							<!--Orientation offset (in radians) of this frame in its parent frame, expressed as a frame-fixed x-y-z rotation sequence.-->
@@ -1340,7 +1340,7 @@
 						<!--3 Axes for rotations are listed first.-->
 						<TransformAxis name="rotation1">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>ankle_flx</coordinates>
+							<coordinates>ankle_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1350,7 +1350,7 @@
 						</TransformAxis>
 						<TransformAxis name="rotation2">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>ankle_add</coordinates>
+							<coordinates>ankle_r_add</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1360,7 +1360,7 @@
 						</TransformAxis>
 						<TransformAxis name="rotation3">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>ankle_int</coordinates>
+							<coordinates>ankle_r_int</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1371,7 +1371,7 @@
 						<!--3 Axes for translations are listed next.-->
 						<TransformAxis name="translation1">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>ankle_flx</coordinates>
+							<coordinates>ankle_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>1 0 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1382,7 +1382,7 @@
 						</TransformAxis>
 						<TransformAxis name="translation2">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>ankle_flx</coordinates>
+							<coordinates>ankle_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 1 0</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1393,7 +1393,7 @@
 						</TransformAxis>
 						<TransformAxis name="translation3">
 							<!--Names of the coordinates that serve as the independent variables         of the transform function.-->
-							<coordinates>ankle_flx</coordinates>
+							<coordinates>ankle_r_flx</coordinates>
 							<!--Rotation or translation axis for the transform.-->
 							<axis>0 0 1</axis>
 							<!--Transform function of the generalized coordinates used to        represent the amount of displacement along a specified axis.-->
@@ -1419,21 +1419,21 @@
 		<!--Forces in the model (includes Actuators).-->
 		<ForceSet name="forceset">
 			<objects>
-				<Thelen2003Muscle name="BFa">
+				<Thelen2003Muscle name="R_BFa">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="BFa-P1">
+								<PathPoint name="R_BFa-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/spine</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0023999999999999998 0.0044999999999999997 0.0030999999999999999</location>
 								</PathPoint>
-								<PathPoint name="BFa-P2">
+								<PathPoint name="R_BFa-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0001 -0.030200000000000001 0.0016000000000000001</location>
 								</PathPoint>
@@ -1445,7 +1445,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>hip_cylinder_large2</wrap_object>
+									<wrap_object>hip_r_cylinder_large2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1453,7 +1453,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_prox</wrap_object>
+									<wrap_object>femur_r_prox</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1480,9 +1480,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1493,21 +1493,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="BFp">
+				<Thelen2003Muscle name="R_BFp">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="BFp-P1">
+								<PathPoint name="R_BFp-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.013100000000000001 0.0023999999999999998 -0.0023</location>
 								</PathPoint>
-								<PathPoint name="BFp-P2">
+								<PathPoint name="R_BFp-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0035000000000000001 0.023900000000000001 0.0025999999999999999</location>
 								</PathPoint>
@@ -1519,7 +1519,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_prox</wrap_object>
+									<wrap_object>femur_r_prox</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1527,7 +1527,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>tibia_shaft</wrap_object>
+									<wrap_object>tibia_r_shaft</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1554,9 +1554,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1567,21 +1567,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="CF">
+				<Thelen2003Muscle name="R_CF">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="CF-P1">
+								<PathPoint name="R_CF-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/spine</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0038999999999999998 0.0063 0.0035000000000000001</location>
 								</PathPoint>
-								<PathPoint name="CF-P2">
+								<PathPoint name="R_CF-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0025000000000000001 -0.026200000000000001 -0.002</location>
 								</PathPoint>
@@ -1593,7 +1593,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>hip_cylinder_small</wrap_object>
+									<wrap_object>hip_r_cylinder_small</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1601,7 +1601,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_prox</wrap_object>
+									<wrap_object>femur_r_prox</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1628,9 +1628,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1641,21 +1641,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="STp">
+				<Thelen2003Muscle name="R_STp">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="STp-P1">
+								<PathPoint name="R_STp-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/spine</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0055999999999999999 0.0041000000000000003 0.0037000000000000002</location>
 								</PathPoint>
-								<PathPoint name="STp-P2">
+								<PathPoint name="R_STp-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0047000000000000002 0.023099999999999999 0</location>
 								</PathPoint>
@@ -1667,7 +1667,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_prox2</wrap_object>
+									<wrap_object>femur_r_prox2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1675,7 +1675,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>tibia_shaft2</wrap_object>
+									<wrap_object>tibia_r_shaft2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1683,7 +1683,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_1">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>hip_cylinder_small</wrap_object>
+									<wrap_object>hip_r_cylinder_small</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1710,9 +1710,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1723,21 +1723,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="STa">
+				<Thelen2003Muscle name="R_STa">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="STa-P1">
+								<PathPoint name="R_STa-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.014500000000000001 0.0011999999999999999 -0.00089999999999999998</location>
 								</PathPoint>
-								<PathPoint name="STa-P2">
+								<PathPoint name="R_STa-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0047000000000000002 0.023099999999999999 0</location>
 								</PathPoint>
@@ -1749,7 +1749,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_prox</wrap_object>
+									<wrap_object>femur_r_prox</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1757,7 +1757,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>tibia_shaft2</wrap_object>
+									<wrap_object>tibia_r_shaft2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1784,9 +1784,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1797,21 +1797,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="SM">
+				<Thelen2003Muscle name="R_SM">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="SM-P1">
+								<PathPoint name="R_SM-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0137 -0.0011000000000000001 -0.0037000000000000002</location>
 								</PathPoint>
-								<PathPoint name="SM-P2">
+								<PathPoint name="R_SM-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0022000000000000001 0.035000000000000003 -0.0025999999999999999</location>
 								</PathPoint>
@@ -1823,7 +1823,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>tibia_shaft2</wrap_object>
+									<wrap_object>tibia_r_shaft2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1850,9 +1850,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1863,21 +1863,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="QF">
+				<Thelen2003Muscle name="R_QF">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="QF-P1">
+								<PathPoint name="R_QF-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0106 -0.00069999999999999999 -0.0023999999999999998</location>
 								</PathPoint>
-								<PathPoint name="QF-P2">
+								<PathPoint name="R_QF-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0028999999999999998 -0.0044000000000000003 0.0011000000000000001</location>
 								</PathPoint>
@@ -1889,7 +1889,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_shaft_small</wrap_object>
+									<wrap_object>femur_r_shaft_small</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -1916,9 +1916,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1929,21 +1929,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="TFL">
+				<Thelen2003Muscle name="R_TFL">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="TFL-P1">
+								<PathPoint name="R_TFL-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.021299999999999999 0.00059999999999999995 0.0025999999999999999</location>
 								</PathPoint>
-								<PathPoint name="TFL-P2">
+								<PathPoint name="R_TFL-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0057000000000000002 -0.0178 0.0030999999999999999</location>
 								</PathPoint>
@@ -1973,9 +1973,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -1986,21 +1986,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="GMa">
+				<Thelen2003Muscle name="R_GMa">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="GMa-P1">
+								<PathPoint name="R_GMa-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/spine</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.020199999999999999 0.0055999999999999999 0.0041000000000000003</location>
 								</PathPoint>
-								<PathPoint name="GMa-P2">
+								<PathPoint name="R_GMa-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0015 -0.0097999999999999997 0.0064000000000000003</location>
 								</PathPoint>
@@ -2012,7 +2012,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>hip_cylinder_large2</wrap_object>
+									<wrap_object>hip_r_cylinder_large2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2039,9 +2039,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2052,21 +2052,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="GMe">
+				<Thelen2003Muscle name="R_GMe">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="GMe-P1">
+								<PathPoint name="R_GMe-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.020199999999999999 0.0040000000000000001 -0.0001</location>
 								</PathPoint>
-								<PathPoint name="GMe-P2">
+								<PathPoint name="R_GMe-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0027000000000000001 -0.0033 0.0064000000000000003</location>
 								</PathPoint>
@@ -2078,7 +2078,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>hip_cylinder_small2</wrap_object>
+									<wrap_object>hip_r_cylinder_small2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2086,7 +2086,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_shaft_large</wrap_object>
+									<wrap_object>femur_r_shaft_large</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2113,9 +2113,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2126,21 +2126,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="GMi">
+				<Thelen2003Muscle name="R_GMi">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="GMi-P1">
+								<PathPoint name="R_GMi-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.012999999999999999 0.00089999999999999998 0.00040000000000000002</location>
 								</PathPoint>
-								<PathPoint name="GMi-P2">
+								<PathPoint name="R_GMi-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.00040000000000000002 -0.0001 0.0047999999999999996</location>
 								</PathPoint>
@@ -2170,9 +2170,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2183,21 +2183,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="Pir">
+				<Thelen2003Muscle name="R_Pir">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="Pir-P1">
+								<PathPoint name="R_Pir-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0114 0.0041999999999999997 -0.00069999999999999999</location>
 								</PathPoint>
-								<PathPoint name="Pir-P2">
+								<PathPoint name="R_Pir-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0014 0.00089999999999999998 0.0040000000000000001</location>
 								</PathPoint>
@@ -2227,9 +2227,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2240,21 +2240,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="GP">
+				<Thelen2003Muscle name="R_GP">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="GP-P1">
+								<PathPoint name="R_GP-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.014800000000000001 -0.0054999999999999997 -0.0063</location>
 								</PathPoint>
-								<PathPoint name="GP-P2">
+								<PathPoint name="R_GP-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0048999999999999998 0.026599999999999999 -0.0018</location>
 								</PathPoint>
@@ -2266,7 +2266,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>tibia_shaft2</wrap_object>
+									<wrap_object>tibia_r_shaft2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2293,9 +2293,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2306,21 +2306,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="GA">
+				<Thelen2003Muscle name="R_GA">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="GA-P1">
+								<PathPoint name="R_GA-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0064999999999999997 -0.0058999999999999999 -0.0061000000000000004</location>
 								</PathPoint>
-								<PathPoint name="GA-P2">
+								<PathPoint name="R_GA-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0032000000000000002 0.028899999999999999 -0.0016999999999999999</location>
 								</PathPoint>
@@ -2332,7 +2332,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>tibia_shaft2</wrap_object>
+									<wrap_object>tibia_r_shaft2</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2359,9 +2359,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2372,21 +2372,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="AL">
+				<Thelen2003Muscle name="R_AL">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="AL-P1">
+								<PathPoint name="R_AL-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0044999999999999997 -0.0050000000000000001 -0.0053</location>
 								</PathPoint>
-								<PathPoint name="AL-P2">
+								<PathPoint name="R_AL-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0016000000000000001 -0.017000000000000001 0.0011000000000000001</location>
 								</PathPoint>
@@ -2416,9 +2416,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2429,21 +2429,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="AM">
+				<Thelen2003Muscle name="R_AM">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="AM-P1">
+								<PathPoint name="R_AM-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0061000000000000004 -0.0053 -0.0055999999999999999</location>
 								</PathPoint>
-								<PathPoint name="AM-P2">
+								<PathPoint name="R_AM-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.00059999999999999995 -0.029999999999999999 -0.0030999999999999999</location>
 								</PathPoint>
@@ -2473,9 +2473,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2486,21 +2486,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="AB">
+				<Thelen2003Muscle name="R_AB">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="AB-P1">
+								<PathPoint name="R_AB-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.010699999999999999 -0.0057999999999999996 -0.0066</location>
 								</PathPoint>
-								<PathPoint name="AB-P2">
+								<PathPoint name="R_AB-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0016000000000000001 -0.016400000000000001 0.0035000000000000001</location>
 								</PathPoint>
@@ -2530,9 +2530,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2543,21 +2543,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="Pec">
+				<Thelen2003Muscle name="R_Pec">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="Pec-P1">
+								<PathPoint name="R_Pec-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.00089999999999999998 -0.0033999999999999998 -0.0033</location>
 								</PathPoint>
-								<PathPoint name="Pec-P2">
+								<PathPoint name="R_Pec-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0018 -0.010699999999999999 0.0019</location>
 								</PathPoint>
@@ -2587,9 +2587,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2600,21 +2600,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="IP">
+				<Thelen2003Muscle name="R_IP">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="IP-P1">
+								<PathPoint name="R_IP-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
 									<socket_parent_frame>/bodyset/spine</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.053699999999999998 0.0050000000000000001 0.0030000000000000001</location>
 								</PathPoint>
-								<PathPoint name="IP-P2">
+								<PathPoint name="R_IP-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0020999999999999999 -0.0053 0.0001</location>
 								</PathPoint>
@@ -2644,9 +2644,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2657,21 +2657,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="OE">
+				<Thelen2003Muscle name="R_OE">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="OE-P1">
+								<PathPoint name="R_OE-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0088999999999999999 -0.0027000000000000001 -0.0030999999999999999</location>
 								</PathPoint>
-								<PathPoint name="OE-P2">
+								<PathPoint name="R_OE-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0016000000000000001 0.00050000000000000001 0.0035000000000000001</location>
 								</PathPoint>
@@ -2701,9 +2701,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2714,21 +2714,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="OI">
+				<Thelen2003Muscle name="R_OI">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="OI-P1">
+								<PathPoint name="R_OI-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0063 0.0047999999999999996 -0.0025999999999999999</location>
 								</PathPoint>
-								<PathPoint name="OI-P2">
+								<PathPoint name="R_OI-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0019 0.00069999999999999999 0.0023999999999999998</location>
 								</PathPoint>
@@ -2758,9 +2758,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2771,21 +2771,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="GS">
+				<Thelen2003Muscle name="R_GS">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="GS-P1">
+								<PathPoint name="R_GS-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0028999999999999998 0.0014 -0.0022000000000000001</location>
 								</PathPoint>
-								<PathPoint name="GS-P2">
+								<PathPoint name="R_GS-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0011000000000000001 0.0015 0.0023999999999999998</location>
 								</PathPoint>
@@ -2815,9 +2815,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2828,21 +2828,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="GI">
+				<Thelen2003Muscle name="R_GI">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="GI-P1">
+								<PathPoint name="R_GI-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0055999999999999999 0.0023999999999999998 -0.0012999999999999999</location>
 								</PathPoint>
-								<PathPoint name="GI-P2">
+								<PathPoint name="R_GI-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0030999999999999999 -0.00069999999999999999 0.0020999999999999999</location>
 								</PathPoint>
@@ -2872,9 +2872,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2885,21 +2885,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="RF">
+				<Thelen2003Muscle name="R_RF">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="RF-P1">
+								<PathPoint name="R_RF-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+									<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0044999999999999997 -0.0001 0.0015</location>
 								</PathPoint>
-								<PathPoint name="RF-P2">
+								<PathPoint name="R_RF-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0025999999999999999 0.037499999999999999 0.00050000000000000001</location>
 								</PathPoint>
@@ -2911,7 +2911,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_dist</wrap_object>
+									<wrap_object>femur_r_dist</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2919,7 +2919,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_shaft_small</wrap_object>
+									<wrap_object>femur_r_shaft_small</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2946,9 +2946,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -2959,21 +2959,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="VL">
+				<Thelen2003Muscle name="R_VL">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="VL-P1">
+								<PathPoint name="R_VL-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0011000000000000001 -0.0035999999999999999 0.0055999999999999999</location>
 								</PathPoint>
-								<PathPoint name="VL-P2">
+								<PathPoint name="R_VL-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0025999999999999999 0.037499999999999999 0.00050000000000000001</location>
 								</PathPoint>
@@ -2985,7 +2985,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_dist</wrap_object>
+									<wrap_object>femur_r_dist</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -2993,7 +2993,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_shaft_small</wrap_object>
+									<wrap_object>femur_r_shaft_small</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3020,9 +3020,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3033,21 +3033,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="VI">
+				<Thelen2003Muscle name="R_VI">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="VI-P1">
+								<PathPoint name="R_VI-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.00080000000000000004 -0.011599999999999999 0.0032000000000000002</location>
 								</PathPoint>
-								<PathPoint name="VI-P2">
+								<PathPoint name="R_VI-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0025999999999999999 0.037499999999999999 0.00050000000000000001</location>
 								</PathPoint>
@@ -3059,7 +3059,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_dist</wrap_object>
+									<wrap_object>femur_r_dist</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3067,7 +3067,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_shaft_small</wrap_object>
+									<wrap_object>femur_r_shaft_small</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3094,9 +3094,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3107,21 +3107,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="VM">
+				<Thelen2003Muscle name="R_VM">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="VM-P1">
+								<PathPoint name="R_VM-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.00020000000000000001 -0.0074000000000000003 0.0011999999999999999</location>
 								</PathPoint>
-								<PathPoint name="VM-P2">
+								<PathPoint name="R_VM-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0025999999999999999 0.037499999999999999 0.00050000000000000001</location>
 								</PathPoint>
@@ -3133,7 +3133,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_dist</wrap_object>
+									<wrap_object>femur_r_dist</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3141,7 +3141,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>femur_shaft_small</wrap_object>
+									<wrap_object>femur_r_shaft_small</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3168,9 +3168,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3181,21 +3181,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="MG">
+				<Thelen2003Muscle name="R_MG">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="MG-P1">
+								<PathPoint name="R_MG-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0027000000000000001 -0.027799999999999998 -0.0020999999999999999</location>
 								</PathPoint>
-								<PathPoint name="MG-P2">
+								<PathPoint name="R_MG-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0040000000000000001 0.00040000000000000002 0.001</location>
 								</PathPoint>
@@ -3225,9 +3225,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3238,21 +3238,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="LG">
+				<Thelen2003Muscle name="R_LG">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="LG-P1">
+								<PathPoint name="R_LG-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0030000000000000001 -0.028400000000000002 0.0016999999999999999</location>
 								</PathPoint>
-								<PathPoint name="LG-P2">
+								<PathPoint name="R_LG-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0040000000000000001 0.00040000000000000002 0.001</location>
 								</PathPoint>
@@ -3282,9 +3282,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3295,21 +3295,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="Pla">
+				<Thelen2003Muscle name="R_Pla">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="Pla-P1">
+								<PathPoint name="R_Pla-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0023 -0.0275 0.0011000000000000001</location>
 								</PathPoint>
-								<PathPoint name="Pla-P2">
+								<PathPoint name="R_Pla-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0040000000000000001 0.00040000000000000002 0.001</location>
 								</PathPoint>
@@ -3339,9 +3339,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3352,21 +3352,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="Sol">
+				<Thelen2003Muscle name="R_Sol">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="Sol-P1">
+								<PathPoint name="R_Sol-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0033 0.033500000000000002 0.0023999999999999998</location>
 								</PathPoint>
-								<PathPoint name="Sol-P2">
+								<PathPoint name="R_Sol-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0040000000000000001 0.00040000000000000002 0.001</location>
 								</PathPoint>
@@ -3396,9 +3396,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3409,21 +3409,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="TA">
+				<Thelen2003Muscle name="R_TA">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="TA-P1">
+								<PathPoint name="R_TA-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0033 0.033599999999999998 0.0025999999999999999</location>
 								</PathPoint>
-								<PathPoint name="TA-P2">
+								<PathPoint name="R_TA-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0047999999999999996 -0.0022000000000000001 -0.00069999999999999999</location>
 								</PathPoint>
@@ -3435,7 +3435,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_sphere</wrap_object>
+									<wrap_object>ankle_r_sphere</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3443,7 +3443,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_torus</wrap_object>
+									<wrap_object>ankle_r_torus</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3470,9 +3470,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3483,21 +3483,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="EDL">
+				<Thelen2003Muscle name="R_EDL">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="EDL-P1">
+								<PathPoint name="R_EDL-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0011999999999999999 0.039199999999999999 0.0028</location>
 								</PathPoint>
-								<PathPoint name="EDL-P2">
+								<PathPoint name="R_EDL-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0033999999999999998 -0.0016999999999999999 0.0011000000000000001</location>
 								</PathPoint>
@@ -3509,7 +3509,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_sphere</wrap_object>
+									<wrap_object>ankle_r_sphere</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3517,7 +3517,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_torus</wrap_object>
+									<wrap_object>ankle_r_torus</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3544,9 +3544,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3557,21 +3557,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="TP">
+				<Thelen2003Muscle name="R_TP">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="TP-P1">
+								<PathPoint name="R_TP-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0015 0.0339 0.0001</location>
 								</PathPoint>
-								<PathPoint name="TP-P2">
+								<PathPoint name="R_TP-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.00069999999999999999 -0.0016999999999999999 -0.0011000000000000001</location>
 								</PathPoint>
@@ -3583,7 +3583,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_sphere</wrap_object>
+									<wrap_object>ankle_r_sphere</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3591,7 +3591,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_torus</wrap_object>
+									<wrap_object>ankle_r_torus</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3618,9 +3618,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3631,21 +3631,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="FDL">
+				<Thelen2003Muscle name="R_FDL">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="FDL-P1">
+								<PathPoint name="R_FDL-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0025000000000000001 0.035400000000000001 0</location>
 								</PathPoint>
-								<PathPoint name="FDL-P2">
+								<PathPoint name="R_FDL-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.00069999999999999999 -0.0016999999999999999 -0.0011000000000000001</location>
 								</PathPoint>
@@ -3657,7 +3657,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_sphere</wrap_object>
+									<wrap_object>ankle_r_sphere</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3665,7 +3665,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_torus</wrap_object>
+									<wrap_object>ankle_r_torus</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3692,9 +3692,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3705,21 +3705,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="FHL">
+				<Thelen2003Muscle name="R_FHL">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="FHL-P1">
+								<PathPoint name="R_FHL-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0015 0.0339 0.0001</location>
 								</PathPoint>
-								<PathPoint name="FHL-P2">
+								<PathPoint name="R_FHL-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.00069999999999999999 -0.0016999999999999999 -0.0011000000000000001</location>
 								</PathPoint>
@@ -3731,7 +3731,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_sphere</wrap_object>
+									<wrap_object>ankle_r_sphere</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3739,7 +3739,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_torus</wrap_object>
+									<wrap_object>ankle_r_torus</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3766,9 +3766,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3779,21 +3779,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="Per">
+				<Thelen2003Muscle name="R_Per">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="Per-P1">
+								<PathPoint name="R_Per-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0019 0.035299999999999998 0.0028999999999999998</location>
 								</PathPoint>
-								<PathPoint name="Per-P2">
+								<PathPoint name="R_Per-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+									<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.0028 -0.0027000000000000001 0.0016999999999999999</location>
 								</PathPoint>
@@ -3805,7 +3805,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_sphere</wrap_object>
+									<wrap_object>ankle_r_sphere</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3813,7 +3813,7 @@
 								</PathWrap>
 								<PathWrap name="pathwrap_0">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>ankle_torus</wrap_object>
+									<wrap_object>ankle_r_torus</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3840,9 +3840,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3853,21 +3853,21 @@
 					<!--Deactivation time constant, in seconds-->
 					<deactivation_time_constant>0.040000000000000001</deactivation_time_constant>
 				</Thelen2003Muscle>
-				<Thelen2003Muscle name="Pop">
+				<Thelen2003Muscle name="R_Pop">
 					<!--The set of points defining the path of the actuator.-->
 					<GeometryPath name="geometrypath">
 						<!--The set of points defining the path-->
 						<PathPointSet>
 							<objects>
-								<PathPoint name="Pop-P1">
+								<PathPoint name="R_Pop-P1">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+									<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>-0.0023999999999999998 -0.030800000000000001 0.0016999999999999999</location>
 								</PathPoint>
-								<PathPoint name="Pop-P2">
+								<PathPoint name="R_Pop-P2">
 									<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame in which this path point is defined.).-->
-									<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+									<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 									<!--The fixed location of the path point expressed in its parent frame.-->
 									<location>0.00059999999999999995 0.027099999999999999 -0.0023</location>
 								</PathPoint>
@@ -3879,7 +3879,7 @@
 							<objects>
 								<PathWrap name="pathwrap">
 									<!--A WrapObject that this PathWrap interacts with.-->
-									<wrap_object>tibia_prox</wrap_object>
+									<wrap_object>tibia_r_prox</wrap_object>
 									<!--The wrapping method used to solve the path around the wrap object.-->
 									<method>hybrid</method>
 									<!--The range of indices to use to compute the path over the wrap object.-->
@@ -3906,9 +3906,9 @@
 					<FmaxTendonStrain>0.033000000000000002</FmaxTendonStrain>
 					<!--passive muscle strain at maximum isometric muscle force-->
 					<FmaxMuscleStrain>0.59999999999999998</FmaxMuscleStrain>
-					<!--shape factor for Gaussian active muscle force-length relationship-->
+					<!--shape factor for Gaussian active muscle force-length relationship_r-->
 					<KshapeActive>0.5</KshapeActive>
-					<!--exponential shape factor for passive force-length relationship-->
+					<!--exponential shape factor for passive force-length relationship_r-->
 					<KshapePassive>4</KshapePassive>
 					<!--force-velocity shape factor-->
 					<Af>0.29999999999999999</Af>
@@ -3922,34 +3922,34 @@
 			</objects>
 			<groups>
 				<ObjectGroup name="hamstrings">
-					<members> BFa BFp CF GA GP SM STa STp</members>
+					<members> R_BFa R_BFp R_CF R_GA R_GP R_SM R_STa R_STp</members>
 				</ObjectGroup>
-				<ObjectGroup name="hip_cuffs">
-					<members> GI GS OE OI Pir QF</members>
+				<ObjectGroup name="hip_r_cuffs">
+					<members> R_GI R_GS R_OE R_OI R_Pir R_QF</members>
 				</ObjectGroup>
-				<ObjectGroup name="hip_flexors">
-					<members> IP Pec TFL</members>
+				<ObjectGroup name="hip_r_flexors">
+					<members> R_IP R_Pec R_TFL</members>
 				</ObjectGroup>
 				<ObjectGroup name="gluteals">
-					<members> GMa GMe GMi</members>
+					<members> R_GMa R_GMe R_GMi</members>
 				</ObjectGroup>
 				<ObjectGroup name="adductors">
-					<members> AB AL AM GA GP</members>
+					<members> R_AB R_AL R_AM R_GA R_GP</members>
 				</ObjectGroup>
 				<ObjectGroup name="quadriceps">
-					<members> RF VI VL VM</members>
+					<members> R_RF R_VI R_VL R_VM</members>
 				</ObjectGroup>
 				<ObjectGroup name="calf_muscles">
-					<members> LG MG Pla Sol</members>
+					<members> R_LG R_MG R_Pla R_Sol</members>
 				</ObjectGroup>
 				<ObjectGroup name="anterior_crural">
-					<members> EDL TA</members>
+					<members> R_EDL R_TA</members>
 				</ObjectGroup>
 				<ObjectGroup name="posterior_crural">
-					<members> FDL FHL TP</members>
+					<members> R_FDL R_FHL R_TP</members>
 				</ObjectGroup>
 				<ObjectGroup name="others">
-					<members> Per Pop</members>
+					<members> R_Per R_Pop</members>
 				</ObjectGroup>
 			</groups>
 		</ForceSet>
@@ -3958,7 +3958,7 @@
 			<objects>
 				<Marker name="R_Iliac_Crest">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
-					<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+					<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
 					<location>0.028000000000000001 0.0040000000000000001 0.01</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
@@ -3966,7 +3966,7 @@
 				</Marker>
 				<Marker name="R_Hip">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
-					<socket_parent_frame>/bodyset/pelvis</socket_parent_frame>
+					<socket_parent_frame>/bodyset/pelvis_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
 					<location>-0.0050000000000000001 0.0050000000000000001 0.01</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
@@ -3974,7 +3974,7 @@
 				</Marker>
 				<Marker name="R_Knee">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
-					<socket_parent_frame>/bodyset/femur</socket_parent_frame>
+					<socket_parent_frame>/bodyset/femur_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
 					<location>0 -0.035000000000000003 0</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
@@ -3982,7 +3982,7 @@
 				</Marker>
 				<Marker name="R_Ankle">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
-					<socket_parent_frame>/bodyset/tibia</socket_parent_frame>
+					<socket_parent_frame>/bodyset/tibia_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
 					<location>0 0 0.0040000000000000001</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
@@ -3990,7 +3990,7 @@
 				</Marker>
 				<Marker name="R_Toe">
 					<!--Path to a Component that satisfies the Socket 'parent_frame' of type PhysicalFrame (description: The frame to which this station is fixed.).-->
-					<socket_parent_frame>/bodyset/foot</socket_parent_frame>
+					<socket_parent_frame>/bodyset/foot_r</socket_parent_frame>
 					<!--The fixed location of the station expressed in its parent frame.-->
 					<location>0.014999999999999999 -0.0050000000000000001 0.0050000000000000001</location>
 					<!--Flag (true or false) specifying whether the marker is fixed in its parent frame during the marker placement step of scaling.  If false, the marker is free to move within its parent Frame to match its experimental counterpart.-->
