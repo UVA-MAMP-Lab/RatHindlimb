@@ -20,7 +20,7 @@ from pathlib import Path
 import polars as pl
 import numpy as np
 import re
-from src.rathindlimb.processing import update_model
+from src.processing import update_model
 
 model_dir = Path('./models/osim')
 model_file = model_dir / 'rat_hindlimb.osim'
@@ -56,7 +56,7 @@ with open(model_file, 'w') as file:
 The original model uses Thelen [@missing-reference] muscle models, which have been largely superseded by Millard [@missing-reference] muscle models in OpenSim. We can convert the muscles using the [`model_thelen_to_millard`](src/rathindlimb/muscle_utils.py) function. 
 
 ```{python} 
-from src.rathindlimb import model_thelen_to_millard
+from src.muscle_utils import model_thelen_to_millard
 model = osim.Model(str(model_file))
 model = model_thelen_to_millard(model)
 
@@ -91,7 +91,7 @@ The muscle lengths are plotted on parallel coordinate plots with the joint angle
 
 ```{python}
 #| eval: false
-from src.rathindlimb.plotting import muscle_length_parcoords
+from src.plotting import muscle_length_parcoords
 
 figure_dir = Path('./figs')
 
@@ -151,7 +151,7 @@ We utilize the [`open3d`](http://www.open3d.org/) library to perform the mesh re
 TODO: Before and after and show muscle length plots to prove that what we did worked
 
 ```{python}
-from src.rathindlimb.registration import register_meshes, apply_transformation_to_mesh
+from src.registration import register_meshes, apply_transformation_to_mesh
 
 # The foot mesh used in the Animatlab model is missing the phalanges, but there is a mesh that includes them that lines up with the one included in the model
 mesh_dir = Path('./meshes')
@@ -186,7 +186,7 @@ for mesh in meshes:
 ```
 
 ```{python}
-from src.rathindlimb.registration import convert_points_between_meshes
+from src.registration import convert_points_between_meshes
 
 attachment_dir = Path('./data/attachments')
 young_attachments = pl.read_csv(attachment_dir / 'young_model_attachments.csv')

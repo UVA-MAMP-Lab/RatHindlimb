@@ -1489,19 +1489,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_BFa_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_BFa_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_BFa_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_BFa_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -1575,19 +1587,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_BFp_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_BFp_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_BFp_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_BFp_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -1661,19 +1685,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_CF_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_CF_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_CF_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_CF_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -1755,19 +1791,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_STp_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_STp_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_STp_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_STp_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -1841,19 +1889,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_STa_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_STa_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_STa_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_STa_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -1919,19 +1979,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_SM_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_SM_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_SM_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_SM_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -1997,19 +2069,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_QF_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_QF_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_QF_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_QF_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2066,19 +2150,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_TFL_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_TFL_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_TFL_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_TFL_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2144,19 +2240,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_GMa_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_GMa_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_GMa_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_GMa_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2230,19 +2338,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_GMe_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_GMe_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_GMe_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_GMe_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2299,19 +2419,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_GMi_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_GMi_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_GMi_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_GMi_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2368,19 +2500,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_Pir_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_Pir_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_Pir_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_Pir_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2446,19 +2590,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_GP_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_GP_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_GP_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_GP_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2524,19 +2680,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_GA_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_GA_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_GA_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_GA_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2593,19 +2761,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_AL_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_AL_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_AL_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_AL_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2662,19 +2842,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_AM_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_AM_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_AM_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_AM_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2731,19 +2923,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_AB_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_AB_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_AB_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_AB_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2800,19 +3004,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_Pec_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_Pec_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_Pec_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_Pec_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2869,19 +3085,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_IP_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_IP_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_IP_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_IP_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -2938,19 +3166,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_OE_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_OE_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_OE_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_OE_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3007,19 +3247,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_OI_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_OI_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_OI_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_OI_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3076,19 +3328,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_GS_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_GS_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_GS_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_GS_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3145,19 +3409,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_GI_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_GI_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_GI_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_GI_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3231,19 +3507,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_RF_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_RF_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_RF_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_RF_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3317,19 +3605,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_VL_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_VL_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_VL_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_VL_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3403,19 +3703,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_VI_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_VI_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_VI_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_VI_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3489,19 +3801,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_VM_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_VM_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_VM_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_VM_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3558,19 +3882,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_MG_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_MG_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_MG_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_MG_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3627,19 +3963,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_LG_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_LG_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_LG_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_LG_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3696,19 +4044,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_Pla_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_Pla_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_Pla_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_Pla_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3765,19 +4125,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_Sol_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_Sol_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_Sol_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_Sol_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3851,19 +4223,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_TA_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_TA_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_TA_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_TA_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -3937,19 +4321,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_EDL_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_EDL_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_EDL_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_EDL_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -4023,19 +4419,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_TP_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_TP_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_TP_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_TP_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -4109,19 +4517,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_FDL_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_FDL_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_FDL_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_FDL_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -4195,19 +4615,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_FHL_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_FHL_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_FHL_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_FHL_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -4281,19 +4713,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_Per_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_Per_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_Per_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_Per_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
@@ -4359,19 +4803,31 @@
 					<!--Activation lower bound.-->
 					<minimum_activation>0.01</minimum_activation>
 					<!--Active-force-length curve.-->
-					<ActiveForceLengthCurve name="ActiveForceLengthCurve">
-						<!--All properties of this object have their default values.-->
+					<ActiveForceLengthCurve name="R_Pop_ActiveForceLengthCurve">
+						<!--Minimum value of the active-force-length curve-->
+						<minimum_value>0</minimum_value>
 					</ActiveForceLengthCurve>
 					<!--Force-velocity curve.-->
-					<ForceVelocityCurve name="ForceVelocityCurve">
-						<!--All properties of this object have their default values.-->
+					<ForceVelocityCurve name="R_Pop_ForceVelocityCurve">
+						<!--Curve slope at the maximum normalized concentric (shortening) velocity (normalized velocity of -1)-->
+						<concentric_slope_at_vmax>0</concentric_slope_at_vmax>
+						<!--Curve slope just before reaching concentric_slope_at_vmax-->
+						<concentric_slope_near_vmax>0.25</concentric_slope_near_vmax>
+						<!--Curve slope at isometric (normalized velocity of 0)-->
+						<isometric_slope>5</isometric_slope>
+						<!--Curve slope at the maximum normalized eccentric (lengthening) velocity (normalized velocity of 1)-->
+						<eccentric_slope_at_vmax>0</eccentric_slope_at_vmax>
+						<!--Curve slope just before reaching eccentric_slope_at_vmax-->
+						<eccentric_slope_near_vmax>0.14999999999999999</eccentric_slope_near_vmax>
+						<!--Curve value at the maximum normalized eccentric contraction velocity-->
+						<max_eccentric_velocity_force_multiplier>1.3999999999999999</max_eccentric_velocity_force_multiplier>
 					</ForceVelocityCurve>
 					<!--Passive-force-length curve.-->
-					<FiberForceLengthCurve name="FiberForceLengthCurve">
+					<FiberForceLengthCurve name="R_Pop_FiberForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</FiberForceLengthCurve>
 					<!--Tendon-force-length curve.-->
-					<TendonForceLengthCurve name="TendonForceLengthCurve">
+					<TendonForceLengthCurve name="R_Pop_TendonForceLengthCurve">
 						<!--All properties of this object have their default values.-->
 					</TendonForceLengthCurve>
 				</Millard2012EquilibriumMuscle>
