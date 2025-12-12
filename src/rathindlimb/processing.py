@@ -1,5 +1,7 @@
 from pathlib import Path
+import opensim as osim
 
+#
 # Model and setup file paths
 models_path = Path("../../models/osim/")
 unscaled_model_path = models_path / "rat_hindlimb_bilateral.osim"
@@ -35,5 +37,14 @@ required_parameters = [
 ]
 
 
-def process_session():
-    pass
+def update_model(model: osim.Model, save_path: str | Path) -> osim.Model:
+    """
+    Helper function to update and save the OpenSim model.
+
+    Returns the updated model.
+    """
+    model.finalizeFromProperties()
+    model.finalizeConnections()
+    model.printToXML(str(save_path))
+
+    return osim.Model(str(save_path))

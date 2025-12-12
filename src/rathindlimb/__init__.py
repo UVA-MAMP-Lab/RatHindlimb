@@ -10,3 +10,4 @@ __all__ = [
     "scale_opensim_model",
     "RatScalingParameters",
 ]
+

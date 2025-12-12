@@ -337,16 +337,3 @@ def mirror_model(
     # Save the mirrored model
     model.printToXML(output_model_path)
     print(f"Mirrored model saved to {output_model_path}.")
-
-
-# Example usage
-if __name__ == "__main__":
-    input_model = "models/rat_hindlimb_millard_y2j_tsl_r.osim"
-    output_model = "models/rat_hindlimb_millard_y2j_tsl_bilateral.osim"
-    mirror_model(
-        input_model,
-        output_model,
-        ground_name="ground",
-        axes=[2],
-        exclude_bodies=["ground", "spine"],
-    )

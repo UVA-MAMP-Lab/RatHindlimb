@@ -9,6 +9,7 @@ execute:
   daemon: false
   keep-ipynb: true
   cache: true
+  freeze: auto
 ---
 Original model drawn from https://simtk.org/projects/rat_hlimb_model which is based on Johnson et al. 2008 [@missing-reference].
 
@@ -19,13 +20,12 @@ from pathlib import Path
 import polars as pl
 import numpy as np
 import re
-from loguru import logger
-osim.Logger.setLevelString('error')
-logger.remove()
+from src.rathindlimb.processing import update_model
+
 model_dir = Path('./models/osim')
 model_file = model_dir / 'rat_hindlimb.osim'
 
-model = osim.Model(model_file.as_posix())
+model = osim.Model(str(model_file))
 muscles = model.getMuscles()
 
 with open(model_file, 'r') as file:
@@ -57,36 +57,32 @@ The original model uses Thelen [@missing-reference] muscle models, which have be
 
 ```{python} 
 from src.rathindlimb import model_thelen_to_millard
-model = osim.Model(model_file.as_posix())
-millard_model = model_thelen_to_millard(model)
+model = osim.Model(str(model_file))
+model = model_thelen_to_millard(model)
 
-out = model_dir / 'rat_hindlimb_millard.osim'
-millard_model.printToXML(out.as_posix())
+model = update_model(model, model_dir / 'rat_hindlimb_millard.osim')
 ```
 
 ## Lock unused coordinates
 We lock sacroiliac flexion, ankle internal rotation and ankle adduction as we do not have the resolution to capture the small amount of motion that these correspond to. 
 ```{python}
-from movedb.osim import OsimGraph
+from osimpy import OsimGraph
 coords_to_lock = ["ankle_r_add", "ankle_r_int", "sacroiliac_r_flx"]
-joints = millard_model.getJointSet()
-millard_model.initSystem()
-graph = OsimGraph(osim_model=millard_model)
+joints = model.getJointSet()
+model.initSystem()
+graph = OsimGraph(osim_model=model)
 
 for coord_name in coords_to_lock:
   coord = graph.get_coordinate(coord_name)
   coord.set_locked(True)
 
-out = model_dir / 'rat_hindlimb_millard_locked.osim'
-graph.osim_model.finalizeFromProperties()
-graph.osim_model.finalizeConnections()
-graph.osim_model.printToXML(out.as_posix())
+model = update_model(model, model_dir / 'rat_hindlimb_millard_locked.osim')
 ```
 
 ## Muscle path analysis
 The model is moved through its full range of motion and muscle lengths are analyzed to identify discontinuties that may indicate problems with muscle path definitions. The `OsimGraph` class from `movedb` is used to represent an OpenSim model as a graph structure, which allows for efficient analysis of muscle paths.
+
 ```{python}
-model = osim.Model(out.as_posix())
 graph = OsimGraph(osim_model=model)
 results = graph.get_all_muscle_lengths_rom(min_points=10000)
 ```
@@ -95,23 +91,14 @@ The muscle lengths are plotted on parallel coordinate plots with the joint angle
 
 ```{python}
 #| eval: false
-import plotly.graph_objects as go
+from src.rathindlimb.plotting import muscle_length_parcoords
+
 figure_dir = Path('./figs')
 
 for muscle_name, muscle_data in results.items():
-  fig = go.Figure(
-    data=go.Parcoords(
-      line=dict(color=muscle_data[muscle_name], colorscale='Viridis', showscale=True),
-      dimensions=[
-        dict(label=col, values=muscle_data[col]) for col in muscle_data.columns
-      ]
-    )
-  )
-  fig.update_layout(title=f'{muscle_name} Lengths')
+  fig = muscle_length_parcoords(muscle_name, muscle_data, muscle_name)
   # Write to png
-  fig_path = figure_dir / muscle_name 
-  fig_path.mkdir(exist_ok=True)
-  fig.write_image(fig_path / f'{muscle_name}_orig_lengths.png')
+  fig.write_image(figure_dir / f'{muscle_name}_orig_lengths.png')
 
   # TODO: Should this also include moment arms?
 ```
@@ -120,15 +107,15 @@ for muscle_name, muscle_data in results.items():
 The following muscles were identified as having discontinuous length changes:
 
 - BFa 
-![BFa Length](./figs/BFa_orig_length.png)
+![BFa Length](./figs/R_BFa_orig_length.png)
 - CF
-![CF Length](./figs/CF_orig_length.png)
+![CF Length](./figs/R_CF_orig_length.png)
 - STp
-![STp Length](./figs/STp_orig_length.png)
+![STp Length](./figs/R_STp_orig_length.png)
 - TA
-![TA Length](./figs/TA_orig_length.png)
+![TA Length](./figs/R_TA_orig_length.png)
 - VL
-![VL Length](./figs/VL_orig_length.png)
+![VL Length](./figs/R_VL_orig_length.png)
 
 Investigating the root cause of this, we found that the likely culprit is a hard-coded value in [OpenSim's WrapCylinder.cpp code](https://github.com/opensim-org/opensim-core/blob/f9cd558ec3ea99dda206e5e412e62e23cf19bd7e/OpenSim/Simulation/Wrap/WrapCylinder.cpp#L668) that determines the number of segments used to approximate the muscle path over a wrapping cylinder:
 
@@ -150,8 +137,8 @@ We were able to get in touch with the author of the Animatlab model, Dr. Young, 
 #| label: tbl-young-attachments
 from IPython.display import Markdown as md
 from tabulate import tabulate
-
-data = pl.read_csv('./data/attachments/young_model_attachments.csv')
+import pandas as pd
+data = pd.read_csv('./data/attachments/young_model_attachments.csv')
 
 md(tabulate(data, headers='keys', tablefmt='pipe'))
 ```
@@ -200,7 +187,6 @@ for mesh in meshes:
 
 ```{python}
 from src.rathindlimb.registration import convert_points_between_meshes
-from loguru import logger
 
 attachment_dir = Path('./data/attachments')
 young_attachments = pl.read_csv(attachment_dir / 'young_model_attachments.csv')
@@ -230,10 +216,6 @@ for i in range(muscles.getSize()):
     
     path_wraps: osim.PathWrapSet = geo_path.getWrapSet()
     path_wraps.clearAndDestroy()
-    # existing_wraps = path_wraps.getSize()
-    # # Remove the old path wraps
-    # for j in range(existing_wraps - 1, -1, -1):
-    #     path_wraps.remove(j)
     
     # Add the new path points
     muscle_rows = young_attachments.filter(pl.col('Abbreviation') == muscle_name.split('R_')[-1])
@@ -247,17 +229,12 @@ for i in range(muscles.getSize()):
         loc = convert_points_between_meshes(young_loc, transforms[frame])
         vec = osim.Vec3(loc[0][0], loc[0][1], loc[0][2])
         muscle.addNewPathPoint(point_name, mesh, vec)
-        # logger.debug(f"Added path point for muscle: {muscle_name}, body: {mesh.getName()}, location: {loc}")
         index += 1
     # Remove the old path points
     for j in range(existing_path_points - 1, -1, -1):
         path_points.remove(j)
-        # logger.debug(f"Removed path point index: {j} for muscle: {muscle_name}")
 
-model.finalizeFromProperties()
-model.finalizeConnections()
-out = model_dir / 'rat_hindlimb_millard_y2j.osim'
-model.printToXML(out.as_posix())
+model = update_model(model, model_dir / 'rat_hindlimb_millard_y2j.osim')
 ```
 
 ## Knee joint definition
@@ -277,7 +254,6 @@ translation1 = [-0.0052385299999999999226, -0.0046464799999999997077, -0.0040425
 translation2 = [-0.034168400000000001548, -0.03425389999999999685, -0.034185599999999996546, -0.033972299999999996944, -0.033651100000000003232, -0.033278500000000002523, -0.032889799999999996816, -0.032550400000000000167, -0.032282499999999998697, -0.032116100000000001591, -0.032063200000000000034, -0.032110500000000000154, -0.032239700000000003077, -0.032414400000000002933]
 translation3 = [0.0026030200000000001601, 0.0028034100000000001032, 0.0028536500000000001101, 0.002903750000000000081, 0.0028935800000000001971, 0.0027731800000000000894, 0.0027023500000000000645, 0.0026110500000000001763, 0.002469499999999999907, 0.0024171399999999999136, 0.0024041000000000001605, 0.0023809000000000000302, 0.002496410000000000122, 0.0026910400000000000119]
 
-model = osim.Model(out.as_posix())
 model.initSystem()
 knee = osim.CustomJoint.safeDownCast(model.getJointSet().get('knee_r'))
 tibia_offset = osim.PhysicalOffsetFrame.safeDownCast(knee.getChildFrame())
@@ -300,10 +276,7 @@ simm3 = osim.SimmSpline.safeDownCast(trans3.get_function())
 for i, value in enumerate(translation3):
     simm3.setY(i, value)
 
-model.finalizeFromProperties()
-model.finalizeConnections()
-out = model_dir / 'rat_hindlimb_millard_y2j_knee_fixed.osim'
-model.printToXML(out.as_posix())
+model = update_model(model, model_dir / 'rat_hindlimb_millard_y2j_knee_fixed.osim')
 ```
 
 ## Change marker set
@@ -313,12 +286,11 @@ Our model uses a slightly different marker set than the one used in Johnson's.
 ```{python}
 #TODO: Visualize
 marker_set_path = model_dir / 'rat_hindlimb_unilateral_markerset.xml'
-marker_set = osim.MarkerSet(marker_set_path.as_posix())
-model = osim.Model(out.as_posix())
+marker_set = osim.MarkerSet(str(marker_set_path))
 model.getMarkerSet().clearAndDestroy()
 model.updateMarkerSet(marker_set)
-out = model_dir / 'rat_hindlimb_millard_y2j_knee_fixed_markers.osim'
-model.printToXML(out.as_posix())
+
+model = update_model(model, model_dir / 'rat_hindlimb_millard_y2j_knee_fixed_markers.osim')
 ```
 
 ## Update muscle parameters
@@ -330,11 +302,11 @@ The original Johnson model from 2008 had estimated parameters. In a subsequent p
 parameter_dir = Path('./data/parameters')
 johnson_params = pl.read_csv(parameter_dir / 'johnson_2011_parameters.csv')
 
-md(tabulate(johnson_params, headers='keys', tablefmt='pipe'))
+md(tabulate(johnson_params.to_pandas(), headers='keys', tablefmt='pipe'))
 ```
 ```{python}
 #| label: tbl-eng-params
-eng_params = pl.read_csv(parameter_dir / 'eng_2008_parameters.csv')
+eng_params = pd.read_csv(parameter_dir / 'eng_2008_parameters.csv')
 
 md(tabulate(eng_params, headers='keys', tablefmt='pipe'))
 ```
@@ -342,7 +314,7 @@ md(tabulate(eng_params, headers='keys', tablefmt='pipe'))
 Thus, Johnson's parameters were chosen for the model.
 
 ```{python}
-model = osim.Model(out.as_posix())
+
 muscles : osim.SetMuscles = model.getMuscles()
 for i in range(muscles.getSize()):
     muscle : osim.Muscle = muscles.get(i)
@@ -361,14 +333,11 @@ for i in range(muscles.getSize()):
     muscle.setPennationAngleAtOptimalFiberLength(alpha)
     print(f"Updated {muscle_name}: F0={f0}, l0={l0}, lts={lts}, alpha={alpha}")
 
-model.finalizeFromProperties()
-model.finalizeConnections()
-out = model_dir / 'rat_hindlimb_millard_y2j_knee_fixed_markers_params.osim'
-model.printToXML(out.as_posix())
+model = update_model(model, model_dir / 'rat_hindlimb_millard_y2j_knee_fixed_markers_params.osim')
 ```
 
 ## Update mass and inertia properties
-
+TODO once I have the data
 
 ## Estimate tendon slack length
 
@@ -381,10 +350,40 @@ The method can be summarized as follows:
 Two ranges of motion are used to estimate the optimal fiber length and tendon slack length of muscles based on observed fiber lengths during motion. The first is the model's full range of motion, and the second is the observed range of motion during walking.
 
 ```{python}
-from movedb.osim import OsimGraph
+from osimpy import OsimGraph
+from tsl_optimization import optimize_fiber_length, calc_tsl
+
+graph = OsimGraph(osim_model=model)
+lm_norm_range = (0.5, 1.5) # Normalized fiber length range for optimization
+
+results_full = graph.get_all_muscle_lengths_rom(min_points=100)
+for muscle_name, lmt in results_full.items():
+  muscle: osim.Muscle = graph.get_muscle(muscle_name) 
+  lm_opt = float(muscle.get_optimal_fiber_length())
+  lm_range = lm_opt * np.asarray(lm_norm_range)
+  alpha_opt = float(muscle.get_pennation_angle_at_optimal())
+  lmt = np.clip(np.sort(np.unique(lmt.select(pl.col(muscle_name)))), 1.0e-6, None) # Ensure lmt is sorted, unique, and non-zero
+  
+  millard: osim.Millard2012EquilibriumMuscle = osim.Millard2012EquilibriumMuscle.safeDownCast(muscle)
+  afl = millard.getActiveForceLengthCurve()
+  pfl = millard.getFiberForceLengthCurve()
+  tfl = millard.getTendonForceLengthCurve()
+  lm = optimize_fiber_length(lmt, lm_opt, alpha_opt, afl, pfl, tfl, lm_norm_range)
+  tsl = calc_tsl(lmt, lm, lm_opt, alpha_opt, afl, pfl, tfl)
+
 
 
 ```
+
+```{python}
+#| label: tbl-tsl-comparison
+
+# Load Johnson params
+
+# Compare original and optimized tendon slack lengths
+
+```
+
 
 ## Mirror the model
 
@@ -408,7 +407,7 @@ To mirror the right side of the model to the left, a series of steps needs to ha
     - For the left side Z translations will need to be negated
 
 ```{python}
-model = osim.Model(out.as_posix())
+
 # TODO: Turn this into functions
 body_set: osim.BodySet = model.getBodySet()
 cloned_bodies = {}
@@ -461,6 +460,7 @@ with open(left_joint_set_file, 'w') as file:
     
 left_joint_set = osim.JointSet(left_joint_set_file)
 # Remove the left_joint_set file
+# TODO: Could use tempfile
 import os
 os.remove(left_joint_set_file)
     

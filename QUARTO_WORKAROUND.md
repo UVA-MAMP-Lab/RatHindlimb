@@ -66,6 +66,7 @@ quarto render model_edits_executed.ipynb --to html
 ## Technical Details
 
 The `execute_notebook.py` script uses:
+
 - `nbformat` to read/write notebooks
 - `ExecutePreprocessor` from `nbconvert` to execute cells
 - `os._exit(0)` to force immediate exit after saving, avoiding OpenSim's problematic C++ destructors
