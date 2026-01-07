@@ -48,3 +48,7 @@ def update_model(model: osim.Model, save_path: str | Path) -> osim.Model:
     model.printToXML(str(save_path))
 
     return osim.Model(str(save_path))
+
+
+def run_moco_inverse():
+    pass

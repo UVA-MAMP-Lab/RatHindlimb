@@ -11,8 +11,7 @@ NC='\033[0m' # No Color
 
 echo -e "${YELLOW}Rendering model_edits.qmd...${NC}"
 
-# Set up environment
-export PATH="/home/hudson/RatHindlimb/.venv/bin:$PATH"
+# Set up conda environment
 cd /home/hudson/RatHindlimb
 
 # Step 1: Convert QMD to IPYNB
@@ -21,7 +20,7 @@ quarto convert model_edits.qmd
 
 # Step 2: Execute notebook with graceful cleanup
 echo -e "${YELLOW}Step 2: Executing notebook...${NC}"
-python execute_notebook.py
+.venv/bin/python execute_notebook.py
 
 # Step 3: Render to HTML without execution
 echo -e "${YELLOW}Step 3: Rendering to HTML...${NC}"

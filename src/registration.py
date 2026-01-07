@@ -5,6 +5,7 @@
 # which are the primary source of non-determinism in this pipeline.
 import os
 
+# TODO: Make sure that this is deterministic
 os.environ["OMP_NUM_THREADS"] = "1"
 # --- END OF CRITICAL SECTION ---
 

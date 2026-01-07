@@ -95,10 +95,10 @@ class QuartoWatcher(FileSystemEventHandler):
             # Step 2: Execute notebook (with caching)
             print(f"{Colors.YELLOW}2/3 Executing notebook (with cache)...{Colors.END}")
             result = subprocess.run(
-                ['python', 'execute_notebook.py'],
+                ['.venv/bin/python', 'execute_notebook.py'],
                 capture_output=False,  # Show output in real-time
                 text=True,
-                timeout=600  # 10 minutes max
+                timeout=1800  # 30 minutes max for expensive cells
             )
             if result.returncode != 0:
                 print(f"{Colors.RED}✗ Execution failed!{Colors.END}")

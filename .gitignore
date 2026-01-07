@@ -4,3 +4,9 @@
 *.egg-info/
 .venv/
 data/mocap/
+
+
+# Quarto outputs
+_freeze/
+.jupyter_cache/
+model_edits_executed_files/

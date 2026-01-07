@@ -15,6 +15,7 @@ base_tibia_length: float = float(
 )
 
 
+# Equations from Hicks
 # TODO: Manage units
 def thigh_mass(mass: float):
     return (7.3313 * mass + 3.6883) / 1000
@@ -110,6 +111,20 @@ class RatScalingParameters(TypedDict):
     LTibiaLength: float
     RFootLength: float
     LFootLength: float
+
+
+def scaling_parameters_from_c3d(file_path: str) -> RatScalingParameters:
+    import ezc3d
+
+    c3d = ezc3d.c3d(file_path)
+    if "PROCESSING" not in c3d.parameters:
+        raise ValueError("C3D file does not contain PROCESSING parameters.")
+    params = {}
+    for key in RatScalingParameters.__annotations__.keys():
+        if key not in c3d.parameters["PROCESSING"]:
+            raise ValueError(f"Marker {key} not found in C3D file.")
+        params[key] = c3d.parameters["PROCESSING"][key]["value"][0]
+    return RatScalingParameters(**params)
 
 
 def scale_opensim_model(
