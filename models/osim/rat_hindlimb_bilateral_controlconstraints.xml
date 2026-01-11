@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSimDocument Version="40600">
+    <ControlSet name="rat_hindlimb_bilateral_CMC">
+        <defaults>
+            <ControlLinear name="default">
+                <!--Flag indicating whether or not this control should be used as a model control.-->
+                <is_model_control>true</is_model_control>
+                <!--Flag indicating whether or not to extrapolate for control curve evaluations.-->
+                <extrapolate>true</extrapolate>
+                <!--Default minimum value (for muscles: 0.02 to allow for minimum activation)-->
+                <default_min>0.02</default_min>
+                <!--Default maximum value (for muscles: 1.0 for maximum activation)-->
+                <default_max>1.0</default_max>
+                <!--Use steps for muscle excitations (recommended for CMC)-->
+                <use_steps>true</use_steps>
+            </ControlLinear>
+        </defaults>
+        <objects>
+            <!-- Right leg muscles -->
+            <ControlLinear name="R_BFa.excitation" />
+            <ControlLinear name="R_BFp.excitation" />
+            <ControlLinear name="R_CF.excitation" />
+            <ControlLinear name="R_STp.excitation" />
+            <ControlLinear name="R_STa.excitation" />
+            <ControlLinear name="R_SM.excitation" />
+            <ControlLinear name="R_QF.excitation" />
+            <ControlLinear name="R_TFL.excitation" />
+            <ControlLinear name="R_GMa.excitation" />
+            <ControlLinear name="R_GMe.excitation" />
+            <ControlLinear name="R_GMi.excitation" />
+            <ControlLinear name="R_Pir.excitation" />
+            <ControlLinear name="R_GP.excitation" />
+            <ControlLinear name="R_GA.excitation" />
+            <ControlLinear name="R_AL.excitation" />
+            <ControlLinear name="R_AM.excitation" />
+            <ControlLinear name="R_AB.excitation" />
+            <ControlLinear name="R_Pec.excitation" />
+            <ControlLinear name="R_IP.excitation" />
+            <ControlLinear name="R_OE.excitation" />
+            <ControlLinear name="R_OI.excitation" />
+            <ControlLinear name="R_GS.excitation" />
+            <ControlLinear name="R_GI.excitation" />
+            <ControlLinear name="R_RF.excitation" />
+            <ControlLinear name="R_VL.excitation" />
+            <ControlLinear name="R_VI.excitation" />
+            <ControlLinear name="R_VM.excitation" />
+            <ControlLinear name="R_MG.excitation" />
+            <ControlLinear name="R_LG.excitation" />
+            <ControlLinear name="R_Pla.excitation" />
+            <ControlLinear name="R_Sol.excitation" />
+            <ControlLinear name="R_TA.excitation" />
+            <ControlLinear name="R_EDL.excitation" />
+            <ControlLinear name="R_TP.excitation" />
+            <ControlLinear name="R_FDL.excitation" />
+            <ControlLinear name="R_FHL.excitation" />
+            <ControlLinear name="R_Per.excitation" />
+            <ControlLinear name="R_Pop.excitation" />
+            
+            <!-- Left leg muscles -->
+            <ControlLinear name="L_BFa.excitation" />
+            <ControlLinear name="L_BFp.excitation" />
+            <ControlLinear name="L_CF.excitation" />
+            <ControlLinear name="L_STp.excitation" />
+            <ControlLinear name="L_STa.excitation" />
+            <ControlLinear name="L_SM.excitation" />
+            <ControlLinear name="L_QF.excitation" />
+            <ControlLinear name="L_TFL.excitation" />
+            <ControlLinear name="L_GMa.excitation" />
+            <ControlLinear name="L_GMe.excitation" />
+            <ControlLinear name="L_GMi.excitation" />
+            <ControlLinear name="L_Pir.excitation" />
+            <ControlLinear name="L_GP.excitation" />
+            <ControlLinear name="L_GA.excitation" />
+            <ControlLinear name="L_AL.excitation" />
+            <ControlLinear name="L_AM.excitation" />
+            <ControlLinear name="L_AB.excitation" />
+            <ControlLinear name="L_Pec.excitation" />
+            <ControlLinear name="L_IP.excitation" />
+            <ControlLinear name="L_OE.excitation" />
+            <ControlLinear name="L_OI.excitation" />
+            <ControlLinear name="L_GS.excitation" />
+            <ControlLinear name="L_GI.excitation" />
+            <ControlLinear name="L_RF.excitation" />
+            <ControlLinear name="L_VL.excitation" />
+            <ControlLinear name="L_VI.excitation" />
+            <ControlLinear name="L_VM.excitation" />
+            <ControlLinear name="L_MG.excitation" />
+            <ControlLinear name="L_LG.excitation" />
+            <ControlLinear name="L_Pla.excitation" />
+            <ControlLinear name="L_Sol.excitation" />
+            <ControlLinear name="L_TA.excitation" />
+            <ControlLinear name="L_EDL.excitation" />
+            <ControlLinear name="L_TP.excitation" />
+            <ControlLinear name="L_FDL.excitation" />
+            <ControlLinear name="L_FHL.excitation" />
+            <ControlLinear name="L_Per.excitation" />
+            <ControlLinear name="L_Pop.excitation" />
+        </objects>
+        <groups />
+    </ControlSet>
+</OpenSimDocument>

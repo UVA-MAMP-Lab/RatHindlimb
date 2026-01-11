@@ -1,21 +1,84 @@
 # RatHindlimb
 
-## Installation
-To run the `mirror_hindlimb.py` script, you will need to install the OpenSim API. The following instructions are for installing OpenSim 4.4.1 on a Windows machine using the [Conda](https://docs.conda.io/en/latest/) environment and package manager. I recommend using [Miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install) if you don't already have Conda installed.
+## Description
 
-```shell
-conda create -n {env_name} -c opensim-org opensim=4.4.1 numpy 
+This repository contains code and data to generate a bilateral musculoskeletal model of the rat hindlimb in OpenSim, based on the original model from Johnson et al. (2008) updated to utilize attachment points from the work of Young et al. (2017), a more robust knee joint, muscle parameters from Johnson et al. (2011), and estimated tendon slack lengths based on the methods of Manal & Buchanan (2004) all mirrored to the contralateral limb. The model is intended for use in simulations of rat hindlimb biomechanics, including inverse kinematics, inverse dynamics, and computed muscle control. The repository includes scripts for model generation, muscle analysis, and visualization.
+
+## Quickstart
+
+- Clone the repository with submodules
+- Run `make install` or `scripts/setup.sh`
+
+### Installation
+
+If not already installed, install:
+
+- [git](https://git-scm.com/install/)
+- [conda](https://www.anaconda.com/docs/getting-started/miniconda/install)
+  - Miniconda is sufficient, but any anaconda installation will work
+
+``` shell
+# Clone the repository and necessary submodules
+git clone --recurse-submodules 
+
+# Install dependencies
+conda env create -f environment.yml
+conda activate rathindlimb
+
+# Install the package
+python -m pip install -e .
 ```
 
-The script may be run by activating the Conda environment and running the script with Python. 
+### Usage
 
-```shell
-conda activate {env_name}
-python mirror_hindlimb.py
-```
+Scripts are available in the `scripts/` folder, but can also be run from the `Makefile`.
+Available targets include:
 
-If you are unable to run it, try making the script executable by running the following command in the terminal from the directory containing the script:
+- `make render`
+- `make preview`
 
-```shell
-chmod +x mirror_hindlimb.py
+## Contributing
+
+### Repo Structure
+
+### TODO
+
+- [ ] Move computational things in index.qmd to isolated notebooks
+  - This might solve the kernel death problem
+  - Will also allow easier inclusion in other works
+- [ ] Package install instructions and change src.\* to rathindlimb.\*
+  - Create setup script
+- [x] Add osimpy as submodule
+  - Eventually this should be a dependency
+- [ ] Formalize muscle analysis functions
+- [ ] Create tests for model validation
+- [ ] Clean up intermediate model edits
+- [ ] Clean up conda environment.yml
+- [ ] Organize script usage into Makefile
+- [ ] Switch to uv for dependency management
+  - Currently waiting for opensim bindings to be easily available
+  - Pyopensim doesn't quite work
+
+## References and Acknowledgements
+
+- Johnson 2008
+- Johnson 2011
+- Eng 2008
+- Manal & Buchanan 2004
+- Young 2017
+- Open3D
+- Hicks
+- Dienes
+- Delp? / OpenSim
+- Charles 2016
+
+## Citing
+
+This model is associated with the publication ...
+
+If you use this repository in your research, please cite:
+
+```json
+
+
 ```
