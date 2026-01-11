@@ -24,7 +24,7 @@ from pathlib import Path
 import polars as pl
 import numpy as np
 import re
-from src.processing import update_model
+from src.rathindlimb.processing import update_model
 
 model_dir = Path('models') / 'osim'
 model_file = model_dir / 'rat_hindlimb.osim'
@@ -57,10 +57,10 @@ with open(model_file, 'w') as file:
 ```
 
 ### Conversion to Millard muscles
-The original model uses the Thelen [@missing-reference] muscle model, which have been largely superseded by the Millard [@missing-reference] muscle model in OpenSim. We can convert the muscles using the [`model_thelen_to_millard`](src/rathindlimb/muscle_utils.py) function. 
+The original model uses the Thelen [@missing-reference] muscle model, which has been largely superseded by the Millard [@missing-reference] muscle model in OpenSim especially for muscle-level analysis. We can convert the muscles using the [`model_thelen_to_millard`](src/rathindlimb/muscle_utils.py) function.
 
-```{python} 
-from src.muscle_utils import model_thelen_to_millard
+```{python}
+from src.rathindlimb.muscle_utils import model_thelen_to_millard
 model = osim.Model(str(model_file))
 model = model_thelen_to_millard(model)
 
@@ -68,7 +68,7 @@ model = update_model(model, model_dir / 'rat_hindlimb_millard.osim')
 ```
 
 ### Lock unused coordinates
-We lock sacroiliac flexion, ankle internal rotation and ankle adduction as we do not have the resolution to capture the small amount of motion that these correspond to. 
+We lock sacroiliac flexion, ankle internal rotation, and ankle adduction as we do not have the resolution to capture the small amount of motion that these correspond to, and they add unnecessary complexity to the model for the analysis we intend to perform.
 ```{python}
 #| output: false
 from osimpy import OsimGraph
@@ -97,7 +97,7 @@ The muscle lengths are plotted on parallel coordinate plots with the joint angle
 
 ```{python}
 
-from src.plotting import muscle_length_parcoords
+from src.rathindlimb.plotting import muscle_length_parcoords
 
 figure_dir = Path('figs')
 
@@ -155,7 +155,7 @@ We utilize the [`open3d`](http://www.open3d.org/) library to perform the mesh re
 TODO: Before and after and show muscle length plots to prove that what we did worked
 
 ```{python}
-from src.registration import register_meshes, apply_transformation_to_mesh
+from src.rathindlimb.registration import register_meshes, apply_transformation_to_mesh
 
 # The foot mesh used in the Animatlab model is missing the phalanges, but there is a mesh that includes them that lines up with the one included in the model
 mesh_dir = Path('meshes')

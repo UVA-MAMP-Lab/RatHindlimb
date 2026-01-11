@@ -10,7 +10,7 @@ WARN: Should not have arrived here:
 ERROR: [non-error-thrown] undefined
 ```
 
-This is caused by OpenSim's C++ destructors interacting poorly with Python's garbage collection during kernel shutdown.
+I hypothesize that this is caused by OpenSim's C++ destructors interacting poorly with Python's garbage collection during kernel shutdown.
 
 ## Solution
 
@@ -47,12 +47,14 @@ For active development, use the file watcher to automatically re-render when you
 ```
 
 This will:
+
 - Monitor `model_edits.qmd` for changes
 - Automatically trigger a full render when you save the file
 - Use cached outputs to speed up re-renders
 - Print progress to the terminal
 
 **Usage:**
+
 1. Start the watcher: `./watch_and_render.py`
 2. Edit `model_edits.qmd` in your text editor
 3. Save the file
@@ -105,6 +107,7 @@ rm -rf _freeze/execute/*.cache
 ## Files
 
 ### Source Files
+
 - `model_edits.qmd` - Original Quarto document (edit this!)
 - `execute_notebook.py` - Python script that executes notebooks with caching
 - `render_model_edits.sh` - Convenience script for manual renders
@@ -112,6 +115,7 @@ rm -rf _freeze/execute/*.cache
 - `populate_cache.py` - Utility to pre-populate cache from existing notebook
 
 ### Generated Files
+
 - `model_edits.ipynb` - Converted notebook (temporary)
 - `model_edits_executed.ipynb` - Executed notebook with outputs
 - `model_edits_executed.html` - Final HTML output
@@ -122,6 +126,7 @@ rm -rf _freeze/execute/*.cache
 ### Execution Script
 
 The `execute_notebook.py` script:
+
 - Uses `nbformat` to read/write notebooks
 - Uses `ExecutePreprocessor` from `nbconvert` to execute cells
 - Computes MD5 hash of each cell's source code for caching
@@ -131,6 +136,7 @@ The `execute_notebook.py` script:
 ### Timeout
 
 Cells have a 30-minute timeout to accommodate expensive operations:
+
 - Muscle ROM analysis with 10,000+ points
 - Mesh registration (ICP algorithm)
 - TSL optimization loops
@@ -150,6 +156,7 @@ This is expected with direct Quarto execution. Use the workaround scripts instea
 ### Execution takes too long
 
 Check if expensive cells are running:
+
 - Muscle ROM analysis: ~1-5 minutes
 - Mesh registration: ~1-3 minutes per mesh
 - TSL optimization: ~1-5 minutes
@@ -163,6 +170,7 @@ Check if expensive cells are running:
 ### Import errors
 
 If you see `ModuleNotFoundError` for src modules, verify:
+
 - You're using the conda environment: `.venv/bin/python`
 - Imports use `from src.module_name import` (not `from src.rathindlimb.`)
 
@@ -175,4 +183,3 @@ quarto preview model_edits_executed.ipynb
 ```
 
 This works because the notebook is already executed and Quarto won't need to run the kernel.
-
