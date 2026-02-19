@@ -12,3 +12,5 @@ _freeze/
 model_edits_executed_files/
 models/osim/.build/
 models/osim/.pipeline/
+/.quarto/
+**/*.quarto_ipynb

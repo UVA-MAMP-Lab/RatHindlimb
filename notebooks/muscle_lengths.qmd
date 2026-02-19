@@ -1,4 +1,7 @@
-
+---
+execute:
+  enabled: false
+---
 ```{python}
 #| tags: [parameters]
 
