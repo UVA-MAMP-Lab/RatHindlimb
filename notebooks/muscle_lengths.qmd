@@ -1,0 +1,45 @@
+---
+execute:
+  enabled: false
+---
+```{python}
+#| tags: [parameters]
+
+min_points = 10000
+model_file = ""
+muscle_name = ""
+
+```
+
+Get muscle data
+
+```{python}
+from osimpy import OsimGraph
+
+graph = OsimGraph.from_file(model_file)
+
+if muscle_name not in graph.get_muscle_names():
+    raise ValueError(f"Muscle '{muscle_name}' not found in model.")
+
+data = graph.get_all_muscle_lengths_rom(min_points=min_points)
+```
+
+Plot lengths
+```{python}
+#| label: fig-{muscle_name}-lengths
+
+import plotly.graph_objects as go
+
+fig = go.Figure(
+    data=go.Parcoords(
+        line=dict(color=data[muscle_name], colorscale="Viridis", showscale=True),
+        dimensions=[dict(label=col, values=data[col]) for col in data.columns],
+    )
+)
+
+fig.update_layout(title=f"{muscle_name} Lengths")
+
+fig.show()
+
+```
+

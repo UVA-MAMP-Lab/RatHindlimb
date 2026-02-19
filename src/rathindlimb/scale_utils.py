@@ -2,23 +2,16 @@ from typing import TypedDict
 import opensim as osim
 import numpy as np
 import os
+from pathlib import Path
 
 # Drawn from Johnson's opensim rat model
-base_femur_length: float = float(
-    np.linalg.norm(
-        [-0.0035000000000000001, -0.031199999999999999, -0.0050000000000000001]
-    )
-    * 1000
-)
-base_tibia_length: float = float(
-    np.linalg.norm([0.0016000000000000001, 0.039, -0.0037000000000000002]) * 1000
-)
+base_femur_length: float = float(np.linalg.norm([-0.0035, -0.0312, -0.005]) * 1000)
+base_tibia_length: float = float(np.linalg.norm([0.0016, 0.039, -0.0037]) * 1000)
 
 
 # Equations from Hicks
-# TODO: Manage units
 def thigh_mass(mass: float):
-    return (7.3313 * mass + 3.6883) / 1000
+    return (8.3313 * mass + 3.6883) / 1000
 
 
 def thigh_com(
@@ -140,13 +133,6 @@ def scale_opensim_model(
 ):
     """
     Create scaled OpenSim models (one with markers moved, one without) from a static rat trial.
-    Args:
-        trial (Trial): Trial object containing the data and parameters for scaling.
-        unscaled_model_path (str): Path to the unscaled OpenSim model file (.osim).
-        marker_set_path (str): Path to the marker set file (.xml).
-        marker_file_name (str): Name of the marker file to be used for scaling. Needs to be in the same directory as the unscaled model.
-        output_dir (str): Directory where the scaled models and scale setup will be saved.
-        scale_setup_path (str | None): Path to an existing scale setup file. If None, a new one will be created.
 
     Note: OpenSim's path handling is trash and inconsistent
     """

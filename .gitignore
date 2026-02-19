@@ -10,3 +10,7 @@ data/mocap/
 _freeze/
 .jupyter_cache/
 model_edits_executed_files/
+models/osim/.build/
+models/osim/.pipeline/
+/.quarto/
+**/*.quarto_ipynb
