@@ -2,12 +2,12 @@
 
 ## Description
 
-This repository contains code and data to generate a bilateral musculoskeletal model of the rat hindlimb in OpenSim, based on the original model from Johnson et al. (2008) updated to utilize attachment points from the work of Young et al. (2017), a more robust knee joint, muscle parameters from Johnson et al. (2011), and estimated tendon slack lengths based on the methods of Manal & Buchanan (2004) all mirrored to the contralateral limb. The model is intended for use in simulations of rat hindlimb biomechanics, including inverse kinematics, inverse dynamics, and computed muscle control. The repository includes scripts for model generation, muscle analysis, and visualization.
+This repository contains code and data to generate a bilateral musculoskeletal model of the rat hindlimb in OpenSim, based on the original model from Johnson et al. (2008) updated to utilize attachment points from the work of Young et al. (2017), a more robust knee joint, muscle parameters from Johnson et al. (2011), and estimated tendon slack lengths based on the methods of Manal & Buchanan (2004) all mirrored to the contralateral limb. The model is intended for use in simulations of rat hindlimb biomechanics, including inverse kinematics, inverse dynamics, and computed muscle control. Quarto handles execution caching for model-generation notebooks/documents.
 
 ## Quickstart
 
 - Clone the repository with submodules
-- Run `make install` or `scripts/setup.sh`
+- Create and activate the conda environment
 
 ### Installation
 
@@ -31,11 +31,24 @@ python -m pip install -e .
 
 ### Usage
 
-Scripts are available in the `scripts/` folder, but can also be run from the `Makefile`.
-Available targets include:
+Render with Quarto (narrative only):
 
-- `make render`
-- `make preview`
+``` shell
+quarto render index.qmd
+```
+
+Run model edits in staged notebooks:
+
+- `notebooks/pipeline/01_non_muscle_edits.ipynb`
+- `notebooks/pipeline/02_muscle_edits.ipynb`
+- `notebooks/pipeline/03_mirroring.ipynb`
+
+Final published models are written to:
+
+- `models/osim/rat_hindlimb_unilateral.osim`
+- `models/osim/rat_hindlimb_unilateral_no_muscles.osim`
+- `models/osim/rat_hindlimb_bilateral.osim`
+- `models/osim/rat_hindlimb_bilateral_no_muscles.osim`
 
 ## Contributing
 
@@ -45,15 +58,14 @@ Available targets include:
 
 - [ ] Separate out muscle specific edits
 - [ ] Move computational things in index.qmd to isolated notebooks
-  - This might solve the kernel death problem
-  - Will also allow easier inclusion in other works
+  - This is now compatible with branch-aware artifact saving and Quarto caching
 - [ ] Package install instructions and change src.\* to rathindlimb.\*
   - Create setup script
 - [x] Add osimpy as submodule
   - Eventually this should be a dependency
 - [ ] Formalize muscle analysis functions
 - [ ] Create tests for model validation
-- [ ] Clean up intermediate model edits
+- [x] Clean up intermediate model edits
 - [ ] Clean up conda environment.yml
 - [ ] Organize script usage into Makefile
 - [ ] Switch to uv for dependency management
