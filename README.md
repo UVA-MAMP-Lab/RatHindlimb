@@ -43,6 +43,7 @@ Available targets include:
 
 ### TODO
 
+- [ ] Separate out muscle specific edits
 - [ ] Move computational things in index.qmd to isolated notebooks
   - This might solve the kernel death problem
   - Will also allow easier inclusion in other works

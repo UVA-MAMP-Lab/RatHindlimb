@@ -1,13 +1,13 @@
 from pathlib import Path
 import opensim as osim
+from osimpy import IKSettings, IDSettings, CMCSettings
 
-#
 # Model and setup file paths
-models_path = Path("../../models/osim/")
-unscaled_model_path = models_path / "rat_hindlimb_bilateral.osim"
-marker_set_path = models_path / "rat_hindlimb_bilateral_markerset.xml"
-generic_scale_setup_path = models_path / "rat_hindlimb_bilateral_scale_setup.xml"
-generic_ik_setup_path = models_path / "rat_hindlimb_bilateral_ik_setup.xml"
+models_dir = Path("../../models/osim/")
+unscaled_model_path = models_dir / "rat_hindlimb_bilateral.osim"
+marker_set_path = models_dir / "rat_hindlimb_bilateral_markerset.xml"
+generic_scale_setup_path = models_dir / "rat_hindlimb_bilateral_scale_setup.xml"
+generic_ik_setup_path = models_dir / "rat_hindlimb_bilateral_ik_setup.xml"
 
 # Define required markers and parameters for validation
 required_markers = [
@@ -49,6 +49,13 @@ def update_model(model: osim.Model, save_path: str | Path) -> osim.Model:
 
     return osim.Model(str(save_path))
 
+# Convenient wrappers for running OpenSim tools for the rat hindlimb model
+def run_ik():
+
+    pass
+
+def run_id():
+    pass
 
 def run_moco_inverse():
     pass

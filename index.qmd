@@ -14,7 +14,8 @@ execute:
 ---
 
 ## Modernize Johnson Model
-Original model drawn from https://simtk.org/projects/rat_hlimb_model which is based on Johnson et al. 2008 [@missing-reference].
+Original model drawn from a [SimTK project](https://simtk.org/projects/rat_hlimb_model) which is based on Johnson et al. 2008 [@johnsonMusculoskeletalModelRat].
+
 First, we update naming conventions to signify that the unilateral model is the right side. We also replace the .vtp meshes with .stl files for more modern support.
 
 ```{python}
@@ -57,7 +58,8 @@ with open(model_file, 'w') as file:
 ```
 
 ### Conversion to Millard muscles
-The original model uses the Thelen [@missing-reference] muscle model, which has been largely superseded by the Millard [@missing-reference] muscle model in OpenSim especially for muscle-level analysis. We can convert the muscles using the [`model_thelen_to_millard`](src/rathindlimb/muscle_utils.py) function.
+
+The original model uses the Thelen [@thelenAdjustmentMuscleMechanics2003] muscle model, which has been largely superseded by the Millard [@millarmillardFlexingComputationalMuscle2013] muscle model in OpenSim especially for muscle-level analysis. We can convert the muscles using the [`model_thelen_to_millard`](src/rathindlimb/muscle_utils.py) function.
 
 ```{python}
 from src.rathindlimb.muscle_utils import model_thelen_to_millard
@@ -68,7 +70,9 @@ model = update_model(model, model_dir / 'rat_hindlimb_millard.osim')
 ```
 
 ### Lock unused coordinates
+
 We lock sacroiliac flexion, ankle internal rotation, and ankle adduction as we do not have the resolution to capture the small amount of motion that these correspond to, and they add unnecessary complexity to the model for the analysis we intend to perform.
+
 ```{python}
 #| output: false
 from osimpy import OsimGraph
@@ -85,7 +89,8 @@ model = update_model(model, model_dir / 'rat_hindlimb_millard_locked.osim')
 ```
 
 ## Muscle path analysis
-The model is moved through its full range of motion and muscle lengths are analyzed to identify discontinuties that may indicate problems with muscle path definitions. The `OsimGraph` class from `osimpy`(https://github.com/hudsonburke/osimpy) is used to represent an OpenSim model as a graph structure, which allows for efficient analysis of muscle paths.
+
+The model is moved through its full range of motion and muscle lengths are analyzed to identify discontinuties that may indicate problems with muscle path definitions. The `OsimGraph` class from [`osimpy`](https://github.com/hudsonburke/osimpy), a collection of tools for OpenSim analysis using Python, is used to represent an OpenSim model as a graph structure, which allows for efficient analysis of muscle paths.
 
 ```{python}
 
@@ -129,7 +134,7 @@ if (numWrapSegments < 1) numWrapSegments = 1;
 This means that for cylinders with small circumferences, the muscle path may be approximated with very few segments, leading to abrupt changes in path length as the muscle wraps around the cylinder. To address this issue, we either need to modify the OpenSim source code to increase the number of segments used for wrapping or modify the wrapping paths in the model. 
 
 ### Muscle path redefinition
-Johnson's original model relied heavily on wrapping surfaces, but a more recent work that built upon that original model and drew from Greene's original anatomical text defined a large set of attachment points for muscles instead of relying on wrapping surfaces. This newer model may avoid some of the issues with discontinuous muscle lengths. Unfortunately, that model was created for a software called [Animatlab](https://www.animatlab.com/), and there was no existing OpenSim version of it. 
+Johnson's original model relied heavily on wrapping surfaces, but a more recent work that built upon that original model and drew from Greene's [@greeneAnatomyRat] original anatomical text defined a large set of attachment points for muscles instead of relying on wrapping surfaces [@youngNeuromechanicalRatModel2018]. This newer model may avoid some of the issues with discontinuous muscle lengths. Unfortunately, that model was created for a software called [Animatlab](https://www.animatlab.com/), and there was no existing OpenSim version of it. 
 
 We were able to get in touch with the author of the Animatlab model, Dr. Young, who provided the original files and assisted in understanding the model structure. From there, we manually recorded the muscle attachment points seen in the model as seen in @tbl-young-attachments.
 
@@ -150,7 +155,7 @@ md(tabulate(young_attachments, headers='keys', tablefmt='pipe'))
 The coordinate systems used in Animatlab differ from those in OpenSim, so a direct conversion is non-trivial. To be able to transfer the attachment points into our OpenSim model we needed to determine the necessary transformations between the coordinate systems. 
 The method we chose to do this was using mesh registration to align the bone geometries from the Animatlab model to those in our OpenSim model. Once aligned, we could apply the same transformations to the muscle attachment points to bring them into the OpenSim coordinate system. 
 
-We utilize the [`open3d`](http://www.open3d.org/) library to perform the mesh registration based on feature computation and the iterative closest point (ICP) algorithm [@missing-reference]. Additionally, we implement a function to compute the transformation matrices that will be used to transform the attachment points between models. 
+We utilize the [`open3d`](http://www.open3d.org/) [@zhouOpen3DModernLibrary2018] library to perform the mesh registration based on feature computation and the iterative closest point (ICP) algorithm. Additionally, we implement a function to compute the transformation matrices that will be used to transform the attachment points between models. 
 
 TODO: Before and after and show muscle length plots to prove that what we did worked
 
@@ -191,7 +196,7 @@ for mesh in meshes:
 
 ```{python}
 
-from src.registration import convert_points_between_meshes
+from src.rathindlimb.registration import convert_points_between_meshes
 
 young_attachments = pl.read_csv(attachment_dir / 'young_model_attachments.csv')
 young_attachments = young_attachments.with_columns([
@@ -286,7 +291,7 @@ model = update_model(model, model_dir / 'rat_hindlimb_millard_y2j_knee_fixed.osi
 
 ## Change marker set
 
-Our model uses a slightly different marker set than the one used in Johnson's.
+Our model uses a slightly different marker set than the one used in Johnson's which is detailed in a previous work [@jackdienesComprehensiveDynamicKinematic2022]
 
 ```{python}
 
@@ -301,7 +306,8 @@ model = update_model(model, model_dir / 'rat_hindlimb_millard_y2j_knee_fixed_mar
 
 ## Update muscle parameters
 
-The original Johnson model from 2008 had estimated parameters. In a subsequent paper in 2011, @tbl-johnson-params
+The original Johnson model from 2008 had estimated parameters. In a subsequent paper in 2011 [@johnsonApplicationRatHindlimb2011], @tbl-johnson-params
+Another paper by Eng [@Eng2008] also provided muscle parameters for the rat hindlimb, shown in @tbl-eng-params. A comparison of the two sets of parameters is shown below.
 
 ```{python}
 #| label: tbl-johnson-params
@@ -352,7 +358,7 @@ TODO once I have the data
 
 Johnson reports tendon slack lengths based on anatomical measurements. However, the literature reports large inaccuracies for tendon slack length values measured this way. It is also said to be one of the most influential parameters in simulating muscle force production. Its role, though based in a physiological concept, is primarily a model parameter that helps define the force-length behavior of the muscle-tendon unit. 
 
-A method for reducing the error in tendon slack length estimation is to optimize it based on muscle fiber lengths observed during motion. This method was originally proposed in [Manal 2008] but was limited to a single muscle crossing a single joint. Subsequent works, namely Charles 2016, have applied this methodology to an array of muscles crossing multiple joints. 
+A method for reducing the error in tendon slack length estimation is to optimize it based on muscle fiber lengths observed during motion. This method was originally proposed in [@manalSubjectSpecificEstimatesTendon2004] but was limited to a single muscle crossing a single joint. Subsequent works, namely [@ramalingasettyWholeBodyMusculoskeletalModel2021], have applied this methodology to an array of muscles crossing multiple joints. 
 
 The method can be summarized as follows:
 

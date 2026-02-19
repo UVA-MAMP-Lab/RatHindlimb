@@ -367,66 +367,6 @@ def convert_points_between_meshes(points, transform_info, reverse=False):
     return transformed_homogeneous[:, :3]
 
 
-# Example usage
-if __name__ == "__main__":
-    # Create dummy STL files for demonstration
-    print("Creating dummy STL files for testing...")
-    # Source: A simple box
-    source_mesh = o3d.geometry.TriangleMesh.create_box(width=1.0, height=2.0, depth=0.5)
-    source_mesh.compute_vertex_normals()
-    o3d.io.write_triangle_mesh("source.stl", source_mesh)
-
-    # Target: The same box, but rotated, translated, and scaled
-    target_mesh = o3d.geometry.TriangleMesh.create_box(width=1.0, height=2.0, depth=0.5)
-    rotation_matrix = target_mesh.get_rotation_matrix_from_xyz(
-        (np.pi / 4, 0, np.pi / 6)
-    )
-    target_mesh.rotate(rotation_matrix, center=[0, 0, 0])
-    target_mesh.translate([5, -10, 15])
-    target_mesh.scale(2.5, center=target_mesh.get_center())
-    target_mesh.compute_vertex_normals()
-    o3d.io.write_triangle_mesh("target.stl", target_mesh)
-
-    print("Dummy files created: source.stl, target.stl")
-
-    # --- Main Registration ---
-    source_path = "source.stl"
-    target_path = "target.stl"
-    output_path = "registered_source.stl"
-    debug_path = "debug_registration"
-
-    # Register meshes and get the transformation info
-    transform_info = register_meshes(
-        source_path, target_path, output_path, debug_path=debug_path, seed=42
-    )
-
-    print("\n--- Registration Complete ---")
-    print(f"Fitness: {transform_info['fitness']:.4f}")
-    print(f"Inlier RMSE: {transform_info['inlier_rmse']:.4f}")
-
-    # --- Point Transformation Example ---
-    # A point on the original source box
-    example_point = np.array([[0.5, 1.0, 0.25]])
-
-    # Transform it to the target's coordinate system
-    transformed_point = convert_points_between_meshes(example_point, transform_info)
-
-    # Transform it back to verify
-    back_transformed_point = convert_points_between_meshes(
-        transformed_point, transform_info, reverse=True
-    )
-
-    error = np.linalg.norm(example_point - back_transformed_point)
-
-    print("\n--- Point Transformation Example ---")
-    print(f"Original point (source space):      {np.round(example_point[0], 4)}")
-    print(f"Transformed point (target space):   {np.round(transformed_point[0], 4)}")
-    print(
-        f"Back-transformed point (source space): {np.round(back_transformed_point[0], 4)}"
-    )
-    print(f"Transformation error: {error:.6f}")
-
-
 def apply_transformation_to_mesh(mesh_path, transform_info, output_path=None):
     """
     Apply the transformation from `register_meshes` to a new mesh.
