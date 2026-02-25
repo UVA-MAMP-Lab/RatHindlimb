@@ -20,10 +20,11 @@ def thigh_com(
     side = side[0].capitalize()
     if side not in ["L", "R"]:
         raise ValueError("Side must be 'L' or 'R'")
+    z_sign = -1 if side == "L" else 1
     return (
         femur_length * (-8.7844332 / 100000),
         mass * 0.148741316 * (-42.118041 / 100),
-        mass * 0.098448042 * (2.00427791 / 100) * -1 if side == "L" else 1,
+        mass * 0.098448042 * (2.00427791 / 100) * z_sign,
     )
 
 
@@ -50,10 +51,11 @@ def shank_com(
     side = side[0].capitalize()
     if side not in ["L", "R"]:
         raise ValueError("Side must be 'L' or 'R'")
+    z_sign = -1 if side == "L" else 1
     return (
         (mass) * 0.09004923 * (-2.43352222 / 100),
         tibia_length * (67.363643 / 100000),
-        (mass * 0.07731125) * (1.71207065 / 100) * -1 if side == "L" else 1,
+        (mass * 0.07731125) * (1.71207065 / 100) * z_sign,
     )
 
 
@@ -78,10 +80,11 @@ def foot_com(side: str, foot_length: float, mass: float) -> tuple[float, float, 
     side = side[0].capitalize()
     if side not in ["L", "R"]:
         raise ValueError("Side must be 'L' or 'R'")
+    z_sign = -1 if side == "L" else 1
     return (
         (mass * 0.04627387) * (-4.294993 / 100),
         foot_length * (-42.78009 / 100000),
-        (mass * 0.07246637) * (0.6265934 / 100) * -1 if side == "L" else 1,
+        (mass * 0.07246637) * (0.6265934 / 100) * z_sign,
     )  # TODO: Still need to check the weird thing Brody does with this in the old code
 
 
@@ -104,6 +107,63 @@ class RatScalingParameters(TypedDict):
     LTibiaLength: float
     RFootLength: float
     LFootLength: float
+
+
+def _normalized_trc_for_scaling(marker_file_name: str, output_dir: str) -> str:
+    """Return marker file basename suitable for OpenSim scaling (meters).
+
+    If input TRC is in millimeters, create a converted sibling TRC in meters and
+    return that filename. Otherwise, return original filename unchanged.
+    """
+    marker_path = Path(output_dir) / marker_file_name
+    if not marker_path.exists() or marker_path.suffix.lower() != ".trc":
+        return marker_file_name
+
+    lines = marker_path.read_text(encoding="utf-8").splitlines()
+    if len(lines) < 6:
+        return marker_file_name
+
+    meta_header_tokens = lines[1].split()
+    meta_value_tokens = lines[2].split()
+    if not meta_header_tokens or not meta_value_tokens:
+        return marker_file_name
+
+    try:
+        units_idx = [token.lower() for token in meta_header_tokens].index("units")
+    except ValueError:
+        return marker_file_name
+    if units_idx >= len(meta_value_tokens):
+        return marker_file_name
+
+    units = meta_value_tokens[units_idx].strip().lower()
+    if units not in {"mm", "millimeter", "millimeters"}:
+        return marker_file_name
+
+    converted_name = f"{marker_path.stem}_meters{marker_path.suffix}"
+    converted_path = marker_path.with_name(converted_name)
+    if converted_path.exists():
+        return converted_name
+
+    meta_value_tokens[units_idx] = "m"
+    lines[2] = "\t".join(meta_value_tokens)
+
+    converted_lines = lines[:5]
+    for row in lines[5:]:
+        tokens = row.split()
+        if len(tokens) < 2:
+            converted_lines.append(row)
+            continue
+
+        converted_tokens = tokens[:2]
+        for value in tokens[2:]:
+            try:
+                converted_tokens.append(f"{float(value) / 1000.0:.9f}")
+            except ValueError:
+                converted_tokens.append(value)
+        converted_lines.append("\t".join(converted_tokens))
+
+    converted_path.write_text("\n".join(converted_lines) + "\n", encoding="utf-8")
+    return converted_name
 
 
 def scaling_parameters_from_c3d(file_path: str) -> RatScalingParameters:
@@ -142,6 +202,7 @@ def scale_opensim_model(
     marker_file_name = os.path.basename(
         marker_file_name
     )  # Ensure we only use the file name, not the path
+    marker_file_name = _normalized_trc_for_scaling(marker_file_name, output_dir)
 
     if scale_setup_path is not None and os.path.exists(scale_setup_path):
         scale_tool = osim.ScaleTool(os.path.abspath(scale_setup_path))
@@ -151,6 +212,9 @@ def scale_opensim_model(
 
     model_scaler: osim.ModelScaler = scale_tool.getModelScaler()
     model_scaler.setApply(True)
+    scaling_order = osim.ArrayStr()
+    scaling_order.append("manualScale")
+    model_scaler.setScalingOrder(scaling_order)
     scaled_model_path = os.path.join(output_dir, f"{name}_scaled.osim")
     model_scaler.setOutputModelFileName(scaled_model_path)
     scale_factors_path = os.path.join(output_dir, f"{name}_scale.xml")
