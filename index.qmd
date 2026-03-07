@@ -19,10 +19,11 @@ All model-edit steps are maintained in staged notebooks and should be run direct
 
 These notebooks generate the final files:
 
-- models/osim/rat_hindlimb_unilateral.osim
-- models/osim/rat_hindlimb_unilateral_no_muscles.osim
-- models/osim/rat_hindlimb_bilateral.osim
-- models/osim/rat_hindlimb_bilateral_no_muscles.osim
+- models/osim/
+  - rat_hindlimb_unilateral.osim
+  - rat_hindlimb_unilateral_no_muscles.osim
+  - rat_hindlimb_bilateral.osim
+  - rat_hindlimb_bilateral_no_muscles.osim
 
 This Quarto document is narrative-only and does not execute code during render.
 

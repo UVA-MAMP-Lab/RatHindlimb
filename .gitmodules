@@ -1,3 +1,0 @@
-[submodule "src/osimpy"]
-	path = src/osimpy
-	url = https://github.com/hudsonburke/osimpy.git

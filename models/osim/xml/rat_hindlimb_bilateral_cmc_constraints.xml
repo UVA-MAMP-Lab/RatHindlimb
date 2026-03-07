@@ -16,12 +16,6 @@
             </ControlLinear>
         </defaults>
         <objects>
-            <!-- Residual actuators -->
-            
-            
-            <!-- Reserve actuators -->
-            
-
             <!-- Right leg muscles -->
             <ControlLinear name="R_BFa.excitation" />
             <ControlLinear name="R_BFp.excitation" />

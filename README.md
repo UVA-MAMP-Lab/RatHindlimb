@@ -17,7 +17,7 @@ If not already installed, install:
 - [conda](https://www.anaconda.com/docs/getting-started/miniconda/install)
   - Miniconda is sufficient, but any anaconda installation will work
 
-``` shell
+```shell
 # Clone the repository and necessary submodules
 git clone --recurse-submodules 
 
@@ -50,12 +50,17 @@ Final published models are written to:
 - `models/osim/rat_hindlimb_bilateral.osim`
 - `models/osim/rat_hindlimb_bilateral_no_muscles.osim`
 
+## Example Results
+
+See HuggingFace repository hudsonburke/rat-hindlimb-mocap
+
 ## Contributing
 
 ### Repo Structure
 
 ### TODO
 
+- [ ] Switch from package structure to more script-based structure for model edit
 - [ ] Separate out muscle specific edits
 - [ ] Move computational things in index.qmd to isolated notebooks
   - This is now compatible with branch-aware artifact saving and Quarto caching
