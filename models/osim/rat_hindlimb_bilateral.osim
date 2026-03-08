@@ -100,7 +100,7 @@
 		<!--Publications and references associated with the model.-->
 		<publications>List of publications related to model...</publications>
 		<!--Units for all lengths.-->
-		<length_units>mm</length_units>
+		<length_units>m</length_units>
 		<!--Units for all forces.-->
 		<force_units>N</force_units>
 		<!--List of bodies that make up this model.-->

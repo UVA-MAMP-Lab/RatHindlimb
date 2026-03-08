@@ -6,8 +6,8 @@ from pathlib import Path
 import ezc3d
 
 # Drawn from Johnson's opensim rat model (in millimeters to match recorded values in .c3d files)
-base_femur_length: float = float(np.linalg.norm([-0.0035, -0.0312, -0.005]) * 1000)
-base_tibia_length: float = float(np.linalg.norm([0.0016, 0.039, -0.0037]) * 1000)
+base_femur_length = float(np.linalg.norm([-0.0035, -0.0312, -0.005]) * 1000)
+base_tibia_length = float(np.linalg.norm([0.0016, 0.039, -0.0037]) * 1000)
 
 
 # Equations from Hicks
@@ -108,6 +108,23 @@ class RatScalingParameters(TypedDict):
     LTibiaLength: float
     RFootLength: float
     LFootLength: float
+
+
+# Define required markers and parameters for validation
+required_markers = [
+    "TAIL",
+    "SPL6",
+    "LASI",
+    "RASI",  # Torso
+    "LHIP",
+    "LKNE",
+    "LANK",
+    "LTOE",  # Left leg
+    "RHIP",
+    "RKNE",
+    "RANK",
+    "RTOE",  # Right leg
+]
 
 
 def scaling_parameters_from_c3d(file_path: str) -> RatScalingParameters:

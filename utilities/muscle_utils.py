@@ -1,6 +1,20 @@
 import opensim as osim
 
 
+def remove_muscles(model: osim.Model) -> osim.Model:
+    """Remove all muscles from a model in-place and return the same model."""
+    force_set: osim.ForceSet = model.upd_ForceSet()
+    indices_to_remove = []
+    for i in range(force_set.getSize()):
+        if osim.Muscle.safeDownCast(force_set.get(i)) is not None:
+            indices_to_remove.append(i)
+
+    for i in indices_to_remove[::-1]:
+        force_set.remove(i)
+
+    return model
+
+
 def thelen_to_millard(
     thelen: osim.Thelen2003Muscle,
 ) -> osim.Millard2012EquilibriumMuscle:
